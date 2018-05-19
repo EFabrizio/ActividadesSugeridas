@@ -1,0 +1,50 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_cat_actividades_sugeridas.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<h2>Editar Actividad Sugerida</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Eva_cat_actividad_sugerida.IdActividadSugerida" />
+            <div class="form-group">
+                <label asp-for="Eva_cat_actividad_sugerida.IdActividadSugerida" class="control-label">Id</label>
+                <input asp-for="Eva_cat_actividad_sugerida.IdActividadSugerida" class="form-control" disabled/>
+                <span asp-validation-for="Eva_cat_actividad_sugerida.IdActividadSugerida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eva_cat_actividad_sugerida.Tema" class="control-label">Tema</label>
+                <input asp-for="Eva_cat_actividad_sugerida.Tema" class="form-control" />
+                <span asp-validation-for="Eva_cat_actividad_sugerida.Tema" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eva_cat_actividad_sugerida.DesActividad" class="control-label">Descripción</label>
+                <input asp-for="Eva_cat_actividad_sugerida.DesActividad" class="form-control" />
+                <span asp-validation-for="Eva_cat_actividad_sugerida.DesActividad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eva_cat_actividad_sugerida.IdTipoActividadSug" class="control-label">Tipo</label>
+                <select asp-for="Eva_cat_actividad_sugerida.IdTipoActividadSug" class="form-control" asp-items="ViewBag.IdTipoActividadSug"></select>
+                <span asp-validation-for="Eva_cat_actividad_sugerida.IdTipoActividadSug" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn btn-info btn-md active" role="button" asp-page="./Index">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

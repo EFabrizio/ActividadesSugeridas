@@ -1,0 +1,39 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_cat_tipo_actividades_sugeridas.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Editar Tipo de Actividad Sugerida</h2>
+
+<hr />
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="Hidden" asp-for="Eva_cat_tipo_actividad_sugerida.IdTipoActividadSug" />
+            <div class="form-group">
+                <label asp-for="Eva_cat_tipo_actividad_sugerida.IdTipoActividadSug" class="control-label">Id Actividad</label>
+                <input asp-for="Eva_cat_tipo_actividad_sugerida.IdTipoActividadSug" readonly class="form-control" />
+                <span asp-validation-for="Eva_cat_tipo_actividad_sugerida.IdTipoActividadSug" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eva_cat_tipo_actividad_sugerida.DesTipoActividadSug" class="control-label">Descripción de Actividad</label>
+                <input asp-for="Eva_cat_tipo_actividad_sugerida.DesTipoActividadSug" class="form-control" />
+                <span asp-validation-for="Eva_cat_tipo_actividad_sugerida.DesTipoActividadSug" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a class="btn btn-info btn-md active" role="button" asp-page="./Index">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

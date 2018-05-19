@@ -1,0 +1,43 @@
+﻿@page 
+@model ActividadesSugeridasRazorPages.Pages.Eva_cat_tipo_actividades_sugeridas.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Tipos de Actividades Sugeridas</h2>
+
+
+<p>
+    <a  class="btn btn-success btn-md active" role="button" asp-page="Create">Crear Nuevo Tipo de Actividad</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+                <th BackColor="lightblue" ForeColor="black">
+                    Id
+                </th>
+                <th BackColor="lightblue" ForeColor="black">
+                    Descripción
+                </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Eva_cat_tipo_actividad_sugerida) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoActividadSug)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesTipoActividadSug)
+            </td>
+            <td>
+                <a class="btn btn-default btn-md active" role="button" asp-page="./Edit" asp-route-id="@item.IdTipoActividadSug">Editar</a> |
+                <a class="btn btn-info btn-md active" role="button" asp-page="./Details" asp-route-id="@item.IdTipoActividadSug">Detalles</a> |
+                <a class="btn btn-danger btn-md active"  role="button" asp-page="./Delete" asp-route-id="@item.IdTipoActividadSug">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

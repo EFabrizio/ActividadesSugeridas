@@ -1,0 +1,59 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detalles de Estatus de Actividades Sugeridas</h2>
+
+
+<div>
+    
+    <hr />
+   
+    <dl>
+        <dt>
+            Fecha
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.FechaEstatus)
+        </dd>
+        <dt>
+            Actual
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.Actual)
+        </dd>
+        <dt>
+            Observación
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.Observacion)
+        </dd>
+        <dt>
+            Actividad
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.Eva_cat_actividades_sugeridas.DesActividad)
+        </dd>
+        <dt>
+            Tipo
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.Eva_cat_tipo_actividades_sugeridas.DesTipoActividadSug)
+        </dd>
+        <dt>
+            Estatus
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.TiposEstatus.DesTipoEstatus)
+        </dd>
+    </dl>
+           
+        
+</div>
+<div>
+    <a class="btn btn-default btn-md active" role="button" asp-page="./Edit" asp-route-id="@Model.Eva_actividad_sug_estatus.IdEstatusDet">Editar</a> |
+    <a class="btn btn-info btn-md active" role="button" asp-page="./Index" asp-route-id="@Model.idacti">Regresar</a>
+</div>

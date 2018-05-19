@@ -1,0 +1,58 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h3>Esta seguro que desea borrar este Estatus?</h3>
+<div>
+    
+    <hr />
+    <dl>
+        <dt>
+            Fecha Registro
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.FechaEstatus)
+        </dd>
+        <dt>
+            Actual
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.Actual)
+        </dd>
+        <dt>
+            Observación
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.Observacion)
+        </dd>
+        <dt>
+            Descripción
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.Eva_cat_actividades_sugeridas.DesActividad)
+        </dd>
+        <dt>
+            Tipo Actividad
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.Eva_cat_tipo_actividades_sugeridas.DesTipoActividadSug)
+        </dd>
+        <dt>
+            Tipo Estatus
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.IdEstatus.DesEstatus)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Eva_actividad_sug_estatus.IdEstatusDet" />
+        <input type="submit" value="Borrar" class="btn btn-default" /> |
+        <a class="btn btn-info btn-md active" role="button" asp-page="./Index" 
+           asp-route-id="@Model.idAct">Regresar</a>
+    </form>
+</div>

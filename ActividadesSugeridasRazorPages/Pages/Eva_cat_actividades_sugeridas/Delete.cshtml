@@ -1,0 +1,45 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_cat_actividades_sugeridas.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+
+<h2>¿Esta Seguro Que Desea Eliminar Esta Actividad Sugerida?</h2>
+<div>
+    <hr />
+    <dl >
+        <dt>
+            Id
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_cat_actividad_sugerida.IdActividadSugerida)
+        </dd>
+        <dt>
+            Tema
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_cat_actividad_sugerida.Tema)
+        </dd>
+        <dt>
+            Descripción
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_cat_actividad_sugerida.DesActividad)
+        </dd>
+        <dt>
+            Tipo
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_cat_actividad_sugerida.Eva_cat_tipo_actividades_sugeridas.DesTipoActividadSug)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Eva_cat_actividad_sugerida.IdActividadSugerida" />
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a class="btn btn-info btn-md active" role="button" asp-page="./Index">Cancelar</a>
+    </form>
+</div>

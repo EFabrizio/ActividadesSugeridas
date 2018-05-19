@@ -1,0 +1,56 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_cat_actividades_sugeridas.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Actividades Sugeridas </h2>
+
+<p>
+    <a asp-page="Create" class="btn btn-success btn-md active" role="button">Crear Nueva Actividad</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Tema
+            </th>
+            <th>
+                Descripción
+            </th>
+            <th>
+                Tipo
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Eva_cat_actividad_sugerida)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdActividadSugerida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tema)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DesActividad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Eva_cat_tipo_actividades_sugeridas.DesTipoActividadSug)
+                </td>
+                <td>
+                    <a asp-page="./Edit" class="btn btn-default btn-md active" role="button" asp-route-id="@item.IdActividadSugerida">Editar</a> |
+                    <a asp-page="./Details" class="btn btn-info btn-md active" role="button" asp-route-id="@item.IdActividadSugerida">Detalles</a> |
+                    <a asp-page="./Delete" class="btn btn-danger btn-md active" role="button" asp-route-id="@item.IdActividadSugerida">Eliminar</a> |
+                    <a asp-page="./Eva_actividades_sug_estatus/Index" class="btn btn-warning active" role="button" asp-route-id="@item.IdActividadSugerida">Estatus</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

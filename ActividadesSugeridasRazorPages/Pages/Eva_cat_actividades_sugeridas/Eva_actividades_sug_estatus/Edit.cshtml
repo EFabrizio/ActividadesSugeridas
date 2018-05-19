@@ -1,0 +1,58 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Actividades Sugeridas Estatus - Editar</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Eva_actividad_sug_estatus.IdEstatusDet" />
+            <div class="form-group">
+                <label asp-for="Eva_actividad_sug_estatus.IdTipoActividadSug" class="control-label" ></label>
+                <select asp-for="Eva_actividad_sug_estatus.IdTipoActividadSug" class="form-control"  asp-items="ViewBag.IdTipoActividadSug" readonly></select>
+                <span asp-validation-for="Eva_actividad_sug_estatus.IdTipoActividadSug" class="text-danger" readonly ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eva_actividad_sug_estatus.IdActividadSugerida" class="control-label" type="hidden" ></label>
+                <select asp-for="Eva_actividad_sug_estatus.IdActividadSugerida" class="form-control" asp-items="ViewBag.IdActividadSugerida" type="hidden" ></select>
+                <span asp-validation-for="Eva_actividad_sug_estatus.IdActividadSugerida" class="text-danger" > </span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eva_actividad_sug_estatus.IdTipoEstatus" class="control-label" ></label>
+                <select asp-for="Eva_actividad_sug_estatus.IdTipoEstatus" class="form-control" asp-items="ViewBag.DesTipoEstatus" >Tipo Estatus</select>
+                <span asp-validation-for="Eva_actividad_sug_estatus.IdTipoEstatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eva_actividad_sug_estatus.FechaEstatus" class="control-label">Fecha </label>
+                <input asp-for="Eva_actividad_sug_estatus.FechaEstatus" class="form-control" readonly/>
+                <span asp-validation-for="Eva_actividad_sug_estatus.FechaEstatus" class="text-danger" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eva_actividad_sug_estatus.Actual" class="control-label" type="hidden">Actual</label>
+                <input asp-for="Eva_actividad_sug_estatus.Actual" class="form-control" type="hidden"/>
+                <span asp-validation-for="Eva_actividad_sug_estatus.Actual" class="text-danger" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eva_actividad_sug_estatus.Observacion" class="control-label">Observación</label>
+                <input asp-for="Eva_actividad_sug_estatus.Observacion" class="form-control" />
+                <span asp-validation-for="Eva_actividad_sug_estatus.Observacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index" asp-route-id="@Model.idAct">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

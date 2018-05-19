@@ -1,0 +1,86 @@
+﻿@page  "{id:int?}"
+@model ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Estatus</h2>
+
+
+<p>
+    <a class="btn btn-success btn-md active" role="button"
+       asp-page="Create"
+       asp-route-id="@Model.IdActividad"
+       asp-route-idtipo="@Model.Tipos"
+       asp-route-tema="@Model.message"
+       asp-route-destipo="@Model.description"
+       asp-route-desact="@Model.tipo">Crear Nuevo Status</a>
+</p>
+
+<div class="panel panel-primary">
+
+    <div class="panel-heading">Información de la Actividad</div>
+    <div class="panel-body">
+        <p>Tema: @Model.message</p>
+        <p>Descripción: @Model.description</p>
+        <p>Tipo: @Model.tipo</p>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Fecha 
+                </th>
+                <th>
+                    Actual
+                </th>
+                <th>
+                    Observación
+                </th>
+                <th>
+                    Estatus
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Eva_actividades_sug_estatus.Where(item => item.IdActividadSugerida == Model.IdActividad).OrderBy(item => item.FechaEstatus))
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdEstatusDet)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaEstatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Actual)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Observacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdEstatus.DesEstatus)
+                    </td>
+                    <td>
+                        <a class="btn btn-default btn-md active" role="button" asp-page="./Edit" 
+                           asp-route-id="@item.IdEstatusDet"
+                           asp-route-idacti="@Model.IdActividad"
+                           asp-route-estatus ="@Model.IdActividad">Editar</a>
+                        <a class="btn btn-info btn-md active" role="button" asp-page="./Details"
+                           asp-route-id="@item.IdEstatusDet"
+                           asp-route-idacti="@Model.IdActividad"
+                           >Detalles</a> |
+                        <a class="btn btn-danger btn-md active" role="button" asp-page="./Delete" asp-route-id="@item.IdEstatusDet">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

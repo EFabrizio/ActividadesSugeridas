@@ -1,0 +1,41 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_cat_actividades_sugeridas.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detalles de Actividad Sugerida</h2>
+<div> 
+    <hr/>
+    <dl>
+        <dt>
+            Id
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_cat_actividad_sugerida.IdActividadSugerida)
+        </dd>
+        <dt>
+            Tema
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_cat_actividad_sugerida.Tema)
+        </dd>
+        <dt>
+            Descripción
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_cat_actividad_sugerida.DesActividad)
+        </dd>
+        <dt>
+            Tipo
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Eva_cat_actividad_sugerida.Eva_cat_tipo_actividades_sugeridas.DesTipoActividadSug)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-default btn-md active" role="button" asp-page="./Edit" asp-route-id="@Model.Eva_cat_actividad_sugerida.IdActividadSugerida">Editar</a> |
+    <a class="btn btn-info btn-md active" role="button" asp-page="./Index">Regresar</a>
+</div>
