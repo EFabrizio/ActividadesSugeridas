@@ -31,3 +31,14 @@ C:\Users\Fabrizio\Desktop\Development\ActividadesYMomentos-master\ActividadesSug
 C:\Users\Fabrizio\Desktop\Development\ActividadesYMomentos-master\ActividadesSugeridasRazorPages\bin\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.runtimeconfig.dev.json
 C:\Users\Fabrizio\Desktop\Development\ActividadesYMomentos-master\ActividadesSugeridasRazorPages\bin\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.dll
 C:\Users\Fabrizio\Desktop\Development\ActividadesYMomentos-master\ActividadesSugeridasRazorPages\bin\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.pdb
+C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRazorPages\bin\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.deps.json
+C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRazorPages\bin\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.runtimeconfig.json
+C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRazorPages\bin\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.runtimeconfig.dev.json
+C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRazorPages\bin\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.dll
+C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRazorPages\bin\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.pdb
+C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.csprojResolveAssemblyReference.cache
+C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.csproj.CoreCompileInputs.cache
+C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.AssemblyInfoInputs.cache
+C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.AssemblyInfo.cs
+C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.dll
+C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.pdb

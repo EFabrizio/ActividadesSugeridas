@@ -1,0 +1,48 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Cat_estatus.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cats_estatus[0].DesEstatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cats_estatus[0].FechaReg)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cats_estatus[0].Cat_tipos_estatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Cats_estatus.Where(e=>e.IdTipoEstatus == 1)) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesEstatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaReg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cat_tipos_estatus.DesTipoEstatus)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdEstatus">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdEstatus">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdEstatus">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

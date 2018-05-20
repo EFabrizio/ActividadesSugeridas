@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ActividadesSugeridasRazorPages.Models
 {
-    public class Cat_tipo_estatus
+    public class Cat_tipos_estatus
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

@@ -21,7 +21,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
         public IList<Eva_actividad_sug_estatus> Eva_actividades_sug_estatus { get; set; }
         public IList<Eva_cat_tipo_actividad_sugerida> Eva_cat_tipo_actividad_sugerida { get; set; }
         public IList<Eva_cat_actividad_sugerida> Eva_cat_actividad_sugerida { get; set; }
-        public IList<Cat_tipo_estatus> Cat_tipo_estatus { get; set; }
+        public IList<Cat_tipos_estatus> Cat_tipo_estatus { get; set; }
         public IList<Cats_estatus> Cat_estatus { get; set; }
        
 

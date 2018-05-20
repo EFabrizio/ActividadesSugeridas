@@ -15,7 +15,7 @@ namespace ActividadesSugeridasRazorPages.Models
 
         [ForeignKey("IdTipoEstatus")]
         public short IdTipoEstatus { get; set; }
-        public virtual Cat_tipo_estatus Cat_tipos_estatus { get; set; }
+        public virtual Cat_tipos_estatus Cat_tipos_estatus { get; set; }
 
         public string DesEstatus { get; set; }
         public DateTime FechaReg { get; set; }

@@ -22,7 +22,7 @@ namespace ActividadesSugeridasRazorPages.Models
 
        
 
-        public DbSet<Cat_tipo_estatus> Cat_tipos_estatus { get; set; }
+        public DbSet<Cat_tipos_estatus> Cat_tipo_estatus { get; set; }
 
         public DbSet<Cats_estatus> cat_estatus { get; set; }
 
