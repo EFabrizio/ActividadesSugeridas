@@ -23,6 +23,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
         //Tipos Actividades sugeridas y Actividades Sugeridas
         public IList<Eva_cat_tipo_actividad_sugerida> Eva_cat_tipo_actividad_sugerida { get; set; }
         public IList<Eva_cat_actividad_sugerida> Eva_cat_actividad_sugerida { get; set; }
+        public IList<Cats_estatus> Cats_estatus { get; set; }
 
         //Para Obtener el Id de la actividad
         public int IdActividad;
@@ -60,7 +61,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
 
             ViewData["IdActividadSugerida"] = idAct; // new SelectList(_context.ActividadesSugeridas, "IdActividadSugerida", "DesActividad");
             ViewData["IdTipoActividadSug"] = idTipo;// new SelectList(_context.TipoActividadesSugeridas, "IdTipoActividadSugerida", "DesTipoActividadSugerida");
-            //ViewData["IdTipoEstatus"] = new SelectList(_context.Set<TipoEstatus>(), "IdTipoEstatus", "DesTipoEstatus");
+            ViewData["IdEstatus"] = new SelectList(_context.cat_estatus, "IdEstatus", "DesEstatus");
+            ViewData["IdTipoEstatus"] = 1;//= new SelectList(_context.Set<TipoEstatus>(), "IdTipoEstatus", "DesTipoEstatus");
             return Page();
             
         }

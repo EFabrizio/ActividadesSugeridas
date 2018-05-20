@@ -34,12 +34,12 @@
                     <input asp-for="Eva_actividad_sug_estatus.IdActividadSugerida" class="form-control" readonly value="@Model.idAct" type="hidden">
                 </div>
                 <div class="form-group">
-                    <label asp-for="Eva_actividad_sug_estatus.IdTipoEstatus" class="control-label">Tipo Estatus</label>
-                    <select asp-for="Eva_actividad_sug_estatus.IdTipoEstatus" class="form-control" asp-items="ViewBag.IdTipoEstatus">Tipo Estatus</select>
+                    <label asp-for="Eva_actividad_sug_estatus.IdEstatus" class="control-label">Tipo Estatus</label>
+                    <select asp-for="Eva_actividad_sug_estatus.IdEstatus" class="form-control" asp-items="ViewBag.IdEstatus">Tipo Estatus</select>
                 </div>
                 <div class="form-group">
                     <label asp-for="Eva_actividad_sug_estatus.FechaEstatus" class="control-label"></label>
-                    <input asp-for="Eva_actividad_sug_estatus.FechaEstatus" class="form-control" readonly value="@Model.fecha" />
+                    <input asp-for="Eva_actividad_sug_estatus.FechaEstatus" class="form-control"  value="@Model.fecha" />
                     <span asp-validation-for="Eva_actividad_sug_estatus.FechaEstatus" class="text-danger"></span>
                 </div>
                 <div class="form-group">

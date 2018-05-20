@@ -29,7 +29,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Cat_estatus
             }
 
             Cats_estatus = await _context.cat_estatus
-                .Include(c => c.Cat_tipos_estatus).SingleOrDefaultAsync(m => m.IdEstatus == id);
+                .Include(c => c.Cat_tipo_estatus).SingleOrDefaultAsync(m => m.IdEstatus == id);
 
             if (Cats_estatus == null)
             {

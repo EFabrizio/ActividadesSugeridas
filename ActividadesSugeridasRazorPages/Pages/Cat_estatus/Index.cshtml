@@ -5,22 +5,22 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Estatus</h2>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-success btn-md active" role="button">Crear Nuevo Estatus</a>
 </p>
 <table class="table">
     <thead>
         <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Cats_estatus[0].DesEstatus)
+                    Descripción Estatus
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Cats_estatus[0].FechaReg)
+                    Fecha de Registro
                 </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cats_estatus[0].Cat_tipos_estatus)
+                    Tipo de Estatus
             </th>
             <th></th>
         </tr>
@@ -38,9 +38,9 @@
                 @Html.DisplayFor(modelItem => item.Cat_tipos_estatus.DesTipoEstatus)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.IdEstatus">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.IdEstatus">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.IdEstatus">Delete</a>
+              <!--  <a asp-page="./Edit" asp-route-id="@item.IdEstatus">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdEstatus">Details</a> |-->
+                <a asp-page="./Delete" class="btn btn-danger btn-md active" role="button" asp-route-id="@item.IdEstatus">Eliminar</a>
             </td>
         </tr>
 }

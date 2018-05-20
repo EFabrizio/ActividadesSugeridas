@@ -13,6 +13,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
     {
         private readonly ActividadesSugeridasRazorPages.Models.ApplicationDbContext _context;
 
+        public short IdTipoEstatus = 1;
+
         public IndexModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
             _context = context;
@@ -21,8 +23,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
         public IList<Eva_actividad_sug_estatus> Eva_actividades_sug_estatus { get; set; }
         public IList<Eva_cat_tipo_actividad_sugerida> Eva_cat_tipo_actividad_sugerida { get; set; }
         public IList<Eva_cat_actividad_sugerida> Eva_cat_actividad_sugerida { get; set; }
-        public IList<Cat_tipos_estatus> Cat_tipo_estatus { get; set; }
-        public IList<Cats_estatus> Cat_estatus { get; set; }
+        public IList<Cat_tipos_estatus> Cat_tipos_estatus { get; set; }
+        public IList<Cats_estatus> Cats_estatus { get; set; }
        
 
 
@@ -34,18 +36,25 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
         public int? IdActividad;
 
 
-        public async Task OnGetAsync(int? id)
+        public async Task OnGetAsync(short? id)
         {
             Eva_actividades_sug_estatus = await _context.Eva_actividades_sug_estatus
                 .Include(a => a.Eva_cat_actividades_sugeridas)
                 .Include(a => a.Eva_cat_tipo_actividades_sugeridas)
-                .Include(a => a.IdEstatus).ToListAsync();
+                .Include(a => a.Cat_tipos_estatus)
+                .Include(a => a.Cat_estatus).ToListAsync();
+                //.Include(a => a.IdEstatus).
+                
 
             Eva_cat_actividad_sugerida = await _context.Eva_cat_actividades_sugeridas
                 .Include(a => a.Eva_cat_tipo_actividades_sugeridas).ToListAsync();
 
             Eva_cat_tipo_actividad_sugerida = await _context.Eva_cat_tipo_actividades_sugeridas.ToListAsync();
 
+            Cats_estatus = await _context.cat_estatus
+                .Include(a => a.Cat_tipo_estatus).ToListAsync();
+
+            Cat_tipos_estatus = await _context.Cat_tipo_estatus.ToListAsync();
 
             IdActividad = id;
  

@@ -11,7 +11,9 @@ namespace ActividadesSugeridasRazorPages.Pages.Cat_estatus
 {
     public class CreateModel : PageModel
     {
+        
         private readonly ActividadesSugeridasRazorPages.Models.ApplicationDbContext _context;
+        public DateTime fecha;
 
         public CreateModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
@@ -20,7 +22,9 @@ namespace ActividadesSugeridasRazorPages.Pages.Cat_estatus
 
         public IActionResult OnGet()
         {
-        ViewData["IdTipoEstatus"] = new SelectList(_context.Cat_tipo_estatus, "IdTipoEstatus", "IdTipoEstatus");
+            fecha = DateTime.Now;
+
+            ViewData["IdTipoEstatus"] = new SelectList(_context.Cat_tipo_estatus, "IdTipoEstatus", "IdTipoEstatus");
             return Page();
         }
 

@@ -23,7 +23,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Cat_estatus
         public async Task OnGetAsync()
         {
             Cats_estatus = await _context.cat_estatus
-                .Include(c => c.Cat_tipos_estatus).ToListAsync();
+                .Include(c => c.Cat_tipo_estatus).ToListAsync();
         }
     }
 }
