@@ -37,6 +37,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
         public string descripcion;
         public string tipo;
         public DateTime fecha;
+        public short IdTipoEstatus = 1;
 
 
 
@@ -58,11 +59,12 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
             tipo = Request.Query["destipo"].ToString();
             descripcion = Request.Query["desact"].ToString();
             fecha = DateTime.Now;
+           
 
             ViewData["IdActividadSugerida"] = idAct; // new SelectList(_context.ActividadesSugeridas, "IdActividadSugerida", "DesActividad");
             ViewData["IdTipoActividadSug"] = idTipo;// new SelectList(_context.TipoActividadesSugeridas, "IdTipoActividadSugerida", "DesTipoActividadSugerida");
             ViewData["IdEstatus"] = new SelectList(_context.cat_estatus, "IdEstatus", "DesEstatus");
-            ViewData["IdTipoEstatus"] = 1;//= new SelectList(_context.Set<TipoEstatus>(), "IdTipoEstatus", "DesTipoEstatus");
+           // ViewData["IdTipoEstatus"] = 1;//= new SelectList(_context.Set<TipoEstatus>(), "IdTipoEstatus", "DesTipoEstatus");
             return Page();
             
         }
@@ -111,6 +113,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
                 return Page();
             }
 
+            
 
             _context.Eva_actividades_sug_estatus.Add(Eva_actividad_sug_estatus);
             await _context.SaveChangesAsync();

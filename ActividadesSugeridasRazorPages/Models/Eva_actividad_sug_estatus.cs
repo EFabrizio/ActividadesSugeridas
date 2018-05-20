@@ -30,8 +30,8 @@ namespace ActividadesSugeridasRazorPages.Models
 
         public DateTime FechaEstatus { get; set; }
 
-        [StringLength(1, MinimumLength = 1)]
-        public string Actual { get; set; }
+        
+        public Boolean Actual { get; set; }
         public string Observacion { get; set; }
         public string IdUsuarioReg { get; set; }
 
