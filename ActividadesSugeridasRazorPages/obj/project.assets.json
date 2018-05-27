@@ -13123,7 +13123,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\oFFICEdEPOT\\.nuget\\packages\\": {},
+    "C:\\Users\\Fabrizio\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -13132,17 +13132,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\oFFICEdEPOT\\Google Drive\\Tec\\Aplicaciones Empresariales\\DAE\\ActividadesSugeridas\\ActividadesSugeridasRazorPages\\ActividadesSugeridasRazorPages.csproj",
+      "projectUniqueName": "C:\\Users\\Fabrizio\\Desktop\\ActividadesSugeridas\\ActividadesSugeridasRazorPages\\ActividadesSugeridasRazorPages.csproj",
       "projectName": "ActividadesSugeridasRazorPages",
-      "projectPath": "C:\\Users\\oFFICEdEPOT\\Google Drive\\Tec\\Aplicaciones Empresariales\\DAE\\ActividadesSugeridas\\ActividadesSugeridasRazorPages\\ActividadesSugeridasRazorPages.csproj",
-      "packagesPath": "C:\\Users\\oFFICEdEPOT\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\oFFICEdEPOT\\Google Drive\\Tec\\Aplicaciones Empresariales\\DAE\\ActividadesSugeridas\\ActividadesSugeridasRazorPages\\obj\\",
+      "projectPath": "C:\\Users\\Fabrizio\\Desktop\\ActividadesSugeridas\\ActividadesSugeridasRazorPages\\ActividadesSugeridasRazorPages.csproj",
+      "packagesPath": "C:\\Users\\Fabrizio\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Fabrizio\\Desktop\\ActividadesSugeridas\\ActividadesSugeridasRazorPages\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\oFFICEdEPOT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Fabrizio\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

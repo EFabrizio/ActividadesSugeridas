@@ -42,3 +42,14 @@ C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRaz
 C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.AssemblyInfo.cs
 C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.dll
 C:\Users\AlezanaAbrego\source\repos\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.pdb
+C:\Users\Fabrizio\Desktop\ActividadesSugeridas\ActividadesSugeridasRazorPages\bin\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.deps.json
+C:\Users\Fabrizio\Desktop\ActividadesSugeridas\ActividadesSugeridasRazorPages\bin\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.runtimeconfig.json
+C:\Users\Fabrizio\Desktop\ActividadesSugeridas\ActividadesSugeridasRazorPages\bin\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.runtimeconfig.dev.json
+C:\Users\Fabrizio\Desktop\ActividadesSugeridas\ActividadesSugeridasRazorPages\bin\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.dll
+C:\Users\Fabrizio\Desktop\ActividadesSugeridas\ActividadesSugeridasRazorPages\bin\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.pdb
+C:\Users\Fabrizio\Desktop\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.csprojResolveAssemblyReference.cache
+C:\Users\Fabrizio\Desktop\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.csproj.CoreCompileInputs.cache
+C:\Users\Fabrizio\Desktop\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.AssemblyInfoInputs.cache
+C:\Users\Fabrizio\Desktop\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.AssemblyInfo.cs
+C:\Users\Fabrizio\Desktop\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.dll
+C:\Users\Fabrizio\Desktop\ActividadesSugeridas\ActividadesSugeridasRazorPages\obj\Debug\netcoreapp2.0\ActividadesSugeridasRazorPages.pdb
