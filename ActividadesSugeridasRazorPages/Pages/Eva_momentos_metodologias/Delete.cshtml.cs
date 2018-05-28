@@ -49,11 +49,11 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 return NotFound();
             }
 
-            eva_momentos_metodologias = await _context.eva_momentos_metodologias.FindAsync(id);
+            eva_momentos_metodologias = await _context.eva_momentos_metodologia.FindAsync(id);
 
             if (eva_momentos_metodologias != null)
             {
-                _context.eva_momentos_metodologias.Remove(eva_momentos_metodologias);
+                _context.eva_momentos_metodologia.Remove(eva_momentos_metodologias);
                 await _context.SaveChangesAsync();
             }
 

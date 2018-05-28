@@ -19,10 +19,10 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         }
 
         public IList<eva_momentos_metodologias> eva_momentos_metodologias { get;set; }
-        public int id;
+        public string id;
         public string nombre;
         public string nomcompetencia;
-        public int idcompetencia;
+        public string idcompetencia;
 
         public async Task OnGetAsync()
         {
