@@ -10,7 +10,7 @@ namespace ActividadesSugeridasRazorPages.Models
     public class eva_evalua_competencias_personas
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+
         public int IdPersona { get; set; }
 
         [ForeignKey("IdCompetencia")]

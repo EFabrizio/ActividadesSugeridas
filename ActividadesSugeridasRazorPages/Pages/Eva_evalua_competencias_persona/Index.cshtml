@@ -1,0 +1,74 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_evalua_competencias_persona.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Persona
+            </th>
+      
+            <th>
+              Fecha Registro
+            </th>
+            <th>
+                Fecha Límite
+            </th>
+            <th>
+                Justificación
+            </th>
+            <th>
+               Competencia
+            </th>
+           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.eva_evalua_competencias_personas) {
+    var nombre = "Csdf";
+        <tr>
+            
+                @foreach (var i in Model.rh_cats_personas.Where(e => e.IdPersona == item.IdPersona))
+                {
+            <td>
+                @Html.DisplayFor(modelItem => i.Nombre)
+                @{nombre = i.Nombre;}
+            </td>
+                }
+          
+             
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaReg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaLimite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Justificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eva_cat_competencias.DesCompetencia)
+            </td>
+          
+            <td>
+              
+                <a asp-page="../Eva_momentos_metodologia/" 
+                     asp-route-id="@item.IdPersona"
+                    asp-route-nombre="@nombre"
+                   asp-route-nomcompetencia="@item.eva_cat_competencias.DesCompetencia"
+                    asp-route-idcompetencia="@item.IdCompetencia">Momentos</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

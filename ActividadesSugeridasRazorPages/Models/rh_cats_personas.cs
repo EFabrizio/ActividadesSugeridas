@@ -20,20 +20,20 @@ namespace ActividadesSugeridasRazorPages.Models
         public string RFC { get; set; }
         public string CURP { get; set; }
         public DateTime FechaNac { get; set; }
-        public Boolean TipoPersona { get; set; }
-        public Boolean Sexo { get; set; }
+        public string TipoPersona { get; set; }
+        public string Sexo { get; set; }
         public string RutaFoto { get; set; }
         public string Alias { get; set; }
         public short IdTipoGenOcupacion { get; set; }
         public short IdGenOcupacion { get; set; }
         public short IdTipoGenEstadoCivil { get; set; }
         public short IdGenEstadoCivil { get; set; }
-        public Boolean Activo { get; set; }
+        public string Activo { get; set; }
         public DateTime FechaReg { get; set; }
         public string UsuarioReg { get; set; }
         public DateTime FechaUltMod { get; set; }
         public string UsuarioMod { get; set; }
-        public Boolean Borrado { get; set; }
+        public string Borrado { get; set; }
 
     }
 }

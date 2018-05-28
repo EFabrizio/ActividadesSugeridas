@@ -1,0 +1,138 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].DesMomento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].Objetivo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].ResultadoEsperado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].ResultadoObtenido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].Observaciones)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].IdTipoGenCalificacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].IdGenCalificacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].Calificacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].FechaReg)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].FechaUltAct)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].FechaEvaluacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].IdEmpSuc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].IdEvento)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].eva_cat_competencias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].eva_cat_metodologias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].eva_plantilla_metodologia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].eva_plantilla_momentos_metodologia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].rh_cat_personas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.eva_momentos_metodologias) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesMomento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Objetivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResultadoEsperado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResultadoObtenido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoGenCalificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdGenCalificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaReg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaUltAct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaEvaluacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEmpSuc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEvento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eva_cat_competencias.IdCompetencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eva_cat_metodologias.IdMetodologia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eva_plantilla_metodologia.IdPlantillaMetodo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eva_plantilla_momentos_metodologia.IdMomento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rh_cat_personas.IdPersona)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdMomentoDet">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdMomentoDet">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdMomentoDet">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

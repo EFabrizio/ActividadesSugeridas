@@ -1,0 +1,72 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_evalua_competencias_persona.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>eva_evalua_competencias_personas</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="eva_evalua_competencias_personas.IdCompetencia" class="control-label"></label>
+                <select asp-for="eva_evalua_competencias_personas.IdCompetencia" class ="form-control" asp-items="ViewBag.IdCompetencia"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="eva_evalua_competencias_personas.IdEmpSuc" class="control-label"></label>
+                <input asp-for="eva_evalua_competencias_personas.IdEmpSuc" class="form-control" />
+                <span asp-validation-for="eva_evalua_competencias_personas.IdEmpSuc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eva_evalua_competencias_personas.IdAsignatura" class="control-label"></label>
+                <input asp-for="eva_evalua_competencias_personas.IdAsignatura" class="form-control" />
+                <span asp-validation-for="eva_evalua_competencias_personas.IdAsignatura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eva_evalua_competencias_personas.IdTipoGenOrigenCompe" class="control-label"></label>
+                <input asp-for="eva_evalua_competencias_personas.IdTipoGenOrigenCompe" class="form-control" />
+                <span asp-validation-for="eva_evalua_competencias_personas.IdTipoGenOrigenCompe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eva_evalua_competencias_personas.IdGenOrigenCompe" class="control-label"></label>
+                <input asp-for="eva_evalua_competencias_personas.IdGenOrigenCompe" class="form-control" />
+                <span asp-validation-for="eva_evalua_competencias_personas.IdGenOrigenCompe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eva_evalua_competencias_personas.IdTipoCompetencia" class="control-label"></label>
+                <select asp-for="eva_evalua_competencias_personas.IdTipoCompetencia" class ="form-control" asp-items="ViewBag.IdTipoCompetencia"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="eva_evalua_competencias_personas.FechaReg" class="control-label"></label>
+                <input asp-for="eva_evalua_competencias_personas.FechaReg" class="form-control" />
+                <span asp-validation-for="eva_evalua_competencias_personas.FechaReg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eva_evalua_competencias_personas.FechaLimite" class="control-label"></label>
+                <input asp-for="eva_evalua_competencias_personas.FechaLimite" class="form-control" />
+                <span asp-validation-for="eva_evalua_competencias_personas.FechaLimite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eva_evalua_competencias_personas.Justificacion" class="control-label"></label>
+                <input asp-for="eva_evalua_competencias_personas.Justificacion" class="form-control" />
+                <span asp-validation-for="eva_evalua_competencias_personas.Justificacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -15,4 +15,8 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\Eva_momentos_metodologias\" />
+    <Folder Include="Pages\NewFolder\" />
+  </ItemGroup>
 </Project>
