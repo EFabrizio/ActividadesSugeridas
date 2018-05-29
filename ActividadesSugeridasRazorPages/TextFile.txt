@@ -1,0 +1,341 @@
+﻿
+/*Sumodulo 1 - Catalogo de Plantillas de Metodologías  y Momentos*/
+use Hedron
+go
+
+create table eva_cat_metodologias
+(
+	IdMetodologia smallint identity(1,1) not null,
+	DesMetodologia varchar(200),
+	Clave varchar(50),
+	Explicacion varchar(3000)
+)
+go
+
+alter table eva_cat_metodologias
+add constraint pk_eva_cat_metodologias
+primary key (IdMetodologia);
+go
+
+create table eva_plantilla_metodologia
+(
+	IdPlantillaMetodo smallint identity(1,1) not null,
+	IdMetodologia smallint not null,
+	DesPlantillaMetodo varchar(200),
+	FechaReg datetime,
+	VersionActual char(1)
+)
+go
+
+alter table eva_plantilla_metodologia
+add constraint pk_eva_plantilla_metodologia
+primary key (IdPlantillaMetodo)
+go
+
+alter table eva_plantilla_metodologia
+add constraint fk_eva_cat_metodologias_eva_plantilla_metodologia
+foreign key (IdMetodologia) references eva_cat_metodologias
+go
+
+create table eva_plantilla_momentos_metodologia
+(
+	IdMomento smallint identity(1,1) not null,
+	IdMetodologia smallint not null,
+	IdPlantillaMetodo smallint not null,
+	DesMomento varchar(500),
+	Objetivo varchar(3000),
+	Secuencia smallint
+)
+go
+
+alter table eva_plantilla_momentos_metodologia
+add constraint pk_eva_plantilla_momentos_metodologia
+primary key (IdMomento)
+go
+
+alter table eva_plantilla_momentos_metodologia
+add constraint fk_eva_cat_metodologias_eva_plantilla_momentos_metodologia
+foreign key (IdMetodologia) references eva_cat_metodologias
+go
+
+alter table eva_plantilla_momentos_metodologia
+add constraint fk_eva_plantilla_metodologia_eva_plantilla_momentos_metodologia
+foreign key (IdPlantillaMetodo) references eva_plantilla_metodologia
+go
+
+
+/*Sumodulo 3 - Momentos, Personas, Competencias */
+
+create table rh_cat_personas
+(
+	IdPersona integer identity(1,1) not null,
+	IdInstituto smallint not null,
+	NumControl varchar(20),
+	Nombre varchar(100),
+	ApPaterno varchar(60),
+	ApMaterno varchar(60),
+	RFC varchar(15),
+	CURP varchar(25),
+	FechaNac datetime,
+	TipoPersona char(1),
+	Sexo char(1),
+	RutaFoto varchar(255),
+	Alias varchar(20),
+	IdTipoGenOcupacion smallint not null,
+	IdGenOcupacion smallint not null,
+	IdTipoGenEstadoCivil smallint not null,
+	IdGenEstadoCivil smallint not null,
+	Activo char(1),
+	FechaReg datetime,
+	UsuarioReg varchar(20),
+	FechaUltMod datetime,
+	UsuarioMod varchar(20),
+	Borrado char(1)
+)
+go
+
+alter table rh_cat_personas
+add constraint pk_rh_cat_personas
+primary key (IdPersona)
+go
+
+
+create table eva_momentos_metodologia
+(
+	IdMomentoDet smallint identity(1,1) not null,
+	IdPersona integer not null,
+	IdCompetencia smallint not null,
+	DesMomento varchar(500),
+	Objetivo varchar(3000),
+	ResultadoEsperado varchar(3000),
+	ResultadoObtenido varchar(3000),
+	Observaciones varchar(3000),
+	IdTipoGenCalificacion smallint,
+	IdGenCalificacion smallint,
+	Calificacion float,
+	IdMetodologia smallint not null,
+	IdPlantillaMetodo smallint not null,
+	IdMomento smallint not null,
+	FechaReg datetime,
+	FechaUltAct datetime,
+	FechaEvaluacion datetime,
+	IdEmpSuc smallint,
+	IdEvento integer 
+)
+go
+
+alter table eva_momentos_metodologia
+add constraint pk_eva_momentos_metodologia
+primary key (IdMomentoDet)
+go
+
+alter table eva_momentos_metodologia
+add constraint fk_rh_cat_persona_eva_momentos_metodologia
+foreign key (IdPersona) references rh_cat_personas
+go
+
+alter table eva_momentos_metodologia
+add constraint fk_eva_cat_competencias_eva_momentos_metodologia
+foreign key (IdCompetencia) references eva_cat_competencias
+go
+
+alter table eva_momentos_metodologia
+add constraint fk_eva_cat_metodologias_eva_momentos_metodologia
+foreign key (IdMetodologia) references eva_cat_metodologias
+go
+
+alter table eva_momentos_metodologia
+add constraint fk_eva_plantilla_metodologia_eva_momentos_metodologia
+foreign key (IdPlantillaMetodo) references eva_plantilla_metodologia
+go
+
+alter table eva_momentos_metodologia
+add constraint fk_eva_plantilla_momentos_metodologia_eva_momentos_metodologia
+foreign key (IdMomento) references eva_plantilla_momentos_metodologia
+go
+
+
+
+
+create table eva_momentos_metodologia_estatus
+(
+	IdEstatusDet smallint identity(1,1) not null,
+	IdPersona integer not null,
+	IdCompetencia smallint not null,
+	IdMomentoDet smallint not null,
+	IdTipoEstatus smallint not null,
+	IdEstatus smallint not null,
+	FechaEstatus datetime,
+	Actual char(1),
+	Observacion varchar(3000),
+	IdUsuarioReg varchar(50)
+)
+go
+
+alter table eva_momentos_metodologia_estatus
+add constraint pk_eva_momentos_metodologia_estatus
+primary key (IdEstatusDet)
+go
+
+alter table eva_momentos_metodologia_estatus
+add constraint fk_rh_cat_persona_eva_momentos_metodologia_estatus
+foreign key (IdPersona) references rh_cat_personas
+go
+
+alter table eva_momentos_metodologia_estatus
+add constraint fk_eva_cat_competencias_eva_momentos_metodologia_estatus
+foreign key (IdCompetencia) references eva_cat_competencias
+go
+
+alter table eva_momentos_metodologia_estatus
+add constraint fk_eva_momentos_metodologia_eva_momentos_metodologia_estatus
+foreign key (IdMomentoDet) references eva_momentos_metodologia
+go
+
+
+
+
+create table eva_momentos_responsables
+(
+	IdResponsable integer identity(1,1) not null,
+	IdPersona integer not null,
+	IdCompetencia smallint not null,
+	IdMomentoDet smallint not null,
+	IdTipoGenResponsable integer not null,
+	IdGenResponsable integer not null
+)
+go
+
+alter table eva_momentos_responsables
+add constraint pk_eva_momentos_responsables
+primary key (IdResponsable)
+go
+
+alter table eva_momentos_responsables
+add constraint fk_rh_cat_personas_eva_momentos_responsables
+foreign key (IdPersona) references rh_cat_personas
+go
+
+alter table eva_momentos_responsables
+add constraint fk_eva_cat_competencias_eva_momentos_responsables
+foreign key (IdCompetencia) references eva_cat_competencias
+go
+
+alter table eva_momentos_responsables
+add constraint fk_eva_momentos_metodologia_eva_momentos_responsables
+foreign key (IdMomentoDet) references eva_momentos_metodologia
+go
+
+
+
+
+create table eva_evalua_competencias_persona
+(
+	IdPersona integer identity(1,1) not null,
+	IdCompetencia smallint not null,
+	IdEmpSuc smallint,
+	IdAsignatura smallint,
+	IdTipoGenOrigenCompe smallint,
+	IdGenOrigenCompe smallint,
+	IdTipoCompetencia smallint,
+	FechaReg datetime,
+	FechaLimite datetime,
+	Justificacion varchar(3000)
+)
+go
+
+alter table eva_evalua_competencias_persona
+add constraint pk_eva_evalua_competencias_persona
+primary key (IdPersona)
+go
+
+alter table eva_evalua_competencias_persona
+add constraint fk_eva_cat_competencias_eva_evalua_competencias_persona
+foreign key (IdCompetencia) references eva_cat_competencias
+go
+
+
+alter table eva_evalua_competencias_persona
+add constraint fk_eva_cat_tipo_competencias_eva_evalua_competencias_persona
+foreign key (IdTipoCompetencia) references eva_cat_tipo_competencias
+go
+
+
+
+
+create table eva_cat_competencias
+(
+	IdCompetencia smallint identity(1,1) not null,
+	IdTipoCompetencia smallint not null,
+	DesCompetencia varchar(255),
+	Detalle varchar(3000)
+)
+go
+
+alter table eva_cat_competencias
+add constraint pk_eva_cat_competencias
+primary key (IdCompetencia)
+go
+
+alter table eva_cat_competencias
+add constraint fk_eva_cat_tipo_competencias_eva_cat_competencias
+foreign key (IdTipoCompetencia) references eva_cat_tipo_competencias
+go
+
+
+
+create table eva_cat_tipo_competencias
+(
+	IdTipoCompetencia smallint identity(1,1) not null,
+	DesTipoCompetencia varchar(100),
+	Detalle varchar(3000)
+)
+go
+
+alter table eva_cat_tipo_competencias
+add constraint pk_eva_cat_tipo_competencias
+primary key (IdTipoCompetencia)
+go
+
+
+
+
+create table cat_tipos_generales
+(
+	IdTipoGeneral smallint identity(1,1) not null,
+	DesTipo varchar(100),
+	FechaReg datetime,
+	FechaUltMod datetime,
+	UsuarioReg varchar(20),
+	UsuarioMod char(18),
+	Activo char(1),
+	Borrado char(1)
+)
+go
+
+alter table cat_tipos_generales
+add constraint pk_cat_tipos_generales
+primary key (IdTipoGeneral)
+go
+
+
+create table cat_generales
+(
+	IdGeneral smallint identity(1,1) not null,
+	IdTipoGeneral smallint not null,
+	DesGeneral varchar(100),	
+)
+go
+
+alter table cat_generales
+add constraint pk_cat_generales
+primary key (IdGeneral)
+go
+
+alter table cat_generales
+add constraint fk_cat_tipos_generales_cat_generales
+foreign key (IdTipoGeneral) references cat_tipos_generales
+go
+
+
+
