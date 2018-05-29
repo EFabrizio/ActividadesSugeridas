@@ -21,7 +21,14 @@
             Actual
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.Actual)
+            @if (Model.Eva_actividad_sug_estatus.Actual == "1")
+             {
+                <input type="checkbox" value="1" checked />
+             }
+             else
+             {
+                <input type="checkbox" value="0" />
+             }
         </dd>
         <dt>
             Observación
@@ -45,7 +52,7 @@
             Tipo Estatus
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.IdEstatus.DesEstatus)
+            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.IdEstatusDet)
         </dd>
     </dl>
     
@@ -53,6 +60,6 @@
         <input type="hidden" asp-for="Eva_actividad_sug_estatus.IdEstatusDet" />
         <input type="submit" value="Borrar" class="btn btn-default" /> |
         <a class="btn btn-info btn-md active" role="button" asp-page="./Index" 
-           asp-route-id="@Model.idAct">Regresar</a>
+           asp-route-id="@Model.idacti">Regresar</a>
     </form>
 </div>

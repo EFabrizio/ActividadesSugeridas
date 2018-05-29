@@ -28,7 +28,7 @@ namespace ActividadesSugeridasRazorPages.Models
         public string Observaciones { get; set; }
         public short IdTipoGenCalificacion { get; set; }
         public short IdGenCalificacion { get; set; }
-        public float Calificacion { get; set; }
+        public double Calificacion { get; set; }
 
         [ForeignKey("IdMetodologia")]
         public short IdMetodologia { get; set; }

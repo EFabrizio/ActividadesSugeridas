@@ -19,7 +19,7 @@ namespace ActividadesSugeridasRazorPages.Models
 
         public string DesPlantillaMetodo { get; set; }
         public DateTime FechaReg { get; set; }
-        public Boolean VersionActual { get; set; }
+        public string VersionActual { get; set; }
         
     }
 }

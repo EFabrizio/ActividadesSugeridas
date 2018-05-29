@@ -13,7 +13,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
     {
         private readonly ActividadesSugeridasRazorPages.Models.ApplicationDbContext _context;
         public short? idAct;
-
+        public int idacti;
         public DeleteModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
             _context = context;
@@ -25,6 +25,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
         public async Task<IActionResult> OnGetAsync(short? id)
         {
             idAct = id;
+            idacti = Convert.ToInt32(Request.Query["idacti"]);
+
             if (id == null)
             {
                 return NotFound();
@@ -33,7 +35,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
             Eva_actividad_sug_estatus = await _context.Eva_actividades_sug_estatus
                 .Include(a => a.Eva_cat_actividades_sugeridas)
                 .Include(a => a.Eva_cat_tipo_actividades_sugeridas)
-                .Include(a => a.IdEstatus).SingleOrDefaultAsync(m => m.IdEstatusDet == id);
+                .Include(a => a.Cat_estatus).SingleOrDefaultAsync(m => m.IdEstatusDet == id);
 
             if (Eva_actividad_sug_estatus == null)
             {

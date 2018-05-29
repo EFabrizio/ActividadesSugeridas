@@ -59,13 +59,19 @@
                     @Html.DisplayFor(modelItem => item.FechaEstatus)
                 </td>
 
-                @if (item.Actual)
-              {
+                @if (item.Actual == "1")
+    {
             <td>
-                ACTUAL
+                <input type="checkbox" value="1" checked="checked" />
             </td>
-            }
-                <
+}
+else
+{
+
+            <td>
+                <input type="checkbox" value="0"/>
+            </td>
+}
                 <td>
                     @Html.DisplayFor(modelItem => item.Observacion)
                 </td>
@@ -73,18 +79,19 @@
                     @Html.DisplayFor(modelItem => item.Cat_estatus.DesEstatus)
                 </td>
                 <td>
-                    <a class="btn btn-default btn-md active" role="button" asp-page="./Edit"
-                       asp-route-id="@item.IdEstatusDet"
-                       asp-route-idacti="@Model.IdActividad"
-                       asp-route-estatus="@Model.IdActividad">Editar</a>
+                    <!-- <a class="btn btn-default btn-md active" role="button" asp-page="./Edit"-->
+                    <!--  asp-route-id="@item.IdEstatusDet"-->
+                    <!--  asp-route-idacti="@Model.IdActividad">Editar</a>-->
                     <a class="btn btn-info btn-md active" role="button" asp-page="./Details"
+                     asp-route-id="@item.IdEstatusDet"
+                       asp-route-idacti="@Model.IdActividad">Detalles</a>|
+                    <a class="btn btn-danger btn-md active" role="button" asp-page="./Delete" 
                        asp-route-id="@item.IdEstatusDet"
-                       asp-route-idacti="@Model.IdActividad">Detalles</a> |
-                    <a class="btn btn-danger btn-md active" role="button" asp-page="./Delete" asp-route-id="@item.IdEstatusDet">Eliminar</a>
+                       asp-route-idacti="@Model.IdActividad" >Eliminar</a>
                 </td>
-            </tr>
-            }
-        </tbody>
-    </table>
-</div>
+    </tr>
+    }
+    </tbody>
+        </table>
+    </div>
 

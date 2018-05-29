@@ -31,7 +31,7 @@ namespace ActividadesSugeridasRazorPages.Models
         public DateTime FechaEstatus { get; set; }
 
         
-        public Boolean Actual { get; set; }
+        public string Actual { get; set; }
         public string Observacion { get; set; }
         public string IdUsuarioReg { get; set; }
 

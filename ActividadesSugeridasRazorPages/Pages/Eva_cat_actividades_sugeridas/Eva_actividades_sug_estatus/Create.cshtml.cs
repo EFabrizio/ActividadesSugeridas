@@ -63,7 +63,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
 
             ViewData["IdActividadSugerida"] = idAct; // new SelectList(_context.ActividadesSugeridas, "IdActividadSugerida", "DesActividad");
             ViewData["IdTipoActividadSug"] = idTipo;// new SelectList(_context.TipoActividadesSugeridas, "IdTipoActividadSugerida", "DesTipoActividadSugerida");
-            ViewData["IdEstatus"] = new SelectList(_context.cat_estatus, "IdEstatus", "DesEstatus");
+            ViewData["IdEstatus"] = new SelectList(_context.cat_estatus.Where(e=> e.IdTipoEstatus == 1), "IdEstatus", "DesEstatus");
            // ViewData["IdTipoEstatus"] = 1;//= new SelectList(_context.Set<TipoEstatus>(), "IdTipoEstatus", "DesTipoEstatus");
             return Page();
             

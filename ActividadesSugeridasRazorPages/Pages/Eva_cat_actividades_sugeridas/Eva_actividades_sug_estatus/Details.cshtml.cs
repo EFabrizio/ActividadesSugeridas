@@ -33,7 +33,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
             Eva_actividad_sug_estatus = await _context.Eva_actividades_sug_estatus
                 .Include(a => a.Eva_cat_actividades_sugeridas)
                 .Include(a => a.Eva_cat_tipo_actividades_sugeridas)
-                .Include(a => a.IdEstatus).SingleOrDefaultAsync(m => m.IdEstatusDet == id);
+                .Include(a => a.Cat_estatus).SingleOrDefaultAsync(m => m.IdEstatusDet == id);
 
             if (Eva_actividad_sug_estatus == null)
             {
