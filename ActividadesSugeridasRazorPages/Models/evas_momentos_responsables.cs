@@ -25,7 +25,15 @@ namespace ActividadesSugeridasRazorPages.Models
         public short IdMomentoDet { get; set; }
         public virtual eva_momentos_metodologias eva_momentos_metodologia { get; set; }
 
-        public int IdTipoGenResponsable { get; set; }
-        public int IdGenResponsable { get; set; }
+       
+      //  public int IdGenResponsable { get; set; }
+
+        [ForeignKey("IdTipoGenResponsable")]
+        public short IdTipoGeneral { get; set; }
+        public virtual cats_tipos_generales cat_tipo_generales { get; set; }
+
+        [ForeignKey("IdGenResponsable")]
+        public short IdGeneral { get; set; }
+        public virtual cats_generales caty_generales { get; set; }
     }
 }

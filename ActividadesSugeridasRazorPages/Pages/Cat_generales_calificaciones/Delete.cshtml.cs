@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ActividadesSugeridasRazorPages.Models;
 
-namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
+namespace ActividadesSugeridasRazorPages.Pages.Cat_generales_calificaciones
 {
     public class DeleteModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         }
 
         [BindProperty]
-        public eva_momentos_metodologias eva_momentos_metodologias { get; set; }
+        public cats_generales cats_generales { get; set; }
 
         public async Task<IActionResult> OnGetAsync(short? id)
         {
@@ -28,16 +28,10 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 return NotFound();
             }
 
-            eva_momentos_metodologias = await _context.eva_momentos_metodologia
-                .Include(e => e.Metodologia)
-                .Include(e => e.Momento)
-                .Include(e => e.PlantillaMetodo)
-                .Include(e => e.cat_generales)
-                .Include(e => e.cat_tipo_generales)
-                .Include(e => e.eva_cat_competencias)
-                .Include(e => e.rh_cat_personas).SingleOrDefaultAsync(m => m.IdMomentoDet == id);
+            cats_generales = await _context.cat_generales
+                .Include(c => c.Gene).SingleOrDefaultAsync(m => m.IdGeneral == id);
 
-            if (eva_momentos_metodologias == null)
+            if (cats_generales == null)
             {
                 return NotFound();
             }
@@ -51,11 +45,11 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 return NotFound();
             }
 
-            eva_momentos_metodologias = await _context.eva_momentos_metodologia.FindAsync(id);
+            cats_generales = await _context.cat_generales.FindAsync(id);
 
-            if (eva_momentos_metodologias != null)
+            if (cats_generales != null)
             {
-                _context.eva_momentos_metodologia.Remove(eva_momentos_metodologias);
+                _context.cat_generales.Remove(cats_generales);
                 await _context.SaveChangesAsync();
             }
 

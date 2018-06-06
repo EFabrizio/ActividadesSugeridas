@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ActividadesSugeridasRazorPages.Models;
 
-namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
+namespace ActividadesSugeridasRazorPages.Pages.eva_plantilla_momentos_metodologia
 {
     public class CreateModel : PageModel
     {
@@ -21,17 +21,12 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         public IActionResult OnGet()
         {
         ViewData["IdMetodologia"] = new SelectList(_context.eva_cat_metodologias, "IdMetodologia", "IdMetodologia");
-        ViewData["IdMomento"] = new SelectList(_context.eva_plantilla_momentos_metodologia, "IdMomento", "IdMomento");
         ViewData["IdPlantillaMetodo"] = new SelectList(_context.eva_plantilla_metodologia, "IdPlantillaMetodo", "IdPlantillaMetodo");
-        ViewData["IdGenCalificacion"] = new SelectList(_context.cat_generales, "IdGeneral", "IdGeneral");
-        ViewData["IdTipoGenCalificacion"] = new SelectList(_context.cat_tipos_generales, "IdTipoGeneral", "IdTipoGeneral");
-        ViewData["IdCompetencia"] = new SelectList(_context.eva_cat_competencias, "IdCompetencia", "IdCompetencia");
-        ViewData["IdPersona"] = new SelectList(_context.rh_cat_personas, "IdPersona", "IdPersona");
             return Page();
         }
 
         [BindProperty]
-        public eva_momentos_metodologias eva_momentos_metodologias { get; set; }
+        public eva_plantillas_momentos_metodologia eva_plantillas_momentos_metodologia { get; set; }
 
         public async Task<IActionResult> OnPostAsync()
         {
@@ -40,7 +35,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 return Page();
             }
 
-            _context.eva_momentos_metodologia.Add(eva_momentos_metodologias);
+            _context.eva_plantilla_momentos_metodologia.Add(eva_plantillas_momentos_metodologia);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ActividadesSugeridasRazorPages.Models;
 
-namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
+namespace ActividadesSugeridasRazorPages.Pages.eva_plantilla_momentos_metodologia
 {
     public class IndexModel : PageModel
     {
@@ -18,18 +18,13 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             _context = context;
         }
 
-        public IList<eva_momentos_metodologias> eva_momentos_metodologias { get;set; }
+        public IList<eva_plantillas_momentos_metodologia> eva_plantillas_momentos_metodologia { get;set; }
 
         public async Task OnGetAsync()
         {
-            eva_momentos_metodologias = await _context.eva_momentos_metodologia
+            eva_plantillas_momentos_metodologia = await _context.eva_plantilla_momentos_metodologia
                 .Include(e => e.Metodologia)
-                .Include(e => e.Momento)
-                .Include(e => e.PlantillaMetodo)
-                .Include(e => e.cat_generales)
-                .Include(e => e.cat_tipo_generales)
-                .Include(e => e.eva_cat_competencias)
-                .Include(e => e.rh_cat_personas).ToListAsync();
+                .Include(e => e.PlantillaMetodologia).ToListAsync();
         }
     }
 }

@@ -11,6 +11,7 @@ namespace ActividadesSugeridasRazorPages.Models
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
+
         }
 
         public DbSet<Eva_cat_tipo_actividad_sugerida> Eva_cat_tipo_actividades_sugeridas { get; set; }
@@ -49,6 +50,89 @@ namespace ActividadesSugeridasRazorPages.Models
         public DbSet<cats_tipos_generales> cat_tipos_generales { get; set; }
 
         public DbSet<cats_generales> cat_generales { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Plantilla Metodologia
+            modelBuilder.Entity<eva_plantillas_metodologia>()
+                .HasOne(e => e.Metodologia)
+                .WithMany(b => b.PlantillaMetodologia)
+                .HasForeignKey(p => p.IdMetodologia)
+                .HasConstraintName("ForeignKey_PlantillaMetodologia_Metodologia");
+
+            //Momentos Metodologias
+            modelBuilder.Entity<eva_plantillas_momentos_metodologia>()
+                .HasOne(e => e.PlantillaMetodologia)
+                .WithMany(b => b.MomentosMetodologias)
+                .HasForeignKey(p => p.IdPlantillaMetodo)
+                .HasConstraintName("ForeignKey_MomentosMetodologia_PlantillaMetodologia");
+
+            modelBuilder.Entity<eva_plantillas_momentos_metodologia>()
+                .HasOne(e => e.Metodologia)
+                .WithMany(b => b.MomentosMetodologias)
+                .HasForeignKey(p => p.IdMetodologia)
+                .HasConstraintName("ForeignKey_MomentosMetodologia_Metodologia");
+
+
+            //Eva_Momentos_Metodologias-->Momentos Metodologias _  04-06-2018
+
+
+            modelBuilder.Entity<eva_momentos_metodologias>()
+               .HasOne(e => e.Metodologia)
+               .WithMany(b => b.EvaMomentosMetodologias)
+               .HasForeignKey(p => p.IdMetodologia)
+               .HasConstraintName("ForeignKey_EvaMomentosMetodologia_Metodologia");
+
+            modelBuilder.Entity<eva_momentos_metodologias>()
+                 .HasOne(e => e.PlantillaMetodo)
+                 .WithMany(b => b.EvaMomentosMetodologias)
+                 .HasForeignKey(p => p.IdPlantillaMetodo)
+                 .HasConstraintName("ForeignKey_EvaMomentosMetodologia_Plantilla");
+
+            modelBuilder.Entity<eva_momentos_metodologias>()
+               .HasOne(e => e.Momento)
+               .WithMany(b => b.EvaMomentosMetodologias)
+               .HasForeignKey(p => p.IdMomento)
+               .HasConstraintName("ForeignKey_EvaMomentosMetodologia_Momento");
+
+
+
+
+
+            //*Evaluacion momentos metodología
+            //  modelBuilder.Entity<eva_momentos_metodologias>()
+            //     .HasOne(e => e.PlantillaMetodologia)
+            //    .WithMany(b => b.MomentosMetodologias)
+            //   .HasForeignKey(p => p.IdPlantillaMetodo)
+            //  .HasConstraintName("ForeignKey_MomentosMetodologia_PlantillaMetodologia");
+
+            //modelBuilder.Entity<eva_plantillas_momentos_metodologia>()
+            //   .HasOne(e => e.Metodologia)
+            //  .WithMany(b => b.MomentosMetodologias)
+            // .HasForeignKey(p => p.IdMetodologia)
+            // .HasConstraintName("ForeignKey_MomentosMetodologia_Metodologia");*/
+
+            //cat_Generales
+            modelBuilder.Entity<cats_generales>()
+                .HasOne(e => e.Gene)
+                .WithMany(b => b.Generales)
+                .HasForeignKey(p => p.IdTipoGeneral)
+                .HasConstraintName("ForeignKey_CatGenerales_CatsTiposGenerales");
+
+
+            //Eva_Momentos_Metodologias-->Tipos Generales _  04-06-2018
+            modelBuilder.Entity<eva_momentos_metodologias>()
+               .HasOne(e => e.cat_tipo_generales)
+               .WithMany(b => b.GenEvaMomentosMetodologias)
+               .HasForeignKey(p => p.IdTipoGenCalificacion)
+               .HasConstraintName("ForeignKey_EvaMomentosMetodologias_CatsTiposGenerales");
+
+            modelBuilder.Entity<eva_momentos_metodologias>()
+               .HasOne(e => e.cat_generales)
+               .WithMany(b => b.GenEvaMomentosMetodologias)
+               .HasForeignKey(p => p.IdGenCalificacion)
+               .HasConstraintName("ForeignKey_EvaMomentosMetodologias_CatsGenerales");
+        }
 
 
     }

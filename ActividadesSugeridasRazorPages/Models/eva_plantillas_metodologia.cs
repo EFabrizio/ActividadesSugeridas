@@ -13,13 +13,16 @@ namespace ActividadesSugeridasRazorPages.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public short IdPlantillaMetodo { get; set; }
 
-        [ForeignKey("IdMetodologia")]
+        
         public short IdMetodologia { get; set; }
-        public virtual eva_cats_metodologias eva_cat_metodologias { get; set; }
+        public virtual eva_cats_metodologias Metodologia { get; set; }
 
         public string DesPlantillaMetodo { get; set; }
         public DateTime FechaReg { get; set; }
         public string VersionActual { get; set; }
-        
+
+        public List<eva_plantillas_momentos_metodologia> MomentosMetodologias { get; set; }
+        public List<eva_momentos_metodologias> EvaMomentosMetodologias { get; set; }
+
     }
 }

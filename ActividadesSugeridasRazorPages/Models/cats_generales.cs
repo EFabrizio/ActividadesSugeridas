@@ -14,10 +14,16 @@ namespace ActividadesSugeridasRazorPages.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public short IdGeneral { get; set; }
 
-        [ForeignKey("IdTipoGeneral")]
-        public short IdTipoGeneral { get; set; }
-        public virtual cats_tipos_generales cat_tipos_generales { get; set; }
+    //   [ForeignKey("IdTipoGeneral")]
+       public short IdTipoGeneral { get; set; }
+       public virtual cats_tipos_generales Gene { get; set; }
 
         public string DesGeneral { get; set; }
+
+        //  public short IdTipoGeneral { get; set; }
+        // public virtual cats_tipos_generales cat_tipos_generales { get; set; }
+        public List<eva_momentos_metodologias> GenEvaMomentosMetodologias { get; set; }
     }
+
+
 }

@@ -26,21 +26,31 @@ namespace ActividadesSugeridasRazorPages.Models
         public string ResultadoEsperado { get; set; }
         public string ResultadoObtenido { get; set; }
         public string Observaciones { get; set; }
+
+
+     //  [ForeignKey("IdTipoGeneral")]
         public short IdTipoGenCalificacion { get; set; }
+        public virtual cats_tipos_generales cat_tipo_generales { get; set; }
+
+
+      //   public short IdTipoGenCalificacion { get; set; }
+    //   [ForeignKey("IdGeneral")]
         public short IdGenCalificacion { get; set; }
+        public virtual cats_generales cat_generales { get; set; }
+
         public double Calificacion { get; set; }
 
-        [ForeignKey("IdMetodologia")]
+      //   [ForeignKey("IdMetodologia")]
         public short IdMetodologia { get; set; }
-        public virtual eva_cats_metodologias eva_cat_metodologias { get; set; }
+        public virtual eva_cats_metodologias Metodologia { get; set; }
 
-        [ForeignKey("IdPlantillaMetodo")]
+        //   [ForeignKey("IdPlantillaMetodo")]
         public short IdPlantillaMetodo { get; set; }
-        public virtual eva_plantillas_metodologia eva_plantilla_metodologia { get; set; }
+        public virtual eva_plantillas_metodologia PlantillaMetodo { get; set; }
 
-        [ForeignKey("IdMomento")]
+      //  [ForeignKey("IdMomento")]
         public short IdMomento { get; set; }
-        public virtual eva_plantillas_momentos_metodologia eva_plantilla_momentos_metodologia { get; set; }
+        public virtual eva_plantillas_momentos_metodologia Momento { get; set; }
 
         public DateTime FechaReg { get; set; }
         public DateTime FechaUltAct { get; set; }

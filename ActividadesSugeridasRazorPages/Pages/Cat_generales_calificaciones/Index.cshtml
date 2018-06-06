@@ -1,0 +1,42 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Cat_generales_calificaciones.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.cats_generales[0].DesGeneral)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cats_generales[0].Gene)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.cats_generales) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesGeneral)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gene.IdTipoGeneral)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdGeneral">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdGeneral">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdGeneral">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

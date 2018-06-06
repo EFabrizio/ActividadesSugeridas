@@ -51,12 +51,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="eva_momentos_metodologias.IdTipoGenCalificacion" class="control-label"></label>
-                <input asp-for="eva_momentos_metodologias.IdTipoGenCalificacion" class="form-control" />
+                <select asp-for="eva_momentos_metodologias.IdTipoGenCalificacion" class="form-control" asp-items="ViewBag.IdTipoGenCalificacion"></select>
                 <span asp-validation-for="eva_momentos_metodologias.IdTipoGenCalificacion" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="eva_momentos_metodologias.IdGenCalificacion" class="control-label"></label>
-                <input asp-for="eva_momentos_metodologias.IdGenCalificacion" class="form-control" />
+                <select asp-for="eva_momentos_metodologias.IdGenCalificacion" class="form-control" asp-items="ViewBag.IdGenCalificacion"></select>
                 <span asp-validation-for="eva_momentos_metodologias.IdGenCalificacion" class="text-danger"></span>
             </div>
             <div class="form-group">

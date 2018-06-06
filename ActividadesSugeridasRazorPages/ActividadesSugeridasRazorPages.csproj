@@ -9,9 +9,6 @@
     <None Remove="Pages\Hedron\**" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="TextFile.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" />
   </ItemGroup>
@@ -19,6 +16,6 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pages\NewFolder\" />
+    <Folder Include="Pages\Eva_momentos_responsables\" />
   </ItemGroup>
 </Project>

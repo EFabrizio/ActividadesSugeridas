@@ -1,0 +1,55 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.eva_plantilla_momentos_metodologia.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>eva_plantillas_momentos_metodologia</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="eva_plantillas_momentos_metodologia.IdMomento" />
+            <div class="form-group">
+                <label asp-for="eva_plantillas_momentos_metodologia.IdMetodologia" class="control-label"></label>
+                <select asp-for="eva_plantillas_momentos_metodologia.IdMetodologia" class="form-control" asp-items="ViewBag.IdMetodologia"></select>
+                <span asp-validation-for="eva_plantillas_momentos_metodologia.IdMetodologia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eva_plantillas_momentos_metodologia.IdPlantillaMetodo" class="control-label"></label>
+                <select asp-for="eva_plantillas_momentos_metodologia.IdPlantillaMetodo" class="form-control" asp-items="ViewBag.IdPlantillaMetodo"></select>
+                <span asp-validation-for="eva_plantillas_momentos_metodologia.IdPlantillaMetodo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eva_plantillas_momentos_metodologia.DesMomento" class="control-label"></label>
+                <input asp-for="eva_plantillas_momentos_metodologia.DesMomento" class="form-control" />
+                <span asp-validation-for="eva_plantillas_momentos_metodologia.DesMomento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eva_plantillas_momentos_metodologia.Objetivo" class="control-label"></label>
+                <input asp-for="eva_plantillas_momentos_metodologia.Objetivo" class="form-control" />
+                <span asp-validation-for="eva_plantillas_momentos_metodologia.Objetivo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eva_plantillas_momentos_metodologia.Secuencia" class="control-label"></label>
+                <input asp-for="eva_plantillas_momentos_metodologia.Secuencia" class="form-control" />
+                <span asp-validation-for="eva_plantillas_momentos_metodologia.Secuencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

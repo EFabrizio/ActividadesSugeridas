@@ -18,8 +18,11 @@ namespace ActividadesSugeridasRazorPages.Models
         public DateTime FechaUltMod { get; set; }
         public string UsuarioReg { get; set; }
         public string UsuarioMod { get; set; }
-        public Boolean Activo { get; set; }
-        public Boolean Borrado { get; set; }
+        public string Activo { get; set; }
+        public string Borrado { get; set; }
+
+       public List<cats_generales> Generales { get; set; }
+       public List<eva_momentos_metodologias> GenEvaMomentosMetodologias { get; set; }
 
 
     }

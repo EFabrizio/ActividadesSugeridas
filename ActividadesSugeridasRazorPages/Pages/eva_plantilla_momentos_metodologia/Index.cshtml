@@ -1,0 +1,60 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.eva_plantilla_momentos_metodologia.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_plantillas_momentos_metodologia[0].DesMomento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_plantillas_momentos_metodologia[0].Objetivo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_plantillas_momentos_metodologia[0].Secuencia)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eva_plantillas_momentos_metodologia[0].Metodologia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eva_plantillas_momentos_metodologia[0].PlantillaMetodologia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.eva_plantillas_momentos_metodologia) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesMomento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Objetivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Secuencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Metodologia.IdMetodologia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlantillaMetodologia.IdPlantillaMetodo)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdMomento">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdMomento">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdMomento">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

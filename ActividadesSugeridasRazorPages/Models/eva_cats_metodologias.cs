@@ -16,7 +16,9 @@ namespace ActividadesSugeridasRazorPages.Models
         public string Clave { get; set; }
         public string Explicacion { get; set; }
 
+        public List<eva_plantillas_metodologia> PlantillaMetodologia { get; set; }
+        public List<eva_plantillas_momentos_metodologia> MomentosMetodologias { get; set; }
+        public List<eva_momentos_metodologias> EvaMomentosMetodologias { get; set; }
 
-    
     }
 }

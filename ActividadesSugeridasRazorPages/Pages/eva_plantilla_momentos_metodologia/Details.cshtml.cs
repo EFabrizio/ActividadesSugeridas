@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ActividadesSugeridasRazorPages.Models;
 
-namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
+namespace ActividadesSugeridasRazorPages.Pages.eva_plantilla_momentos_metodologia
 {
     public class DetailsModel : PageModel
     {
@@ -18,7 +18,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             _context = context;
         }
 
-        public eva_momentos_metodologias eva_momentos_metodologias { get; set; }
+        public eva_plantillas_momentos_metodologia eva_plantillas_momentos_metodologia { get; set; }
 
         public async Task<IActionResult> OnGetAsync(short? id)
         {
@@ -27,16 +27,11 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 return NotFound();
             }
 
-            eva_momentos_metodologias = await _context.eva_momentos_metodologia
+            eva_plantillas_momentos_metodologia = await _context.eva_plantilla_momentos_metodologia
                 .Include(e => e.Metodologia)
-                .Include(e => e.Momento)
-                .Include(e => e.PlantillaMetodo)
-                .Include(e => e.cat_generales)
-                .Include(e => e.cat_tipo_generales)
-                .Include(e => e.eva_cat_competencias)
-                .Include(e => e.rh_cat_personas).SingleOrDefaultAsync(m => m.IdMomentoDet == id);
+                .Include(e => e.PlantillaMetodologia).SingleOrDefaultAsync(m => m.IdMomento == id);
 
-            if (eva_momentos_metodologias == null)
+            if (eva_plantillas_momentos_metodologia == null)
             {
                 return NotFound();
             }

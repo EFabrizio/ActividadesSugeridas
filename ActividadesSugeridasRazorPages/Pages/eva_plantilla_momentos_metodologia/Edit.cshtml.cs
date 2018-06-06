@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ActividadesSugeridasRazorPages.Models;
 
-namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
+namespace ActividadesSugeridasRazorPages.Pages.eva_plantilla_momentos_metodologia
 {
     public class EditModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         }
 
         [BindProperty]
-        public eva_momentos_metodologias eva_momentos_metodologias { get; set; }
+        public eva_plantillas_momentos_metodologia eva_plantillas_momentos_metodologia { get; set; }
 
         public async Task<IActionResult> OnGetAsync(short? id)
         {
@@ -29,26 +29,16 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 return NotFound();
             }
 
-            eva_momentos_metodologias = await _context.eva_momentos_metodologia
+            eva_plantillas_momentos_metodologia = await _context.eva_plantilla_momentos_metodologia
                 .Include(e => e.Metodologia)
-                .Include(e => e.Momento)
-                .Include(e => e.PlantillaMetodo)
-                .Include(e => e.cat_generales)
-                .Include(e => e.cat_tipo_generales)
-                .Include(e => e.eva_cat_competencias)
-                .Include(e => e.rh_cat_personas).SingleOrDefaultAsync(m => m.IdMomentoDet == id);
+                .Include(e => e.PlantillaMetodologia).SingleOrDefaultAsync(m => m.IdMomento == id);
 
-            if (eva_momentos_metodologias == null)
+            if (eva_plantillas_momentos_metodologia == null)
             {
                 return NotFound();
             }
            ViewData["IdMetodologia"] = new SelectList(_context.eva_cat_metodologias, "IdMetodologia", "IdMetodologia");
-           ViewData["IdMomento"] = new SelectList(_context.eva_plantilla_momentos_metodologia, "IdMomento", "IdMomento");
            ViewData["IdPlantillaMetodo"] = new SelectList(_context.eva_plantilla_metodologia, "IdPlantillaMetodo", "IdPlantillaMetodo");
-           ViewData["IdGenCalificacion"] = new SelectList(_context.cat_generales, "IdGeneral", "IdGeneral");
-           ViewData["IdTipoGenCalificacion"] = new SelectList(_context.cat_tipos_generales, "IdTipoGeneral", "IdTipoGeneral");
-           ViewData["IdCompetencia"] = new SelectList(_context.eva_cat_competencias, "IdCompetencia", "IdCompetencia");
-           ViewData["IdPersona"] = new SelectList(_context.rh_cat_personas, "IdPersona", "IdPersona");
             return Page();
         }
 
@@ -59,7 +49,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 return Page();
             }
 
-            _context.Attach(eva_momentos_metodologias).State = EntityState.Modified;
+            _context.Attach(eva_plantillas_momentos_metodologia).State = EntityState.Modified;
 
             try
             {
@@ -67,7 +57,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!eva_momentos_metodologiasExists(eva_momentos_metodologias.IdMomentoDet))
+                if (!eva_plantillas_momentos_metodologiaExists(eva_plantillas_momentos_metodologia.IdMomento))
                 {
                     return NotFound();
                 }
@@ -80,9 +70,9 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             return RedirectToPage("./Index");
         }
 
-        private bool eva_momentos_metodologiasExists(short id)
+        private bool eva_plantillas_momentos_metodologiaExists(short id)
         {
-            return _context.eva_momentos_metodologia.Any(e => e.IdMomentoDet == id);
+            return _context.eva_plantilla_momentos_metodologia.Any(e => e.IdMomento == id);
         }
     }
 }
