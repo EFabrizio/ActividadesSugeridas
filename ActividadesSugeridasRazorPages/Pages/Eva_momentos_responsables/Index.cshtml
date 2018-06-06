@@ -8,25 +8,25 @@
 <h2>Index</h2>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Crear nuevo responsable</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.evas_momentos_responsables[0].cat_generales)
+                Responsable
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.evas_momentos_responsables[0].cat_tipo_generales)
+                Tipo de Responsable
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.evas_momentos_responsables[0].eva_cat_competencias)
+                Competencia
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.evas_momentos_responsables[0].eva_momentos_metodologia)
+               Momento
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.evas_momentos_responsables[0].rh_cat_personas)
+               Persona
             </th>
             <th></th>
         </tr>
@@ -50,9 +50,11 @@
                 @Html.DisplayFor(modelItem => item.rh_cat_personas.IdPersona)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.IdResponsable">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.IdResponsable">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.IdResponsable">Delete</a>
+
+                <a asp-page="./Edit" class="btn btn-default btn-md active" role="button" asp-route-id="@item.IdResponsable">Editar</a> |
+                <a asp-page="./Details" class="btn btn-info btn-md active" role="button" asp-route-id="@item.IdResponsable">Detalles</a> |
+                <a asp-page="./Delete" class="btn btn-danger btn-md active" role="button" asp-route-id="@item.IdResponsable">Eliminar</a> |
+               
             </td>
         </tr>
 }
