@@ -5,106 +5,106 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<h2>Crear nuevo momento de Metodologias</h2>
 
-<h4>eva_momentos_metodologias</h4>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.IdPersona" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.IdPersona" class="control-label">Persona</label>
                 <select asp-for="eva_momentos_metodologias.IdPersona" class ="form-control" asp-items="ViewBag.IdPersona"></select>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.IdCompetencia" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.IdCompetencia" class="control-label">Competencia</label>
                 <select asp-for="eva_momentos_metodologias.IdCompetencia" class ="form-control" asp-items="ViewBag.IdCompetencia"></select>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.DesMomento" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.DesMomento" class="control-label">Descripcion del Momento</label>
                 <input asp-for="eva_momentos_metodologias.DesMomento" class="form-control" />
                 <span asp-validation-for="eva_momentos_metodologias.DesMomento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.Objetivo" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.Objetivo" class="control-label">Objetivo</label>
                 <input asp-for="eva_momentos_metodologias.Objetivo" class="form-control" />
                 <span asp-validation-for="eva_momentos_metodologias.Objetivo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.ResultadoEsperado" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.ResultadoEsperado" class="control-label">Resultado Esperado</label>
                 <input asp-for="eva_momentos_metodologias.ResultadoEsperado" class="form-control" />
                 <span asp-validation-for="eva_momentos_metodologias.ResultadoEsperado" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.ResultadoObtenido" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.ResultadoObtenido" class="control-label">Resultado Obtenido</label>
                 <input asp-for="eva_momentos_metodologias.ResultadoObtenido" class="form-control" />
                 <span asp-validation-for="eva_momentos_metodologias.ResultadoObtenido" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.Observaciones" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.Observaciones" class="control-label">Observaciones</label>
                 <input asp-for="eva_momentos_metodologias.Observaciones" class="form-control" />
                 <span asp-validation-for="eva_momentos_metodologias.Observaciones" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.IdTipoGenCalificacion" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.IdTipoGenCalificacion" class="control-label">Tipo de Calificacion</label>
                 <select asp-for="eva_momentos_metodologias.IdTipoGenCalificacion" class ="form-control" asp-items="ViewBag.IdTipoGenCalificacion"></select>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.IdGenCalificacion" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.IdGenCalificacion" class="control-label">Gen Calificacion</label>
                 <select asp-for="eva_momentos_metodologias.IdGenCalificacion" class ="form-control" asp-items="ViewBag.IdGenCalificacion"></select>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.Calificacion" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.Calificacion" class="control-label">Calificacion</label>
                 <input asp-for="eva_momentos_metodologias.Calificacion" class="form-control" />
                 <span asp-validation-for="eva_momentos_metodologias.Calificacion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.IdMetodologia" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.IdMetodologia" class="control-label">Metodologia</label>
                 <select asp-for="eva_momentos_metodologias.IdMetodologia" class ="form-control" asp-items="ViewBag.IdMetodologia"></select>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.IdPlantillaMetodo" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.IdPlantillaMetodo" class="control-label">Plantilla Metodologia</label>
                 <select asp-for="eva_momentos_metodologias.IdPlantillaMetodo" class ="form-control" asp-items="ViewBag.IdPlantillaMetodo"></select>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.IdMomento" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.IdMomento" class="control-label">Momento</label>
                 <select asp-for="eva_momentos_metodologias.IdMomento" class ="form-control" asp-items="ViewBag.IdMomento"></select>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.FechaReg" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.FechaReg" class="control-label">Fecha de Registro</label>
                 <input asp-for="eva_momentos_metodologias.FechaReg" class="form-control" />
                 <span asp-validation-for="eva_momentos_metodologias.FechaReg" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.FechaUltAct" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.FechaUltAct" class="control-label">Fecha ultima Actualización</label>
                 <input asp-for="eva_momentos_metodologias.FechaUltAct" class="form-control" />
                 <span asp-validation-for="eva_momentos_metodologias.FechaUltAct" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.FechaEvaluacion" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.FechaEvaluacion" class="control-label">Fecha de Evaluación</label>
                 <input asp-for="eva_momentos_metodologias.FechaEvaluacion" class="form-control" />
                 <span asp-validation-for="eva_momentos_metodologias.FechaEvaluacion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.IdEmpSuc" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.IdEmpSuc" class="control-label">Empresa</label>
                 <input asp-for="eva_momentos_metodologias.IdEmpSuc" class="form-control" />
                 <span asp-validation-for="eva_momentos_metodologias.IdEmpSuc" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.IdEvento" class="control-label"></label>
+                <label asp-for="eva_momentos_metodologias.IdEvento" class="control-label">Evento</label>
                 <input asp-for="eva_momentos_metodologias.IdEvento" class="form-control" />
                 <span asp-validation-for="eva_momentos_metodologias.IdEvento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Crear" class="btn btn-success btn-md active" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a class="btn btn-info btn-md active" role="button" asp-page="Index">Cancelar</a>
 </div>
 
 @section Scripts {

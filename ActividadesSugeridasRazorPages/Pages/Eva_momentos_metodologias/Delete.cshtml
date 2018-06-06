@@ -5,117 +5,117 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+
+<h3>¿Estas seguro que deseas eliminar este momento de la metodologia?</h3>
 <div>
     <h4>eva_momentos_metodologias</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.DesMomento)
+           Descripcion del Momento
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.DesMomento)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.Objetivo)
+           Objetivo
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.Objetivo)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.ResultadoEsperado)
+           Resultado Esperado
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.ResultadoEsperado)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.ResultadoObtenido)
+           Resultado Obtenido
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.ResultadoObtenido)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.Observaciones)
+           Observaciones
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.Observaciones)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.Calificacion)
+           Calificación
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.Calificacion)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.FechaReg)
+           Fecha de Registro
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.FechaReg)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.FechaUltAct)
+           Fecha de Ultima Actualización
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.FechaUltAct)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.FechaEvaluacion)
+           Fecha de Evaluacion
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.FechaEvaluacion)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.IdEmpSuc)
+            Empresa
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.IdEmpSuc)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.IdEvento)
+            Evento
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.IdEvento)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.Metodologia)
+            Metodologia
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.Metodologia.IdMetodologia)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.Momento)
+           Momento
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.Momento.IdMomento)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.PlantillaMetodo)
+            Plantilla Metodologia
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.PlantillaMetodo.IdPlantillaMetodo)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.cat_generales)
+            Gen Calificación
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.cat_generales.IdGeneral)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.cat_tipo_generales)
+           Tipo de Calificación
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.cat_tipo_generales.IdTipoGeneral)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.eva_cat_competencias)
+           Comptenecias
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.eva_cat_competencias.IdCompetencia)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias.rh_cat_personas)
+           Persona
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.rh_cat_personas.IdPersona)
@@ -124,7 +124,8 @@
     
     <form method="post">
         <input type="hidden" asp-for="eva_momentos_metodologias.IdMomentoDet" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a class="btn btn-info btn-md active" role="button" asp-page="./Index">Cancelar</a>
+
     </form>
 </div>

@@ -7,53 +7,55 @@
 
 <h2>Index</h2>
 
+
 <p>
-    <a asp-page="Create">Create New</a>
+    <a class="btn btn-success btn-md active" role="button" asp-page="Create">Crear Nuevo Momento de Metodologia</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].DesMomento)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].Objetivo)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].ResultadoEsperado)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].ResultadoObtenido)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].Observaciones)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].Calificacion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].FechaReg)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].FechaUltAct)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].FechaEvaluacion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].IdEmpSuc)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].IdEvento)
-                </th>
             <th>
-                @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].Metodologia)
+                Descripcion
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].Momento)
+                Objetivo
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].PlantillaMetodo)
+                Resultado Esperado
+            </th>
+            <th>
+                Resultado Obtenido
+            </th>
+            <th>
+                Observaciones
+            </th>
+            <th>
+                Calificación
+            </th>
+            <th>
+                Fecha Registro
+            </th>
+            <th>
+                Fecha Ultima Actividad
+            </th>
+            <th>
+                Fecha Evaluacion
+            </th>
+            <th>
+                Empresa
+            </th>
+            <th>
+                Evento
+            </th>
+            <th>
+                Metodologia
+            </th>
+            <th>
+                Momento
+            </th>
+            <th>
+                Plantilla Metodo
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.eva_momentos_metodologias[0].cat_generales)
@@ -71,68 +73,71 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.eva_momentos_metodologias) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DesMomento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Objetivo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ResultadoEsperado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ResultadoObtenido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Observaciones)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Calificacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaReg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaUltAct)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaEvaluacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdEmpSuc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdEvento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Metodologia.IdMetodologia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Momento.IdMomento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PlantillaMetodo.IdPlantillaMetodo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cat_generales.IdGeneral)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cat_tipo_generales.IdTipoGeneral)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.eva_cat_competencias.IdCompetencia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.rh_cat_personas.IdPersona)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.IdMomentoDet">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.IdMomentoDet">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.IdMomentoDet">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.eva_momentos_metodologias)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DesMomento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Objetivo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResultadoEsperado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResultadoObtenido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observaciones)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Calificacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaReg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaUltAct)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaEvaluacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdEmpSuc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdEvento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Metodologia.IdMetodologia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Momento.IdMomento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlantillaMetodo.IdPlantillaMetodo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cat_generales.IdGeneral)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cat_tipo_generales.IdTipoGeneral)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.eva_cat_competencias.IdCompetencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rh_cat_personas.IdPersona)
+                </td>
+                <td>
+
+
+                    <a class="btn btn-default btn-md active" role="button" asp-page="./Edit" asp-route-id="@item.IdMomentoDet">Editar</a> |
+                    <a class="btn btn-info btn-md active" role="button" asp-page="./Details" asp-route-id="@item.IdMomentoDet">Detalles</a> |
+                    <a class="btn btn-danger btn-md active" role="button" asp-page="./Delete" asp-route-id="@item.IdMomentoDet">Eliminar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
