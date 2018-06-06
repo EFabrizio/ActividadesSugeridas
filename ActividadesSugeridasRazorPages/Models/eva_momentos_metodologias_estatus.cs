@@ -27,14 +27,14 @@ namespace ActividadesSugeridasRazorPages.Models
 
         [ForeignKey("IdTipoEstatus")]
         public short IdTipoEstatus { get; set; }
-        public virtual Cat_tipos_estatus Cat_tipo_estatus { get; set; }
+        public virtual Cat_tipos_estatus Cat_tipos_estatus { get; set; }
 
         [ForeignKey("IdEstatus")]
         public short IdEstatus { get; set; }
-        public virtual Cats_estatus cat_estatus { get; set; }
+        public virtual Cats_estatus Cat_estatus { get; set; }
 
         public DateTime FechaEstatus { get; set; }
-        public Boolean Actual { get; set; }
+        public string Actual { get; set; }
         public string Observacion { get; set; }
         public string IdUsuarioReg { get; set; }
 

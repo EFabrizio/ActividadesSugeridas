@@ -20,6 +20,8 @@ namespace ActividadesSugeridasRazorPages.Models
         public string DesEstatus { get; set; }
         public DateTime FechaReg { get; set; }
 
+       
+
 
 
     }

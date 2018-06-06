@@ -1,0 +1,73 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>eva_momentos_metodologias_estatus</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.FechaEstatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.FechaEstatus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.Actual)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.Actual)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.Observacion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.Observacion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.IdUsuarioReg)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.IdUsuarioReg)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.Cat_estatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.Cat_estatus.IdEstatus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.Cat_tipos_estatus)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.Cat_tipos_estatus.IdTipoEstatus)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.eva_cat_competencias)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.eva_cat_competencias.IdCompetencia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.eva_momentos_metodologia)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.eva_momentos_metodologia.IdMomentoDet)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.rh_cat_personas)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.rh_cat_personas.IdPersona)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.eva_momentos_metodologias_estatus.IdEstatusDet">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

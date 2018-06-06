@@ -1,0 +1,84 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus[0].FechaEstatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus[0].Actual)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus[0].Observacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus[0].IdUsuarioReg)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus[0].Cat_estatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus[0].Cat_tipos_estatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus[0].eva_cat_competencias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus[0].eva_momentos_metodologia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus[0].rh_cat_personas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.eva_momentos_metodologias_estatus) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaEstatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Actual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUsuarioReg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cat_estatus.IdEstatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cat_tipos_estatus.IdTipoEstatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eva_cat_competencias.IdCompetencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eva_momentos_metodologia.IdMomentoDet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rh_cat_personas.IdPersona)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdEstatusDet">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdEstatusDet">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdEstatusDet">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

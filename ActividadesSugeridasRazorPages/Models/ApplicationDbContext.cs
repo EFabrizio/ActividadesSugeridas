@@ -146,6 +146,9 @@ namespace ActividadesSugeridasRazorPages.Models
                .WithMany(b => b.EvaMomentosResponsables)
                .HasForeignKey(p => p.IdTipoGenResponsable)
                .HasConstraintName("ForeignKey_EvaMomentosResponsables_CatsGenerales");
+
+
+
         }
 
 

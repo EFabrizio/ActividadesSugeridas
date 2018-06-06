@@ -14,5 +14,7 @@ namespace ActividadesSugeridasRazorPages.Models
         public short IdTipoEstatus { get; set; }
         public string DesTipoEstatus { get; set; }
         public DateTime FechaReg { get; set; }
+
+        
     }
 }
