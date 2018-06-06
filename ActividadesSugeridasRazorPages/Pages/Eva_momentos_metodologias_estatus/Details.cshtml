@@ -5,62 +5,61 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detalles estatus del momento</h2>
 
 <div>
-    <h4>eva_momentos_metodologias_estatus</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.FechaEstatus)
+            Fecha de estatus
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.FechaEstatus)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.Actual)
+           Actual
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.Actual)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.Observacion)
+           Observación
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.Observacion)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.IdUsuarioReg)
+            Usuario Registro
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.IdUsuarioReg)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.Cat_estatus)
+            Estatus
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.Cat_estatus.IdEstatus)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.Cat_tipos_estatus)
+            Tipo de estatus
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.Cat_tipos_estatus.IdTipoEstatus)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.eva_cat_competencias)
+            Competencia
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.eva_cat_competencias.IdCompetencia)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.eva_momentos_metodologia)
+           Momento
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.eva_momentos_metodologia.IdMomentoDet)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus.rh_cat_personas)
+            Persona
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias_estatus.rh_cat_personas.IdPersona)
@@ -68,6 +67,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.eva_momentos_metodologias_estatus.IdEstatusDet">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a class="btn btn-default btn-md active" role="button" asp-page="./Edit" asp-route-id="@Model.eva_momentos_metodologias_estatus.IdEstatusDet">Editar</a> |
+    <a class="btn btn-info btn-md active" role="button" asp-page="./Index">Regresar</a>
 </div>
