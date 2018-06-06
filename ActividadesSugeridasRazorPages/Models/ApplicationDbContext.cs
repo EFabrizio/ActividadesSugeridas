@@ -132,6 +132,20 @@ namespace ActividadesSugeridasRazorPages.Models
                .WithMany(b => b.GenEvaMomentosMetodologias)
                .HasForeignKey(p => p.IdGenCalificacion)
                .HasConstraintName("ForeignKey_EvaMomentosMetodologias_CatsGenerales");
+
+
+            //Eva_Momentos_Responsables -->Tipos Responsables _  04-06-2018
+            modelBuilder.Entity<evas_momentos_responsables>()
+               .HasOne(e => e.cat_generales)
+               .WithMany(b => b.EvaMomentosResponsables)
+               .HasForeignKey(p => p.IdGenResponsable)
+               .HasConstraintName("ForeignKey_EvaMomentosResponsables_CatsTiposGenerales");
+
+            modelBuilder.Entity<evas_momentos_responsables>()
+               .HasOne(e => e.cat_tipo_generales)
+               .WithMany(b => b.EvaMomentosResponsables)
+               .HasForeignKey(p => p.IdTipoGenResponsable)
+               .HasConstraintName("ForeignKey_EvaMomentosResponsables_CatsGenerales");
         }
 
 

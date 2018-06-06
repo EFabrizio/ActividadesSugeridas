@@ -1,0 +1,60 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_momentos_responsables.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.evas_momentos_responsables[0].cat_generales)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.evas_momentos_responsables[0].cat_tipo_generales)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.evas_momentos_responsables[0].eva_cat_competencias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.evas_momentos_responsables[0].eva_momentos_metodologia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.evas_momentos_responsables[0].rh_cat_personas)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.evas_momentos_responsables) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cat_generales.IdGeneral)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cat_tipo_generales.IdTipoGeneral)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eva_cat_competencias.IdCompetencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eva_momentos_metodologia.IdMomentoDet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rh_cat_personas.IdPersona)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdResponsable">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdResponsable">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdResponsable">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

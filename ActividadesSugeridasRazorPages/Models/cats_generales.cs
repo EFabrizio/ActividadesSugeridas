@@ -23,6 +23,7 @@ namespace ActividadesSugeridasRazorPages.Models
         //  public short IdTipoGeneral { get; set; }
         // public virtual cats_tipos_generales cat_tipos_generales { get; set; }
         public List<eva_momentos_metodologias> GenEvaMomentosMetodologias { get; set; }
+        public List<evas_momentos_responsables> EvaMomentosResponsables { get; set; }
     }
 
 

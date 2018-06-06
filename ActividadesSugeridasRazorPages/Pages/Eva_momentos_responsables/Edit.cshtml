@@ -1,0 +1,55 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_momentos_responsables.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>evas_momentos_responsables</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="evas_momentos_responsables.IdResponsable" />
+            <div class="form-group">
+                <label asp-for="evas_momentos_responsables.IdPersona" class="control-label"></label>
+                <select asp-for="evas_momentos_responsables.IdPersona" class="form-control" asp-items="ViewBag.IdPersona"></select>
+                <span asp-validation-for="evas_momentos_responsables.IdPersona" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="evas_momentos_responsables.IdCompetencia" class="control-label"></label>
+                <select asp-for="evas_momentos_responsables.IdCompetencia" class="form-control" asp-items="ViewBag.IdCompetencia"></select>
+                <span asp-validation-for="evas_momentos_responsables.IdCompetencia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="evas_momentos_responsables.IdMomentoDet" class="control-label"></label>
+                <select asp-for="evas_momentos_responsables.IdMomentoDet" class="form-control" asp-items="ViewBag.IdMomentoDet"></select>
+                <span asp-validation-for="evas_momentos_responsables.IdMomentoDet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="evas_momentos_responsables.IdTipoGenResponsable" class="control-label"></label>
+                <select asp-for="evas_momentos_responsables.IdTipoGenResponsable" class="form-control" asp-items="ViewBag.IdTipoGenResponsable"></select>
+                <span asp-validation-for="evas_momentos_responsables.IdTipoGenResponsable" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="evas_momentos_responsables.IdGenResponsable" class="control-label"></label>
+                <select asp-for="evas_momentos_responsables.IdGenResponsable" class="form-control" asp-items="ViewBag.IdGenResponsable"></select>
+                <span asp-validation-for="evas_momentos_responsables.IdGenResponsable" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

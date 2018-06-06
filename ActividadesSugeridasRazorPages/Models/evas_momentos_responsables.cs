@@ -28,12 +28,12 @@ namespace ActividadesSugeridasRazorPages.Models
        
       //  public int IdGenResponsable { get; set; }
 
-        [ForeignKey("IdTipoGenResponsable")]
-        public short IdTipoGeneral { get; set; }
+      //  [ForeignKey("IdTipoGenResponsable")]
+        public short IdTipoGenResponsable { get; set; }
         public virtual cats_tipos_generales cat_tipo_generales { get; set; }
 
-        [ForeignKey("IdGenResponsable")]
-        public short IdGeneral { get; set; }
-        public virtual cats_generales caty_generales { get; set; }
+       // [ForeignKey("IdGenResponsable")]
+        public short IdGenResponsable { get; set; }
+        public virtual cats_generales cat_generales { get; set; }
     }
 }

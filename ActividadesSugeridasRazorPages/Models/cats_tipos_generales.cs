@@ -23,6 +23,7 @@ namespace ActividadesSugeridasRazorPages.Models
 
        public List<cats_generales> Generales { get; set; }
        public List<eva_momentos_metodologias> GenEvaMomentosMetodologias { get; set; }
+       public List<evas_momentos_responsables> EvaMomentosResponsables{ get; set; }
 
 
     }
