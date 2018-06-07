@@ -29,16 +29,16 @@ namespace ActividadesSugeridasRazorPages.Models
 
 
      //  [ForeignKey("IdTipoGeneral")]
-        public short IdTipoGenCalificacion { get; set; }
+        public short? IdTipoGenCalificacion { get; set; }
         public virtual cats_tipos_generales cat_tipo_generales { get; set; }
 
 
       //   public short IdTipoGenCalificacion { get; set; }
     //   [ForeignKey("IdGeneral")]
-        public short IdGenCalificacion { get; set; }
+        public short? IdGenCalificacion { get; set; }
         public virtual cats_generales cat_generales { get; set; }
 
-        public double Calificacion { get; set; }
+        public double? Calificacion { get; set; }
 
       //   [ForeignKey("IdMetodologia")]
         public short IdMetodologia { get; set; }
@@ -51,10 +51,14 @@ namespace ActividadesSugeridasRazorPages.Models
       //  [ForeignKey("IdMomento")]
         public short IdMomento { get; set; }
         public virtual eva_plantillas_momentos_metodologia Momento { get; set; }
-
+        
         public DateTime FechaReg { get; set; }
+      
         public DateTime FechaUltAct { get; set; }
+      
         public DateTime FechaEvaluacion { get; set; }
+
+
         public short IdEmpSuc { get; set; }
         public int IdEvento { get; set; }
 

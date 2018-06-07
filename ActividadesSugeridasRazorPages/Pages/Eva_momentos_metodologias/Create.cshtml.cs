@@ -16,6 +16,9 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         public int idComp;
         public string per;
         public string compe;
+        public DateTime fechaActualizacion;
+        public DateTime fechaReg;
+
 
         public CreateModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
@@ -28,11 +31,13 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             idComp = Convert.ToInt32(Request.Query["idCompe"]);
             per = Request.Query["per"].ToString();
             compe = Request.Query["compe"].ToString();
+            fechaActualizacion = DateTime.Today;
+            fechaReg = DateTime.Today;
 
             ViewData["IdMetodologia"] = new SelectList(_context.eva_cat_metodologias, "IdMetodologia", "DesMetodologia");
         ViewData["IdMomento"] = new SelectList(_context.eva_plantilla_momentos_metodologia, "IdMomento", "DesMomento");
         ViewData["IdPlantillaMetodo"] = new SelectList(_context.eva_plantilla_metodologia, "IdPlantillaMetodo", "DesPlantillaMetodo");
-        ViewData["IdGenCalificacion"] = new SelectList(_context.cat_generales.Where(e => e.IdTipoGeneral == 1), "IdGeneral", "DesGeneral");
+          //  ViewData["IdGenCalificacion"] //new SelectList(_context.cat_generales.Where(e => e.IdTipoGeneral == 1), "IdGeneral", "DesGeneral");
         ViewData["IdTipoGenCalificacion"] = new SelectList(_context.cat_tipos_generales, "IdTipoGeneral", "IdTipoGeneral");
             ViewData["IdCompetencia"] = idComp; //new SelectList(_context.eva_cat_competencias, "IdCompetencia", "IdCompetencia");
             ViewData["IdPersona"] = idPerson; //new SelectList(_context.rh_cat_personas, "IdPersona", "IdPersona");
