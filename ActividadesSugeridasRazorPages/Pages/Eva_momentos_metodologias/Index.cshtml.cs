@@ -20,8 +20,22 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
 
         public IList<eva_momentos_metodologias> eva_momentos_metodologias { get;set; }
 
+        public int idPerson;
+        public int idCompe;
+        public string per;
+        public string compe;
+        public DateTime fecha;
+
         public async Task OnGetAsync()
         {
+
+            idPerson = Convert.ToInt32(Request.Query["id"]);
+            idCompe = Convert.ToInt32(Request.Query["idcompetencia"]);
+            per = Request.Query["nombre"].ToString();
+            compe = Request.Query["nomcompetencia"].ToString();
+      
+            fecha = DateTime.Now;
+
             eva_momentos_metodologias = await _context.eva_momentos_metodologia
                 .Include(e => e.Metodologia)
                 .Include(e => e.Momento)

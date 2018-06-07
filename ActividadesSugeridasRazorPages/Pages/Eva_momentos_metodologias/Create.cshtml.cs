@@ -12,6 +12,10 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
     public class CreateModel : PageModel
     {
         private readonly ActividadesSugeridasRazorPages.Models.ApplicationDbContext _context;
+        public int idPerson;
+        public int idCompe;
+        public string per;
+        public string compe;
 
         public CreateModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
@@ -20,7 +24,12 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
 
         public IActionResult OnGet()
         {
-        ViewData["IdMetodologia"] = new SelectList(_context.eva_cat_metodologias, "IdMetodologia", "IdMetodologia");
+            idPerson = Convert.ToInt32(Request.Query["id"]);
+            idCompe = Convert.ToInt32(Request.Query["idcompetencia"]);
+            per = Request.Query["nombre"].ToString();
+            compe = Request.Query["nomcompetencia"].ToString();
+
+            ViewData["IdMetodologia"] = new SelectList(_context.eva_cat_metodologias, "IdMetodologia", "IdMetodologia");
         ViewData["IdMomento"] = new SelectList(_context.eva_plantilla_momentos_metodologia, "IdMomento", "IdMomento");
         ViewData["IdPlantillaMetodo"] = new SelectList(_context.eva_plantilla_metodologia, "IdPlantillaMetodo", "IdPlantillaMetodo");
         ViewData["IdGenCalificacion"] = new SelectList(_context.cat_generales, "IdGeneral", "IdGeneral");
