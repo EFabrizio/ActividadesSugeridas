@@ -7,19 +7,28 @@
 
 <h2>Crear nuevo momento de Metodologias</h2>
 
+<div class="panel panel-primary">
+
+    <div class="panel-heading">Información del Momento de la Competencia </div>
+    <div class="panel-body">
+        <p>Persona: @Model.per</p>
+        <p>Competencia: @Model.compe</p>
+    </div>
+</div>
+
 
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group" hidden >
                 <label asp-for="eva_momentos_metodologias.IdPersona" class="control-label">Persona</label>
-                <select asp-for="eva_momentos_metodologias.IdPersona" class ="form-control" asp-items="ViewBag.IdPersona"></select>
+                <input type="text" asp-for="eva_momentos_metodologias.IdPersona" class ="form-control" value="@Model.idPerson">
             </div>
-            <div class="form-group">
+            <div class="form-group" hidden >
                 <label asp-for="eva_momentos_metodologias.IdCompetencia" class="control-label">Competencia</label>
-                <select asp-for="eva_momentos_metodologias.IdCompetencia" class ="form-control" asp-items="ViewBag.IdCompetencia"></select>
+                <input type="text" asp-for="eva_momentos_metodologias.IdCompetencia" class ="form-control" value="@Model.idComp">
             </div>
             <div class="form-group">
                 <label asp-for="eva_momentos_metodologias.DesMomento" class="control-label">Descripcion del Momento</label>
@@ -46,9 +55,9 @@
                 <input asp-for="eva_momentos_metodologias.Observaciones" class="form-control" />
                 <span asp-validation-for="eva_momentos_metodologias.Observaciones" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" hidden>
                 <label asp-for="eva_momentos_metodologias.IdTipoGenCalificacion" class="control-label">Tipo de Calificacion</label>
-                <select asp-for="eva_momentos_metodologias.IdTipoGenCalificacion" class ="form-control" asp-items="ViewBag.IdTipoGenCalificacion"></select>
+                <input type="text" asp-for="eva_momentos_metodologias.IdTipoGenCalificacion" class ="form-control" value="1"></select>
             </div>
             <div class="form-group">
                 <label asp-for="eva_momentos_metodologias.IdGenCalificacion" class="control-label">Calificación cuantitativa</label>
@@ -104,7 +113,12 @@
 </div>
 
 <div>
-    <a class="btn btn-info btn-md active" role="button" asp-page="Index">Cancelar</a>
+    <a class="btn btn-info btn-md active" role="button" asp-page="Index"
+       asp-route-id="@Model.idPerson"
+                     asp-route-nombre="@Model.per"
+                     asp-route-nomcompetencia="@Model.compe"
+                     asp-route-idcompetencia="@Model.idComp" 
+       >Cancelar</a>
 </div>
 
 @section Scripts {
