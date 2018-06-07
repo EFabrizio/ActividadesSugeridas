@@ -58,7 +58,16 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
             {
                 _context.Eva_actividades_sug_estatus.Remove(Eva_actividad_sug_estatus);
                 await _context.SaveChangesAsync();
+
+               
             }
+
+            string query = "SELECT TOP 1 * FROM eva_actividades_sug_estatus ORDER BY FechaEstatus DESC";
+            var ultimoRegistro = _context.Eva_actividades_sug_estatus.FromSql(query).SingleOrDefault();
+
+            await _context.Database.ExecuteSqlCommandAsync(
+                "UPDATE eva_actividades_sug_estatus SET ACTUAL = 1 WHERE IDEstatusDet = {0}",
+                parameters: ultimoRegistro.IdEstatusDet);
 
             act = Request.Query["idacti"];
 
