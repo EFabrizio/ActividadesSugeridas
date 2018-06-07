@@ -22,6 +22,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
 
         [BindProperty]
         public Eva_actividad_sug_estatus Eva_actividad_sug_estatus { get; set; }
+        public Cats_estatus Cats_Estatus { get; set; }
 
         public async Task<IActionResult> OnGetAsync(short? id)
         {

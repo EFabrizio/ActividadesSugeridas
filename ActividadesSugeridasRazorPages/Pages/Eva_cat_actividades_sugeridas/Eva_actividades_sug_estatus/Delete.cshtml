@@ -22,13 +22,13 @@
         </dt>
         <dd>
             @if (Model.Eva_actividad_sug_estatus.Actual == "1")
-             {
-                <input type="checkbox" value="1" checked />
-             }
-             else
-             {
-                <input type="checkbox" value="0" />
-             }
+        {
+            <input type="checkbox" value="1" checked />
+    }
+    else
+    {
+        <input type="checkbox" value="0" />
+}
         </dd>
         <dt>
             Observación
@@ -49,11 +49,12 @@
             @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.Eva_cat_tipo_actividades_sugeridas.DesTipoActividadSug)
         </dd>
         <dt>
-            Tipo Estatus
+            Estatus
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.IdEstatusDet)
+            @Html.DisplayFor(model => model.Eva_actividad_sug_estatus.Cat_estatus.DesEstatus)
         </dd>
+
     </dl>
     
     <form method="post">
