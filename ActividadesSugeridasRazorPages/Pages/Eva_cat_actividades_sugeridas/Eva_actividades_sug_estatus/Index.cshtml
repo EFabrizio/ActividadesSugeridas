@@ -50,7 +50,7 @@
         </thead>
         <tbody>
  
-            @foreach (var item in Model.Eva_actividades_sug_estatus.Where(item => item.IdActividadSugerida == Model.IdActividad).OrderBy(item => item.FechaEstatus))
+            @foreach (var item in Model.Eva_actividades_sug_estatus.Where(item => item.IdActividadSugerida == Model.IdActividad).OrderByDescending(item => item.FechaEstatus))
     {
             <tr>
                 <td>
