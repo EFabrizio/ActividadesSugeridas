@@ -57,13 +57,9 @@
 
                 </div>
 
-                <div class="form-check" hidden>
-                    <input type="text"  asp-for="Eva_actividad_sug_estatus.Actual" value="1"  />
-                    <label asp-for="Eva_actividad_sug_estatus.Actual" class="form-check-label">
-                        Actual
-                    </label>
-                    <span asp-validation-for="Eva_actividad_sug_estatus.Actual"  class="text-danger"></span>
-                </div>
+  
+                    <input type="hidden"  asp-for="Eva_actividad_sug_estatus.Actual" value="0"  />
+
 
                 <div class="form-group">
                     <input type="submit" value="Crear" class="btn btn-success" />
