@@ -24,6 +24,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
 
         [BindProperty]
         public eva_momentos_metodologias eva_momentos_metodologias { get; set; }
+        public IList<Res_evento> Res_evento { get; set; }
 
         public async Task<IActionResult> OnGetAsync(short? id)
         {
@@ -36,6 +37,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             per = Request.Query["per"].ToString();
             compe = Request.Query["compe"].ToString();
 
+            Res_evento = await _context.Res_eventos.ToListAsync();
 
             eva_momentos_metodologias = await _context.eva_momentos_metodologia
                 .Include(e => e.Metodologia)
