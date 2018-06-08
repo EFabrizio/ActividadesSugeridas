@@ -35,13 +35,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="eva_momentos_metodologias_estatus.FechaEstatus" class="control-label">Fecha de Estatus</label>
-                <input asp-for="eva_momentos_metodologias_estatus.FechaEstatus" class="form-control" />
+                <input value="@Model.fecha" asp-for="eva_momentos_metodologias_estatus.FechaEstatus" class="form-control" />
                 <span asp-validation-for="eva_momentos_metodologias_estatus.FechaEstatus" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias_estatus.Actual" class="control-label">Actual</label>
-                <input asp-for="eva_momentos_metodologias_estatus.Actual" class="form-control" />
-                <span asp-validation-for="eva_momentos_metodologias_estatus.Actual" class="text-danger"></span>
+             
+                <input type="hidden" asp-for="eva_momentos_metodologias_estatus.Actual" class="form-control" value="1"  />
+             
             </div>
             <div class="form-group">
                 <label asp-for="eva_momentos_metodologias_estatus.Observacion" class="control-label">Observación</label>

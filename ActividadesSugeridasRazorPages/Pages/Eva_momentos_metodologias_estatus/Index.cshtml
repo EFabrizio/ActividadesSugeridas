@@ -10,76 +10,74 @@
 <p>
     <a asp-page="Create" class="btn btn-success btn-md active" role="button">Crear Nuevo Estatus</a>
 </p>
+
+
+<div class="panel panel-primary">
+
+    <div class="panel-heading">Información de la Actividad</div>
+    <div class="panel-body">
+        <p>Persona: Jesus</p>
+        <p>Momento: El gran momento</p>
+        <p>Competencia: Hacker en ASP NET CORE</p>
+
+    </div>
+</div>
+
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    Fecha de estatus
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus[0].Actual)
-                </th>
-                <th>
-                   Observación
-                </th>
-                <th>
-                   Usuario registro
-                </th>
             <th>
-               Estatus
+                Fecha de estatus
             </th>
             <th>
-                Tipo de estatus
+                @Html.DisplayNameFor(model => model.eva_momentos_metodologias_estatus[0].Actual)
             </th>
             <th>
-               Competencia
+                Observación
             </th>
+
             <th>
-               Momento
+                Estatus
             </th>
-            <th>
-                Persona
-            </th>
+
+
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.eva_momentos_metodologias_estatus) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaEstatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Actual)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Observacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdUsuarioReg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cat_estatus.IdEstatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cat_tipos_estatus.IdTipoEstatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.eva_cat_competencias.IdCompetencia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.eva_momentos_metodologia.IdMomentoDet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.rh_cat_personas.IdPersona)
-            </td>
-            <td>
-              
-                <a asp-page="./Edit" class="btn btn-default btn-md active" role="button" asp-route-id="@item.IdEstatusDet">Editar</a> |
-                <a asp-page="./Details" class="btn btn-info btn-md active" role="button" asp-route-id="@item.IdEstatusDet">Detalles</a> |
-                <a asp-page="./Delete" class="btn btn-danger btn-md active" role="button" asp-route-id="@item.IdEstatusDet">Eliminar</a> |
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.eva_momentos_metodologias_estatus.OrderByDescending(item => item.FechaEstatus))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaEstatus)
+                </td>
+                @if (item.Actual == "1")
+                {
+                    <td>
+                        <input type="checkbox" value="1" checked="checked" />
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <input type="checkbox" value="0" />
+                    </td>
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observacion)
+                </td>
+                <td>
+                    Revision
+                </td>
+
+
+                <td>
+
+                    <a asp-page="./Edit" class="btn btn-default btn-md active" role="button" asp-route-id="@item.IdEstatusDet">Editar</a> |
+                    <a asp-page="./Details" class="btn btn-info btn-md active" role="button" asp-route-id="@item.IdEstatusDet">Detalles</a> |
+                    <a asp-page="./Delete" class="btn btn-danger btn-md active" role="button" asp-route-id="@item.IdEstatusDet">Eliminar</a> |
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
