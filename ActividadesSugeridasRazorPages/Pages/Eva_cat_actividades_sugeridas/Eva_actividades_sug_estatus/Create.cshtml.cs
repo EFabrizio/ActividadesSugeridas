@@ -113,9 +113,9 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
                 return Page();
             }
 
+            idAct = Request.Query["id"];
 
-
-            string query = "SELECT TOP 1 * FROM eva_actividades_sug_estatus ORDER BY FechaEstatus DESC";
+            string query = "SELECT TOP 1 * FROM eva_actividades_sug_estatus WHERE IdActividadSugerida = "+ idAct + " ORDER BY FechaEstatus DESC";
             var ultimoRegistro = _context.Eva_actividades_sug_estatus.FromSql(query).SingleOrDefault();
 
             await _context.Database.ExecuteSqlCommandAsync(
@@ -128,7 +128,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
        
 
 
-            idAct = Request.Query["id"];
+            
 
             return RedirectToPage("./Index",new { id = idAct });
             //return Redirect("./Index"+idAct.ToString());
