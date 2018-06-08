@@ -19,6 +19,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         }
 
         public IList<eva_momentos_metodologias> eva_momentos_metodologias { get;set; }
+      
 
         public int idPerson;
         public int idCompe;
@@ -43,6 +44,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 .Include(e => e.cat_generales)
                 .Include(e => e.cat_tipo_generales)
                 .Include(e => e.eva_cat_competencias)
+              
                 .Include(e => e.rh_cat_personas).ToListAsync();
         }
     }

@@ -59,7 +59,7 @@
                 <label asp-for="eva_momentos_metodologias.IdTipoGenCalificacion" class="control-label">Tipo de Calificacion</label>
                 <input type="text" asp-for="eva_momentos_metodologias.IdTipoGenCalificacion" class="form-control" value="1">
             </div>
-            <div class="form-group">
+            <div class="form-group" hidden>
                 <label asp-for="eva_momentos_metodologias.IdGenCalificacion" class="control-label">Calificación cuantitativa</label>
                 <input disabled asp-for="eva_momentos_metodologias.IdGenCalificacion" class="form-control" value="">
             </div>
@@ -80,26 +80,24 @@
                 <label asp-for="eva_momentos_metodologias.IdMomento" class="control-label">Momento</label>
                 <select asp-for="eva_momentos_metodologias.IdMomento" class="form-control" id="combo3" asp-items="ViewBag.IdMomento"></select>
             </div>
-            <div class="form-group">
+            <div class="form-group" >
                 <label asp-for="eva_momentos_metodologias.FechaReg" class="control-label">Fecha de Registro</label>
-                <input type="text" asp-for="eva_momentos_metodologias.FechaReg" class="form-control" value="@Model.fechaReg" />
+                <input readonly type="text" asp-for="eva_momentos_metodologias.FechaReg" class="form-control" value="@Model.fechaReg" />
                 <span asp-validation-for="eva_momentos_metodologias.FechaReg" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="eva_momentos_metodologias.FechaUltAct" class="control-label">Fecha ultima Actualización</label>
-                <input type="text" asp-for="eva_momentos_metodologias.FechaUltAct" class="form-control" value="@Model.fechaReg" />
+                <input  readonly  type="text" asp-for="eva_momentos_metodologias.FechaUltAct" class="form-control" value="@Model.fechaReg" />
                 <span asp-validation-for="eva_momentos_metodologias.FechaUltAct" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="eva_momentos_metodologias.FechaEvaluacion" class="control-label">Fecha de Evaluación</label>
-                <input asp-for="eva_momentos_metodologias.FechaEvaluacion" class="form-control"/>
+                <input asp-for="eva_momentos_metodologias.FechaEvaluacion" class="form-control" />
                 <span asp-validation-for="eva_momentos_metodologias.FechaEvaluacion" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="eva_momentos_metodologias.IdEvento" class="control-label">Evento</label>
-                <input asp-for="eva_momentos_metodologias.IdEvento" class="form-control" />
-                <span asp-validation-for="eva_momentos_metodologias.IdEvento" class="text-danger"></span>
+                <select asp-for="eva_momentos_metodologias.IdEvento" class="form-control"  asp-items="ViewBag.IdEvento"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Crear" class="btn btn-success btn-md active" />
