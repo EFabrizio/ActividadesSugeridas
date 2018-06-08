@@ -69,7 +69,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_responsables
             _context.eva_momentos_responsables.Add(evas_momentos_responsables);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index",new{ nombre,paterno,materno,desmomento,descompetencia });
         }
     }
 }
