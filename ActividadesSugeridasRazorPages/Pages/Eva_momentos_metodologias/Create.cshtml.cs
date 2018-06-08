@@ -18,11 +18,17 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         public string compe;
         public DateTime fechaActualizacion;
         public DateTime fechaReg;
+        public Array metodos;
+        public List<eva_plantillas_metodologia> eva_plantillas_metodologia { get; set; }
+        public List<eva_plantillas_momentos_metodologia> eva_plantillas_momentos_metodologia { get; set; }
+
 
 
         public CreateModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
             _context = context;
+            eva_plantillas_metodologia = _context.eva_plantilla_metodologia.ToList();
+            eva_plantillas_momentos_metodologia = _context.eva_plantilla_momentos_metodologia.ToList();
         }
 
         public IActionResult OnGet()
@@ -34,6 +40,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             fechaActualizacion = DateTime.Today;
             fechaReg = DateTime.Today;
 
+
             ViewData["IdMetodologia"] = new SelectList(_context.eva_cat_metodologias, "IdMetodologia", "DesMetodologia");
         ViewData["IdMomento"] = new SelectList(_context.eva_plantilla_momentos_metodologia, "IdMomento", "DesMomento");
         ViewData["IdPlantillaMetodo"] = new SelectList(_context.eva_plantilla_metodologia, "IdPlantillaMetodo", "DesPlantillaMetodo");
@@ -43,6 +50,10 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             ViewData["IdPersona"] = idPerson; //new SelectList(_context.rh_cat_personas, "IdPersona", "IdPersona");
             return Page();
         }
+        /*public async Task OnGetAsync()
+        {
+            eva_cats_metodologias = await _context.eva_cat_metodologias.ToList();
+        }*/
 
         [BindProperty]
         public eva_momentos_metodologias eva_momentos_metodologias { get; set; }
