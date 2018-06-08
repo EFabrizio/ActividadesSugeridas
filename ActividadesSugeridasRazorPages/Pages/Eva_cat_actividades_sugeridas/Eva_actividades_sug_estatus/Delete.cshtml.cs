@@ -13,7 +13,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
     {
         private readonly ActividadesSugeridasRazorPages.Models.ApplicationDbContext _context;
         public short? idAct;
-        public int idacti;
+     public int idacti;
+        public string act;
         public DeleteModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
             _context = context;
@@ -21,12 +22,13 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
 
         [BindProperty]
         public Eva_actividad_sug_estatus Eva_actividad_sug_estatus { get; set; }
+        public Cats_estatus Cats_Estatus { get; set; }
 
         public async Task<IActionResult> OnGetAsync(short? id)
         {
             idAct = id;
             idacti = Convert.ToInt32(Request.Query["idacti"]);
-
+            
             if (id == null)
             {
                 return NotFound();
@@ -57,9 +59,26 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
             {
                 _context.Eva_actividades_sug_estatus.Remove(Eva_actividad_sug_estatus);
                 await _context.SaveChangesAsync();
+
+               
             }
 
-            return RedirectToPage("./Index",  new {id = idAct});
+            act = Request.Query["idacti"];
+
+            string query = "SELECT TOP 1 * FROM eva_actividades_sug_estatus  WHERE IdActividadSugerida = " + act + "ORDER BY FechaEstatus DESC";
+            var ultimoRegistro = _context.Eva_actividades_sug_estatus.FromSql(query).SingleOrDefault();
+
+            if (ultimoRegistro != null)
+            {
+                await _context.Database.ExecuteSqlCommandAsync(
+                    "UPDATE eva_actividades_sug_estatus SET ACTUAL = 1 WHERE IDEstatusDet = {0}",
+                    parameters: ultimoRegistro.IdEstatusDet);
+            }
+
+
+     
+
+            return RedirectToPage("./Index",  new {id = act});
         }
     }
 }

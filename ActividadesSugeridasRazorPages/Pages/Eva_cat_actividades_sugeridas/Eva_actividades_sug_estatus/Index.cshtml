@@ -49,8 +49,9 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.Eva_actividades_sug_estatus.Where(item => item.IdActividadSugerida == Model.IdActividad).OrderBy(item => item.FechaEstatus))
-            {
+ 
+            @foreach (var item in Model.Eva_actividades_sug_estatus.Where(item => item.IdActividadSugerida == Model.IdActividad).OrderByDescending(item => item.FechaEstatus))
+    {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.IdEstatusDet)
@@ -69,7 +70,7 @@ else
 {
 
             <td>
-                <input type="checkbox" value="0"/>
+                <input type="checkbox" value="0" />
             </td>
 }
                 <td>
@@ -83,15 +84,16 @@ else
                     <!--  asp-route-id="@item.IdEstatusDet"-->
                     <!--  asp-route-idacti="@Model.IdActividad">Editar</a>-->
                     <a class="btn btn-info btn-md active" role="button" asp-page="./Details"
-                     asp-route-id="@item.IdEstatusDet"
-                       asp-route-idacti="@Model.IdActividad">Detalles</a>|
-                    <a class="btn btn-danger btn-md active" role="button" asp-page="./Delete" 
                        asp-route-id="@item.IdEstatusDet"
-                       asp-route-idacti="@Model.IdActividad" >Eliminar</a>
+                       asp-route-idacti="@Model.IdActividad">Detalles</a>|
+                    <a class="btn btn-danger btn-md active" role="button" asp-page="./Delete"
+                       asp-route-id="@item.IdEstatusDet"
+                       asp-route-idacti="@Model.IdActividad">Eliminar</a>
                 </td>
-    </tr>
-    }
-    </tbody>
+            </tr>
+            
+            }
+        </tbody>
         </table>
     </div>
 

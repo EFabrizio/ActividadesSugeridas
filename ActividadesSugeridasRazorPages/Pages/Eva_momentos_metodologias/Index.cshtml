@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<h2>Momentos Metodologías</h2>
 
 
 <p>
@@ -90,7 +90,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.eva_momentos_metodologias)
+            @foreach (var item in Model.eva_momentos_metodologias.Where(e => e.IdPersona == Model.idPerson).Where(i=> i.IdCompetencia == Model.idCompe))
             {
                 <tr>
                     <td>
@@ -129,13 +129,13 @@
                         @Html.DisplayFor(modelItem => item.IdEvento)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Metodologia.IdMetodologia)
+                        @Html.DisplayFor(modelItem => item.Metodologia.DesMetodologia)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Momento.IdMomento)
+                        @Html.DisplayFor(modelItem => item.Momento.DesMomento)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.PlantillaMetodo.IdPlantillaMetodo)
+                        @Html.DisplayFor(modelItem => item.PlantillaMetodo.DesPlantillaMetodo)
                     </td> -->
                     <td>
                         @Html.DisplayFor(modelItem => item.cat_generales.DesGeneral)
@@ -161,7 +161,11 @@
                          <a class="btn btn-default btn-md active" role="button" asp-page="./Edit" asp-route-id="@item.IdMomentoDet">Editar</a> |
                          <a class="btn btn-info btn-md active" role="button" asp-page="./Details" asp-route-id="@item.IdMomentoDet">Detalles</a> |
                          <a class="btn btn-danger btn-md active" role="button" asp-page="./Delete" asp-route-id="@item.IdMomentoDet">Eliminar</a> |
+
                          <a asp-page="/Eva_momentos_responsables/Index" class="btn btn-warning active" role="button" asp-route-id="@item.IdMomentoDet">Responsables</a>
+                         <a class="btn btn-warning btn-md active" role="button" asp-page="./Delete" asp-route-id="@item.IdMomentoDet">Responsables</a> |
+                         <a class="btn btn-primary btn-md active" role="button" asp-page="./Delete" asp-route-id="@item.IdMomentoDet">Estatus</a>
+
                      </td>
                 </tr>
             }

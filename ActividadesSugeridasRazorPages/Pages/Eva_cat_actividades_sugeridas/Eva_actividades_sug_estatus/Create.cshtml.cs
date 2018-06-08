@@ -113,12 +113,25 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
                 return Page();
             }
 
-            
+            idAct = Request.Query["id"];
+
+            string query = "SELECT TOP 1 * FROM eva_actividades_sug_estatus WHERE IdActividadSugerida = "+ idAct + " ORDER BY FechaEstatus DESC";
+            var ultimoRegistro = _context.Eva_actividades_sug_estatus.FromSql(query).SingleOrDefault();
+            if(ultimoRegistro != null)
+            {
+                await _context.Database.ExecuteSqlCommandAsync(
+                    "UPDATE eva_actividades_sug_estatus SET ACTUAL = 0 WHERE IDEstatusDet = {0}",
+                    parameters: ultimoRegistro.IdEstatusDet);
+            }
+
 
             _context.Eva_actividades_sug_estatus.Add(Eva_actividad_sug_estatus);
             await _context.SaveChangesAsync();
 
-            idAct = Request.Query["id"];
+       
+
+
+            
 
             return RedirectToPage("./Index",new { id = idAct });
             //return Redirect("./Index"+idAct.ToString());

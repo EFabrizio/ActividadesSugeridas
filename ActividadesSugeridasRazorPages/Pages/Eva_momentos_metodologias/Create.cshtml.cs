@@ -13,9 +13,12 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
     {
         private readonly ActividadesSugeridasRazorPages.Models.ApplicationDbContext _context;
         public int idPerson;
-        public int idCompe;
+        public int idComp;
         public string per;
         public string compe;
+        public DateTime fechaActualizacion;
+        public DateTime fechaReg;
+
 
         public CreateModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
@@ -24,18 +27,20 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
 
         public IActionResult OnGet()
         {
-            idPerson = Convert.ToInt32(Request.Query["id"]);
-            idCompe = Convert.ToInt32(Request.Query["idcompetencia"]);
-            per = Request.Query["nombre"].ToString();
-            compe = Request.Query["nomcompetencia"].ToString();
+            idPerson = Convert.ToInt32(Request.Query["idPer"]);
+            idComp = Convert.ToInt32(Request.Query["idCompe"]);
+            per = Request.Query["per"].ToString();
+            compe = Request.Query["compe"].ToString();
+            fechaActualizacion = DateTime.Today;
+            fechaReg = DateTime.Today;
 
-            ViewData["IdMetodologia"] = new SelectList(_context.eva_cat_metodologias, "IdMetodologia", "IdMetodologia");
-        ViewData["IdMomento"] = new SelectList(_context.eva_plantilla_momentos_metodologia, "IdMomento", "IdMomento");
-        ViewData["IdPlantillaMetodo"] = new SelectList(_context.eva_plantilla_metodologia, "IdPlantillaMetodo", "IdPlantillaMetodo");
-        ViewData["IdGenCalificacion"] = new SelectList(_context.cat_generales, "IdGeneral", "IdGeneral");
+            ViewData["IdMetodologia"] = new SelectList(_context.eva_cat_metodologias, "IdMetodologia", "DesMetodologia");
+        ViewData["IdMomento"] = new SelectList(_context.eva_plantilla_momentos_metodologia, "IdMomento", "DesMomento");
+        ViewData["IdPlantillaMetodo"] = new SelectList(_context.eva_plantilla_metodologia, "IdPlantillaMetodo", "DesPlantillaMetodo");
+          //  ViewData["IdGenCalificacion"] //new SelectList(_context.cat_generales.Where(e => e.IdTipoGeneral == 1), "IdGeneral", "DesGeneral");
         ViewData["IdTipoGenCalificacion"] = new SelectList(_context.cat_tipos_generales, "IdTipoGeneral", "IdTipoGeneral");
-        ViewData["IdCompetencia"] = new SelectList(_context.eva_cat_competencias, "IdCompetencia", "IdCompetencia");
-        ViewData["IdPersona"] = new SelectList(_context.rh_cat_personas, "IdPersona", "IdPersona");
+            ViewData["IdCompetencia"] = idComp; //new SelectList(_context.eva_cat_competencias, "IdCompetencia", "IdCompetencia");
+            ViewData["IdPersona"] = idPerson; //new SelectList(_context.rh_cat_personas, "IdPersona", "IdPersona");
             return Page();
         }
 
@@ -52,7 +57,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             _context.eva_momentos_metodologia.Add(eva_momentos_metodologias);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index",new{ id = idPerson, idcompetencia = idComp, nombre = per, nomcompetencia = compe });
         }
     }
 }
