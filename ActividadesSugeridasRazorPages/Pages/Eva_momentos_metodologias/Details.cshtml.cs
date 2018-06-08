@@ -12,6 +12,10 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
     public class DetailsModel : PageModel
     {
         private readonly ActividadesSugeridasRazorPages.Models.ApplicationDbContext _context;
+        public int idPerson;
+        public int idComp;
+        public string per;
+        public string compe;
 
         public DetailsModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
@@ -22,6 +26,11 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
 
         public async Task<IActionResult> OnGetAsync(short? id)
         {
+            idPerson = Convert.ToInt32(Request.Query["idPer"]);
+            idComp = Convert.ToInt32(Request.Query["idCompe"]);
+            per = Request.Query["per"].ToString();
+            compe = Request.Query["compe"].ToString();
+
             if (id == null)
             {
                 return NotFound();
