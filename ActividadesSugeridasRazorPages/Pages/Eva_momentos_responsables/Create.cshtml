@@ -5,33 +5,44 @@
     ViewData["Title"] = "Create";
 }
 
-
-
 <h4>Crear responsable de Momento</h4>
+
 <hr />
+<div class="panel panel-primary">
+
+    <div class="panel-heading">Información del momento</div>
+    <div class="panel-body">
+        <p>Persona: @Model.nombre @Model.paterno @Model.materno</p>
+        <p>competencia: @Model.descompetencia</p>
+        <p>Tipo: @Model.desmomento</p>
+    </div>
+</div>
+
+
+
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group" hidden>
                 <label asp-for="evas_momentos_responsables.IdPersona" class="control-label">Persona</label>
-                <select asp-for="evas_momentos_responsables.IdPersona" class ="form-control" asp-items="ViewBag.IdPersona"></select>
+                <input asp-for="evas_momentos_responsables.IdPersona" class="form-control" asp-items="ViewBag.IdPersona" value="@Model.idnombre">
             </div>
-            <div class="form-group">
+            <div class="form-group" hidden>
                 <label asp-for="evas_momentos_responsables.IdCompetencia" class="control-label">Competencia</label>
-                <select asp-for="evas_momentos_responsables.IdCompetencia" class ="form-control" asp-items="ViewBag.IdCompetencia"></select>
+                <input asp-for="evas_momentos_responsables.IdCompetencia" class="form-control" asp-items="ViewBag.IdCompetencia" value="@Model.idcompetencia">
             </div>
-            <div class="form-group">
+            <div class="form-group" hidden>
                 <label asp-for="evas_momentos_responsables.IdMomentoDet" class="control-label">Momento</label>
-                <select asp-for="evas_momentos_responsables.IdMomentoDet" class ="form-control" asp-items="ViewBag.IdMomentoDet"></select>
+                <input asp-for="evas_momentos_responsables.IdMomentoDet" class="form-control" asp-items="ViewBag.IdMomentoDet" value="@Model.idcompetencia">
             </div>
             <div class="form-group">
                 <label asp-for="evas_momentos_responsables.IdTipoGenResponsable" class="control-label">Tipo de responsable</label>
-                <select asp-for="evas_momentos_responsables.IdTipoGenResponsable" class ="form-control" asp-items="ViewBag.IdTipoGenResponsable"></select>
+                <select asp-for="evas_momentos_responsables.IdTipoGenResponsable" class="form-control" asp-items="ViewBag.IdTipoGenResponsable"></select>
             </div>
             <div class="form-group">
                 <label asp-for="evas_momentos_responsables.IdGenResponsable" class="control-label">Responsable</label>
-                <select asp-for="evas_momentos_responsables.IdGenResponsable" class ="form-control" asp-items="ViewBag.IdGenResponsable"></select>
+                <select asp-for="evas_momentos_responsables.IdGenResponsable" class="form-control" asp-items="ViewBag.IdGenResponsable"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Crear" class="btn btn-default" />

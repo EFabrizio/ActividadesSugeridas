@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int?}"
 @model ActividadesSugeridasRazorPages.Pages.Eva_momentos_responsables.IndexModel
 
 @{
@@ -8,8 +8,34 @@
 <h2>Responsable de Momento</h2>
 
 <p>
-    <a asp-page="Create" class="btn btn-success btn-md active" role="button">Agregar responsable</a>
+    <a asp-page="Create" class="btn btn-success btn-md active" role="button" 
+       asp-route-idper="@Model.IdNombre"
+       asp-route-idmom="@Model.IdMomentoDet"
+       asp-route-idcom="@Model.IdCompetencia"
+       asp-route-nombre="@Model.nombrePersona"
+       asp-route-paterno="@Model.apellidoPaterno"
+       asp-route-materno="@Model.apellidoMaterno"
+       asp-route-desmom="@Model.desMomento"
+       asp-route-descom="@Model.desCompetencia"
+       
+      >Agregar responsable</a>
 </p>
+
+
+
+
+
+<div class="panel panel-primary">
+
+    <div class="panel-heading">Información de la Actividad</div>
+    <div class="panel-body">
+        <p>Persona: @Model.nombrePersona @Model.apellidoPaterno @Model.apellidoMaterno</p>
+        <p>Competencia:@Model.desCompetencia </p>
+        <p>Momento:@Model.desMomento </p>
+
+    </div>
+</div>
+
 <table class="table">
     <thead>
         <tr>
