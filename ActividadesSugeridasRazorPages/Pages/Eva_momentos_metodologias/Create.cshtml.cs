@@ -65,6 +65,11 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 return Page();
             }
 
+            idPerson = Convert.ToInt32(Request.Query["idPer"]);
+            idComp = Convert.ToInt32(Request.Query["idCompe"]);
+            per = Request.Query["per"].ToString();
+            compe = Request.Query["compe"].ToString();
+
             _context.eva_momentos_metodologia.Add(eva_momentos_metodologias);
             await _context.SaveChangesAsync();
 
