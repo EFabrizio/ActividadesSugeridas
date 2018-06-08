@@ -17,7 +17,7 @@
             @Html.DisplayFor(model => model.eva_momentos_metodologias.DesMomento)
         </dd>
         <dt>
-           Objetivo
+            Objetivo
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.Objetivo)
@@ -41,19 +41,19 @@
             @Html.DisplayFor(model => model.eva_momentos_metodologias.Observaciones)
         </dd>
         <dt>
-            Calificación
+            Calificación Cualitativa
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.Calificacion)
         </dd>
         <dt>
-           Fecha de registro
+            Fecha de registro
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.FechaReg)
         </dd>
         <dt>
-           Fecha de ultima actualización
+            Fecha de ultima actualización
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.FechaUltAct)
@@ -65,62 +65,66 @@
             @Html.DisplayFor(model => model.eva_momentos_metodologias.FechaEvaluacion)
         </dd>
         <dt>
-           Empresa 
+            Empresa
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.IdEmpSuc)
         </dd>
         <dt>
-           Evento
+            Evento
         </dt>
         <dd>
             @Html.DisplayFor(model => model.eva_momentos_metodologias.IdEvento)
         </dd>
         <dt>
-           Metodologia
+            Metodologia
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.eva_momentos_metodologias.Metodologia.IdMetodologia)
+            @Html.DisplayFor(model => model.eva_momentos_metodologias.Metodologia.DesMetodologia)
         </dd>
         <dt>
             Momento
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.eva_momentos_metodologias.Momento.IdMomento)
+            @Html.DisplayFor(model => model.eva_momentos_metodologias.Momento.DesMomento)
         </dd>
         <dt>
             Plantilla Metodologia
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.eva_momentos_metodologias.PlantillaMetodo.IdPlantillaMetodo)
+            @Html.DisplayFor(model => model.eva_momentos_metodologias.PlantillaMetodo.DesPlantillaMetodo)
         </dd>
         <dt>
-            Calificación
+            Calificación Cuantitativa
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.eva_momentos_metodologias.cat_generales.IdGeneral)
+            @Html.DisplayFor(model => model.eva_momentos_metodologias.cat_generales.DesGeneral)
         </dd>
-        <dt>
-            Tipo de Calificación
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.eva_momentos_metodologias.cat_tipo_generales.IdTipoGeneral)
-        </dd>
-        <dt>
+        <!-- <dt>
+        Tipo de Calificación
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.eva_momentos_metodologias.cat_tipo_generales.DesTipo)
+    </dd>
+       <dt>
            Competencia
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.eva_momentos_metodologias.eva_cat_competencias.IdCompetencia)
-        </dd>
-        <dt>
-            Persona
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.eva_momentos_metodologias.rh_cat_personas.IdPersona)
-        </dd>
+       </dt>
+       <dd>
+           @Html.DisplayFor(model => model.eva_momentos_metodologias.eva_cat_competencias.DesCompetencia)
+       </dd>
+       <dt>
+           Persona
+       </dt>
+       <dd>
+           @Html.DisplayFor(model => model.eva_momentos_metodologias.rh_cat_personas.Nombre)
+       </dd>-->
     </dl>
 </div>
 <div>
     <a class="btn btn-default btn-md active" role="button" asp-page="./Edit" asp-route-id="@Model.eva_momentos_metodologias.IdMomentoDet">Editar</a> |
-    <a class="btn btn-info btn-md active" role="button" asp-page="./Index">Regresar</a>
+    <a class="btn btn-info btn-md active" role="button" asp-page="./Index" 
+        asp-route-id="@Model.idPerson"
+       asp-route-nombre="@Model.per"
+       asp-route-nomcompetencia="@Model.compe"
+       asp-route-idcompetencia="@Model.idComp">Regresar</a>
 </div>

@@ -12,6 +12,10 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
     public class DeleteModel : PageModel
     {
         private readonly ActividadesSugeridasRazorPages.Models.ApplicationDbContext _context;
+        public int idPerson;
+        public int idComp;
+        public string per;
+        public string compe;
 
         public DeleteModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
@@ -27,6 +31,11 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             {
                 return NotFound();
             }
+            idPerson = Convert.ToInt32(Request.Query["idPer"]);
+            idComp = Convert.ToInt32(Request.Query["idCompe"]);
+            per = Request.Query["per"].ToString();
+            compe = Request.Query["compe"].ToString();
+
 
             eva_momentos_metodologias = await _context.eva_momentos_metodologia
                 .Include(e => e.Metodologia)
@@ -59,7 +68,12 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            idPerson = Convert.ToInt32(Request.Query["idPer"]);
+            idComp = Convert.ToInt32(Request.Query["idCompe"]);
+            per = Request.Query["per"].ToString();
+            compe = Request.Query["compe"].ToString();
+
+            return RedirectToPage("./Index", new { id = idPerson, idcompetencia = idComp, nombre = per, nomcompetencia = compe });
         }
     }
 }
