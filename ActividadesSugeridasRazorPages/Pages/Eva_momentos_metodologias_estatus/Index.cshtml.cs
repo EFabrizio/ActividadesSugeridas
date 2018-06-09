@@ -25,15 +25,17 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
         public int momentoId;
         public short competenciaId;
         public int personaId;
-
+        public short? metodologia_momento;
 
 
         public async Task<IActionResult> OnGetAsync(short? id)
         {
-        
+
+            metodologia_momento = id;
             var metodologia = _context.eva_momentos_metodologia.Find(id);
 
-            if(metodologia == null)
+            // Checamos si el dato existe
+            if (metodologia == null)
             {
                 return NotFound();
             }
