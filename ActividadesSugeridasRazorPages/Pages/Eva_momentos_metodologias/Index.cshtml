@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int?}"
 @model ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias.IndexModel
 
 @{
@@ -90,7 +90,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.eva_momentos_metodologias.Where(e => e.IdPersona == Model.idPerson).Where(i=> i.IdCompetencia == Model.idCompe))
+            @foreach (var item in Model.eva_momentos_metodologias.Where(e => e.IdPersona == Model.idPerson))
             {
                 <tr>
                     <td>
@@ -174,8 +174,8 @@
                             >Eliminar</a> |
 
                          <a asp-page="/Eva_momentos_responsables/Index" class="btn btn-warning active" role="button" asp-route-id="@item.IdMomentoDet">Responsables</a>
-                         <a class="btn btn-warning btn-md active" role="button" asp-page="./Delete" asp-route-id="@item.IdMomentoDet">Estatus</a> |
-                         <a class="btn btn-primary btn-md active" role="button" asp-page="./Delete" asp-route-id="@item.IdMomentoDet">Evaluar</a>
+                         <a asp-page="/Eva_momentos_metodologias_estatus/Index" class="btn btn-warning btn-md active" role="button" asp-route-id="@item.IdMomentoDet" >Estatus</a> |
+                         <a class="btn btn-primary btn-md active" role="button" asp-page="./" asp-route-id="@item.IdMomentoDet">Evaluar</a>
 
                      </td>
                 </tr>

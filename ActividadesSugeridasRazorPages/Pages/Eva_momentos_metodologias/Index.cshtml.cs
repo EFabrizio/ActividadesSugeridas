@@ -20,22 +20,22 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
 
         public IList<eva_momentos_metodologias> eva_momentos_metodologias { get;set; }
 
-        public int idPerson;
-        public int idCompe;
+        public int? idPerson;
+        public short idCompe;
         public string per;
         public string compe;
         public DateTime fecha;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(short? id)
         {
 
-            idPerson = Convert.ToInt32(Request.Query["id"]);
-            idCompe = Convert.ToInt32(Request.Query["idcompetencia"]);
-            per = Request.Query["nombre"].ToString();
-            compe = Request.Query["nomcompetencia"].ToString();
-      
+            idPerson = id;
+            idCompe = _context.eva_evalua_competencias_persona.Find(idPerson).IdCompetencia;
+                 
             fecha = DateTime.Now;
 
+            per = _context.rh_cat_personas.Find(idPerson).Nombre;
+            compe = _context.eva_cat_competencias.Find(idCompe).DesCompetencia;
             eva_momentos_metodologias = await _context.eva_momentos_metodologia
                 .Include(e => e.Metodologia)
                 .Include(e => e.Momento)
@@ -44,6 +44,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 .Include(e => e.cat_tipo_generales)
                 .Include(e => e.eva_cat_competencias)
                 .Include(e => e.rh_cat_personas).ToListAsync();
+            
         }
     }
 }
