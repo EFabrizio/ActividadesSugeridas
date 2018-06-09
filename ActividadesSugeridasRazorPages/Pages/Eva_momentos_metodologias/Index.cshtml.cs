@@ -26,14 +26,20 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         public string compe;
         public DateTime fecha;
 
-        public async Task OnGetAsync(short? id)
+        public async Task<IActionResult> OnGetAsync(short? id)
         {
 
             idPerson = id;
-            idCompe = _context.eva_evalua_competencias_persona.Find(idPerson).IdCompetencia;
-                 
-            fecha = DateTime.Now;
+            var exists = _context.eva_evalua_competencias_persona.Find(idPerson);
 
+            // Checamos si la informacion no existe.
+            if (exists == null)
+            {
+                return NotFound();
+            }
+
+            idCompe = _context.eva_evalua_competencias_persona.Find(idPerson).IdCompetencia;
+            fecha = DateTime.Now;
             per = _context.rh_cat_personas.Find(idPerson).Nombre;
             compe = _context.eva_cat_competencias.Find(idCompe).DesCompetencia;
             eva_momentos_metodologias = await _context.eva_momentos_metodologia
@@ -44,7 +50,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 .Include(e => e.cat_tipo_generales)
                 .Include(e => e.eva_cat_competencias)
                 .Include(e => e.rh_cat_personas).ToListAsync();
-            
+            return Page();
         }
     }
 }

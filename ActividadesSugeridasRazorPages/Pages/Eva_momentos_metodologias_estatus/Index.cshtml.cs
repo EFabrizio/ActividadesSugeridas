@@ -28,25 +28,30 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
 
 
 
-        public async Task OnGetAsync(short? id)
+        public async Task<IActionResult> OnGetAsync(short? id)
         {
-
+        
             var metodologia = _context.eva_momentos_metodologia.Find(id);
+
+            if(metodologia == null)
+            {
+                return NotFound();
+            }
+
             personaId = metodologia.IdPersona;
             competenciaId = metodologia.IdCompetencia;
             momentoId = metodologia.IdMomento;
-
             persona = _context.rh_cat_personas.Find(personaId).Nombre;
             competencia = _context.eva_cat_competencias.Find(competenciaId).DesCompetencia;
             momento = metodologia.DesMomento;
-
-
             eva_momentos_metodologias_estatus = await _context.eva_momentos_metodologia_estatus
                 .Include(e => e.Cat_estatus)
                 .Include(e => e.Cat_tipos_estatus)
                 .Include(e => e.eva_cat_competencias)
                 .Include(e => e.eva_momentos_metodologia)
                 .Include(e => e.rh_cat_personas).ToListAsync();
+
+            return Page();
         }
     }
 }
