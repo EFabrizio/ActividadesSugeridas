@@ -157,31 +157,53 @@
                    
                      <td>
 
-
-                         <a class="btn btn-default btn-md active" role="button" asp-page="./Edit" asp-route-id="@item.IdMomentoDet">Editar</a> |
-                         <a class="btn btn-info btn-md active" role="button" asp-page="./Details" 
-                            asp-route-id="@item.IdMomentoDet"
+                         <div class="dropdown">
+                             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                 Opciones
+                                 <span class="caret"></span>
+                             </button>
+                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                 <li><a asp-page="./Edit" asp-route-id="@item.IdMomentoDet">Editar</a></li>
+                                 <li>
+                                     <a asp-page="./Details"
+                                         asp-route-id="@item.IdMomentoDet"
                             asp-route-idPer="@Model.idPerson"
                             asp-route-idCompe="@Model.idCompe"
                             asp-route-Per="@Model.per"
-                            asp-route-Compe="@Model.compe">Detalles</a> |
-                         <a class="btn btn-danger btn-md active" role="button" asp-page="./Delete" asp-route-id="@item.IdMomentoDet"
+                            asp-route-Compe="@Model.compe">Detalles</a>
+                                 </li>
+                                 <li>
+                                     <a asp-page="./Delete" asp-route-id="@item.IdMomentoDet"
                          
                             asp-route-idPer="@Model.idPerson"
                             asp-route-idCompe="@Model.idCompe"
                             asp-route-Per="@Model.per"
-                            asp-route-Compe="@Model.compe"
-                            >Eliminar</a> |
+                            asp-route-Compe="@Model.compe">Eliminar</a>
+                                 </li>
+                                 <li role="separator" class="divider"></li>
+                                 <li>
+                                     <a asp-page="/Eva_momentos_responsables/Index" asp-route-id="@item.IdMomentoDet">Responsables</a>
+                                 </li>
 
-                         <a asp-page="/Eva_momentos_responsables/Index" class="btn btn-warning active" role="button" asp-route-id="@item.IdMomentoDet">Responsables</a>
+                                 <li>
+                                     <a asp-page="/Eva_momentos_metodologias_estatus/Index" asp-route-id="@item.IdMomentoDet">Estatus</a>
+                                 </li>
 
-                         <a class="btn btn-warning btn-md active" role="button" asp-page="./Delete" asp-route-id="@item.IdMomentoDet">Estatus</a> |
-                         <a class="btn btn-primary btn-md active" role="button" asp-page="../Evaluar_momentos/Edit" 
-                            asp-route-id="@item.IdMomentoDet"
-                            asp-route-idPer="@Model.idPerson"
-                             asp-route-idCompe="@Model.idCompe"
-                              asp-route-Per="@Model.per"
-                       asp-route-Compe="@Model.compe">Evaluar</a>
+                                 <li>
+                                     <a asp-page="/Evaluar_momentos/Edit"
+                                        asp-route-id="@item.IdMomentoDet"
+                                        asp-route-idPer="@Model.idPerson"
+                                        asp-route-idCompe="@Model.idCompe"
+                                        asp-route-Per="@Model.per"
+                                        asp-route-Compe="@Model.compe">Evaluar</a>
+                                 </li>
+                             </ul>
+                         </div>
+
+                        
+
+
+           
 
 
                      </td>

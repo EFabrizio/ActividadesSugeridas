@@ -26,8 +26,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
         public IList<Cats_estatus> Cats_estatus { get; set; }
 
         //Para Obtener el Id de la actividad
-        public int IdActividad;
-        public int IdTipo;
+        public int? IdActividad;
+        public short IdTipoDes;
         public string DesActividad;
         public string DesTipo;
         public string username;
@@ -40,7 +40,6 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
         public short IdTipoEstatus = 1;
 
 
-
         public CreateModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
             _context = context;
@@ -51,15 +50,22 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
 
         //Se le pasa como parametro el id que viene en el @page del index
         [HttpGet("CreateChangeEvent/")]
-        public IActionResult OnGet()
+        public IActionResult OnGet(short? id)
         {
-            idAct = Request.Query["id"];
-            idTipo = Request.Query["idtipo"];
-            Tema = Request.Query["tema"].ToString();
-            tipo = Request.Query["destipo"].ToString();
-            descripcion = Request.Query["desact"].ToString();
+
+            IdActividad = id;
             fecha = DateTime.Now;
-           
+            var datos = _context.Eva_cat_actividades_sugeridas.Find(IdActividad);
+            Tema = datos.Tema;
+            descripcion = datos.DesActividad;
+            IdTipoDes = datos.IdTipoActividadSug;
+
+            var cat_tipos = _context.Eva_cat_tipo_actividades_sugeridas.Find(IdTipoDes);
+            tipo = cat_tipos.DesTipoActividadSug.ToString();
+
+                    
+
+         
 
             ViewData["IdActividadSugerida"] = idAct; // new SelectList(_context.ActividadesSugeridas, "IdActividadSugerida", "DesActividad");
             ViewData["IdTipoActividadSug"] = idTipo;// new SelectList(_context.TipoActividadesSugeridas, "IdTipoActividadSugerida", "DesTipoActividadSugerida");
