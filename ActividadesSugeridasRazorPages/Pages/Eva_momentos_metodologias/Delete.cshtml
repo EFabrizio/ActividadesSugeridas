@@ -131,7 +131,7 @@
     <form method="post">
         <input type="hidden" asp-for="eva_momentos_metodologias.IdMomentoDet" />
         <input type="submit" value="Borrar" class="btn btn-danger" /> |
-        <a class="btn btn-info btn-md active" role="button" asp-page="./Index">Cancelar</a>
+        <a class="btn btn-info btn-md active" role="button" asp-page="./Index"  asp-route-id="@Model.idPerson">Cancelar</a>
 
     </form>
 </div>
