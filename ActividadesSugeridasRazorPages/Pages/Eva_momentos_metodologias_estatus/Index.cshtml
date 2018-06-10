@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id:int?}"
 @model ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus.IndexModel
 
 @{
@@ -16,9 +16,9 @@
 
     <div class="panel-heading">Información de la Actividad</div>
     <div class="panel-body">
-        <p>Persona: Jesus</p>
-        <p>Momento: El gran momento</p>
-        <p>Competencia: Hacker en ASP NET CORE</p>
+        <p>Persona: @Model.persona</p>
+        <p>Momento: @Model.momento</p>
+        <p>Competencia: @Model.competencia</p>
 
     </div>
 </div>
@@ -45,7 +45,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.eva_momentos_metodologias_estatus.OrderByDescending(item => item.FechaEstatus))
+        @foreach (var item in Model.eva_momentos_metodologias_estatus.Where(item => item.IdMomentoDet == Model.metodologia_momento).OrderByDescending(item => item.FechaEstatus))
         {
             <tr>
                 <td>
