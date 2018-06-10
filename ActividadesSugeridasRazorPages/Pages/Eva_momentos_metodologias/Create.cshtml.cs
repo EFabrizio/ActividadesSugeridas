@@ -30,6 +30,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             _context = context;
             eva_plantillas_metodologia = _context.eva_plantilla_metodologia.ToList();
             eva_plantillas_momentos_metodologia = _context.eva_plantilla_momentos_metodologia.ToList();
+            Res_evento = _context.Res_eventos.ToList();
         }
 
         public IActionResult OnGet()

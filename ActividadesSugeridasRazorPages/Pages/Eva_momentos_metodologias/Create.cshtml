@@ -97,7 +97,16 @@
             </div>
             <div class="form-group">
                 <label asp-for="eva_momentos_metodologias.IdEvento" class="control-label">Evento</label>
-                <select asp-for="eva_momentos_metodologias.IdEvento" class="form-control"  asp-items="ViewBag.IdEvento"></select>
+                <input asp-for="eva_momentos_metodologias.IdEvento" id="id-evento" hidden />
+                <input type="text" list="eventos" id="evento" class="form-control" autocomplete="off"/>
+                <datalist id="eventos">
+                    @foreach (var item in this.Model.Res_evento)
+        {
+            <option value="@item.IdEvento">@item.NombreEvento</option>
+}
+                </datalist>
+                <!--<select id="eventos" asp-for="eva_momentos_metodologias.IdEvento" class="form-control" asp-items="ViewBag.IdEvento"></select>
+    <input id="filtro" />-->
             </div>
             <div class="form-group">
                 <input type="submit" value="Crear" class="btn btn-success btn-md active" />
@@ -132,6 +141,12 @@
             @foreach (var item in this.Model.eva_plantillas_momentos_metodologia)
             {
                 @:{ "IdMetodologia": "@item.IdMetodologia", "IdPlantillaMetodo": "@item.IdPlantillaMetodo", "IdMomento": "@item.IdMomento" },
+            }
+        ];
+        eventos = [
+            @foreach (var item in this.Model.Res_evento)
+            {
+                @:{ "IdEvento": "@item.IdEvento", "NombreEvento": "@item.NombreEvento" },
             }
         ];
     });
@@ -170,6 +185,48 @@
         });
         $('#combo3').val('').prop("disabled", false);
     });
+    /*$('#filtro').keyup(() => {
+        filtro = $('#filtro').val();
+        options = $('#eventos option').toArray();
+        options.forEach(o => {
+            o.hidden = false;
+        });
+        options.forEach(o => {
+            val = o.innerText;
+            fil = filtro.trim().toLowerCase();
+            word = val.substring(0, fil.length).trim().toLowerCase();
+            if (word != fil) {
+                o.hidden = true;
+            }
+        });
+        $('#eventos').val('')
+        $('#eventos').trigger('click');
+    });*/
+
+    $('#evento').change(() => {
+        evento = $('#evento');
+        idEvento = $('#id-evento');
+        id = evento.val();
+        eventos.forEach(e => {
+            if (e.IdEvento == id) {
+                evento.val(e.NombreEvento);
+                idEvento.val(id);
+            }
+        })
+    });
+    $('#evento').keyup(() => {
+        evento = $('#evento').val();
+        ok = false;
+        eventos.forEach(e => {
+            if (e.NombreEvento == evento) {
+                ok = true;
+            }
+        });
+        if (!ok) {
+            $('#id-evento').val('');
+        }
+    });
+
 </script>
 }
 
