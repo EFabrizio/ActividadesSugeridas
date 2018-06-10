@@ -40,11 +40,11 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_responsables
             {
                 return NotFound();
             }
-           ViewData["IdGenResponsable"] = new SelectList(_context.cat_generales, "IdGeneral", "IdGeneral");
-           ViewData["IdTipoGenResponsable"] = new SelectList(_context.cat_tipos_generales, "IdTipoGeneral", "IdTipoGeneral");
-           ViewData["IdCompetencia"] = new SelectList(_context.eva_cat_competencias, "IdCompetencia", "IdCompetencia");
-           ViewData["IdMomentoDet"] = new SelectList(_context.eva_momentos_metodologia, "IdMomentoDet", "IdMomentoDet");
-           ViewData["IdPersona"] = new SelectList(_context.rh_cat_personas, "IdPersona", "IdPersona");
+           ViewData["IdGenResponsable"] = new SelectList(_context.cat_generales, "IdGeneral", "DesGeneral");
+           ViewData["IdTipoGenResponsable"] = new SelectList(_context.cat_tipos_generales, "IdTipoGeneral", "DesTipo");
+           ViewData["IdCompetencia"] = new SelectList(_context.eva_cat_competencias, "IdCompetencia", "DesCompetencia");
+           ViewData["IdMomentoDet"] = new SelectList(_context.eva_momentos_metodologia, "IdMomentoDet", "DesMomento");
+           ViewData["IdPersona"] = new SelectList(_context.rh_cat_personas, "IdPersona", "Nombre");
             return Page();
         }
 

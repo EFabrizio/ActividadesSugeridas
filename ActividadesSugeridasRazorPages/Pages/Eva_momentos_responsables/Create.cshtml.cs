@@ -48,8 +48,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_responsables
 
 
 
-        ViewData["IdGenResponsable"] = new SelectList(_context.cat_generales, "IdGeneral", "IdGeneral");
-        ViewData["IdTipoGenResponsable"] = new SelectList(_context.cat_tipos_generales, "IdTipoGeneral", "IdTipoGeneral");
+        ViewData["IdGenResponsable"] = new SelectList(_context.cat_generales, "IdGeneral", "DesGeneral");
+        ViewData["IdTipoGenResponsable"] = new SelectList(_context.cat_tipos_generales, "IdTipoGeneral", "DesTipo");
             ViewData["IdCompetencia"] = idcompetencia; //new SelectList(_context.eva_cat_competencias, "IdCompetencia", "IdCompetencia");
             ViewData["IdMomentoDet"] = idmomento; //new SelectList(_context.eva_momentos_metodologia, "IdMomentoDet", "IdMomentoDet");
             ViewData["IdPersona"] = idcompetencia; // new SelectList(_context.rh_cat_personas, "IdPersona", "Nombre"  );
