@@ -51,6 +51,8 @@ namespace ActividadesSugeridasRazorPages.Models
 
         public DbSet<cats_generales> cat_generales { get; set; }
 
+        public DbSet<Res_evento> Res_eventos { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Plantilla Metodologia

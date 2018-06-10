@@ -75,9 +75,15 @@
         <dt>
             Evento
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.eva_momentos_metodologias.IdEvento)
-        </dd>
+        @foreach (var item in Model.Res_evento)
+        {
+            if (Model.eva_momentos_metodologias.IdEvento == item.IdEvento)
+            {
+             <dd>
+               @item.NombreEvento
+             </dd>
+            }
+        }
         <dt>
             Metodologia
         </dt>

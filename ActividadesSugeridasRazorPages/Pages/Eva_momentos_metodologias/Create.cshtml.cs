@@ -21,6 +21,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         public Array metodos;
         public List<eva_plantillas_metodologia> eva_plantillas_metodologia { get; set; }
         public List<eva_plantillas_momentos_metodologia> eva_plantillas_momentos_metodologia { get; set; }
+        public List<Res_evento> Res_evento { get; set; }
 
 
 
@@ -48,6 +49,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         ViewData["IdTipoGenCalificacion"] = new SelectList(_context.cat_tipos_generales, "IdTipoGeneral", "IdTipoGeneral");
             ViewData["IdCompetencia"] = idComp; //new SelectList(_context.eva_cat_competencias, "IdCompetencia", "IdCompetencia");
             ViewData["IdPersona"] = idPerson; //new SelectList(_context.rh_cat_personas, "IdPersona", "IdPersona");
+          ViewData["IdEvento"] = new SelectList(_context.Res_eventos, "IdEvento", "NombreEvento");
             return Page();
         }
         /*public async Task OnGetAsync()
@@ -57,6 +59,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
 
         [BindProperty]
         public eva_momentos_metodologias eva_momentos_metodologias { get; set; }
+      
 
         public async Task<IActionResult> OnPostAsync()
         {

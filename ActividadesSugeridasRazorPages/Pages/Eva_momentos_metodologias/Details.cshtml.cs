@@ -23,6 +23,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         }
 
         public eva_momentos_metodologias eva_momentos_metodologias { get; set; }
+        public IList<Res_evento> Res_evento { get; set; }
 
         public async Task<IActionResult> OnGetAsync(short? id)
         {
@@ -30,6 +31,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             idComp = Convert.ToInt32(Request.Query["idCompe"]);
             per = Request.Query["per"].ToString();
             compe = Request.Query["compe"].ToString();
+
+            Res_evento = await _context.Res_eventos.ToListAsync();
 
             if (id == null)
             {
