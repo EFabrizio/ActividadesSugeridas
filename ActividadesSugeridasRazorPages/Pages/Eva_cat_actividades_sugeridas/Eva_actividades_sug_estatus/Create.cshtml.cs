@@ -67,45 +67,15 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
 
          
 
-            ViewData["IdActividadSugerida"] = idAct; // new SelectList(_context.ActividadesSugeridas, "IdActividadSugerida", "DesActividad");
-            ViewData["IdTipoActividadSug"] = idTipo;// new SelectList(_context.TipoActividadesSugeridas, "IdTipoActividadSugerida", "DesTipoActividadSugerida");
+            ViewData["IdActividadSugerida"] = IdActividad; // new SelectList(_context.ActividadesSugeridas, "IdActividadSugerida", "DesActividad");
+            ViewData["IdTipoActividadSug"] = IdTipoDes;// new SelectList(_context.TipoActividadesSugeridas, "IdTipoActividadSugerida", "DesTipoActividadSugerida");
             ViewData["IdEstatus"] = new SelectList(_context.cat_estatus.Where(e=> e.IdTipoEstatus == 1), "IdEstatus", "DesEstatus");
            // ViewData["IdTipoEstatus"] = 1;//= new SelectList(_context.Set<TipoEstatus>(), "IdTipoEstatus", "DesTipoEstatus");
             return Page();
             
         }
 
-        /*
-        public async Task OnGetAsync(int id, int idtipo)
-        {
-           
-            IdActividad = id;
 
-
-            ActividadSugerida = await _context.ActividadesSugeridas
-              .Include(a => a.TipoActividadesSugeridas).ToListAsync();
-
-            TipoActividadSugerida = await _context.TipoActividadesSugeridas.ToListAsync();
-
-
-            foreach (var value in ActividadSugerida)
-            {
-                if (id == value.IdActividadSugerida)
-                {
-                    IdActividad = id;
-                    DesActividad = value.DesActividad.ToString();
-
-                    foreach (var val in TipoActividadSugerida)
-                    {
-                        if (idtipo == val.IdTipoActividadSugerida)
-                        {
-                            IdTipo = val.IdTipoActividadSugerida;
-                            DesTipo = val.DesTipoActividadSugerida.ToString();
-                        }
-                    }
-                }
-            }
-        } */
 
         [BindProperty]
         public Eva_actividad_sug_estatus Eva_actividad_sug_estatus { get; set; }
