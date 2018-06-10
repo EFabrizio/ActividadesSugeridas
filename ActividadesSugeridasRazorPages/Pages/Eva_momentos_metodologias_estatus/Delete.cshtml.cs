@@ -62,6 +62,16 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
                 await _context.SaveChangesAsync();
             }
 
+            string query = "SELECT TOP 1 * FROM eva_momentos_metodologia_estatus WHERE IdMomentoDet =" + idMomento + "ORDER BY FechaEstatus DESC";
+            var ultimoRegistro = _context.eva_momentos_metodologia_estatus.FromSql(query).SingleOrDefault();
+            if (ultimoRegistro != null)
+            {
+                await _context.Database.ExecuteSqlCommandAsync(
+                    "UPDATE eva_momentos_metodologia_estatus SET ACTUAL = 1 WHERE IDEstatusDet = {0}",
+                    parameters: ultimoRegistro.IdEstatusDet);
+            }
+
+
             return RedirectToPage("./Index", new { id = idMomento });
         }
     }
