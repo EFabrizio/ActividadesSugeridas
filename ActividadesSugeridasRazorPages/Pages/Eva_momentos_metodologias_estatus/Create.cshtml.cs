@@ -13,6 +13,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
     {
         private readonly ActividadesSugeridasRazorPages.Models.ApplicationDbContext _context;
         public DateTime fecha;
+        public string idMomento;
 
         public CreateModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
@@ -22,6 +23,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
         public IActionResult OnGet()
         {
 
+
+        idMomento = Request.Query["idMomento"];
         fecha = DateTime.Now;
         ViewData["IdEstatus"] = new SelectList(_context.cat_estatus, "IdEstatus", "IdEstatus");
         ViewData["IdTipoEstatus"] = new SelectList(_context.Cat_tipo_estatus, "IdTipoEstatus", "IdTipoEstatus");
@@ -40,11 +43,11 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
             {
                 return Page();
             }
-
+            idMomento = Request.Query["idMomento"];
             _context.eva_momentos_metodologia_estatus.Add(eva_momentos_metodologias_estatus);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", new { id = idMomento });
         }
     }
 }

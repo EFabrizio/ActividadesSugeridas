@@ -46,7 +46,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_cat_actividades_sugeridas
 
             query = "INSERT INTO [dbo].[eva_actividades_sug_estatus] ([IdTipoActividadSug], [IdActividadSugerida], " +
                 "[FechaEstatus], [Actual], [Observacion], [IdTipoEstatus], [IdEstatus], [IdUsuarioReg]) " +
-                "VALUES ("+ultimoRegistro.IdTipoActividadSug+", "+ultimoRegistro.IdActividadSugerida+", '" + DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") + "', N'1', N'La actividad ha sido registrada', 1, 1, N'11')";
+                "VALUES ("+ultimoRegistro.IdTipoActividadSug+", "+ultimoRegistro.IdActividadSugerida+", '" + DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss") + "', N'1', N'La actividad ha sido registrada', 1, 1, N'11')";
 
             await _context.Database.ExecuteSqlCommandAsync(
                 query);

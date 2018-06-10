@@ -21,6 +21,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
         [BindProperty]
         public eva_momentos_metodologias_estatus eva_momentos_metodologias_estatus { get; set; }
 
+        public string idMomento;
+
         public async Task<IActionResult> OnGetAsync(short? id)
         {
             if (id == null)
@@ -49,6 +51,9 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
                 return NotFound();
             }
 
+
+            idMomento = Request.Query["idMomento"];
+
             eva_momentos_metodologias_estatus = await _context.eva_momentos_metodologia_estatus.FindAsync(id);
 
             if (eva_momentos_metodologias_estatus != null)
@@ -57,7 +62,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", new { id = idMomento });
         }
     }
 }
