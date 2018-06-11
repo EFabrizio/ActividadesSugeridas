@@ -1,4 +1,4 @@
-﻿@page "{id:int?}"
+﻿@page 
 @model ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias.IndexModel
 
 @{
@@ -90,7 +90,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.eva_momentos_metodologias.Where(e => e.IdPersona == Model.idPerson))
+            @foreach (var item in Model.eva_momentos_metodologias.Where(e => e.IdCompetencia == Model.idCompe))
             {
                 <tr>
                     <td>
@@ -163,7 +163,7 @@
                                  <span class="caret"></span>
                              </button>
                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                 <li><a asp-page="./Edit" asp-route-id="@item.IdMomentoDet">Editar</a></li>
+                                 <li><a asp-page="./Edit" asp-route-id="@item.IdMomentoDet" asp-route-idPer="@Model.idPerson">Editar</a></li>
                                  <li>
                                      <a asp-page="./Details"
                                          asp-route-id="@item.IdMomentoDet"

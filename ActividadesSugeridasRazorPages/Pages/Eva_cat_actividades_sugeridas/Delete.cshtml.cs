@@ -49,6 +49,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_cat_actividades_sugeridas
 
             if (Eva_cat_actividad_sugerida != null)
             {
+                await _context.Database.ExecuteSqlCommandAsync("DELETE FROM eva_actividades_sug_estatus WHERE IdActividadSugerida =" + id);
+      
                 _context.Eva_cat_actividades_sugeridas.Remove(Eva_cat_actividad_sugerida);
                 await _context.SaveChangesAsync();
             }

@@ -22,6 +22,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
         [BindProperty]
         public eva_momentos_metodologias_estatus eva_momentos_metodologias_estatus { get; set; }
 
+        public string idMomento;
+
         public async Task<IActionResult> OnGetAsync(short? id)
         {
             if (id == null)
@@ -40,11 +42,11 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
             {
                 return NotFound();
             }
-           ViewData["IdEstatus"] = new SelectList(_context.cat_estatus, "IdEstatus", "IdEstatus");
-           ViewData["IdTipoEstatus"] = new SelectList(_context.Cat_tipo_estatus, "IdTipoEstatus", "IdTipoEstatus");
-           ViewData["IdCompetencia"] = new SelectList(_context.eva_cat_competencias, "IdCompetencia", "IdCompetencia");
-           ViewData["IdMomentoDet"] = new SelectList(_context.eva_momentos_metodologia, "IdMomentoDet", "IdMomentoDet");
-           ViewData["IdPersona"] = new SelectList(_context.rh_cat_personas, "IdPersona", "IdPersona");
+           ViewData["IdEstatus"] = new SelectList(_context.cat_estatus, "IdEstatus", "DesEstatus");
+           ViewData["IdTipoEstatus"] = new SelectList(_context.Cat_tipo_estatus, "IdTipoEstatus", "DesTipoEstatus");
+           ViewData["IdCompetencia"] = new SelectList(_context.eva_cat_competencias, "IdCompetencia", "DesCompetencia");
+           ViewData["IdMomentoDet"] = new SelectList(_context.eva_momentos_metodologia, "IdMomentoDet", "DesMomento");
+           ViewData["IdPersona"] = new SelectList(_context.rh_cat_personas, "IdPersona", "Nombre");
             return Page();
         }
 
@@ -54,6 +56,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
             {
                 return Page();
             }
+
+            idMomento = Request.Query["idMomento"];
 
             _context.Attach(eva_momentos_metodologias_estatus).State = EntityState.Modified;
 
@@ -73,7 +77,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", new { id = idMomento });
         }
 
         private bool eva_momentos_metodologias_estatusExists(short id)

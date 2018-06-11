@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ActividadesSugeridasRazorPages.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
 {
@@ -13,21 +14,26 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
     {
         private readonly ActividadesSugeridasRazorPages.Models.ApplicationDbContext _context;
         public DateTime fecha;
+        public string idMomento;
 
         public CreateModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
             _context = context;
         }
 
+        [HttpGet("CreateChangeEvent/")]
         public IActionResult OnGet()
         {
 
+
+        idMomento = Request.Query["idMomento"];
         fecha = DateTime.Now;
-        ViewData["IdEstatus"] = new SelectList(_context.cat_estatus, "IdEstatus", "IdEstatus");
-        ViewData["IdTipoEstatus"] = new SelectList(_context.Cat_tipo_estatus, "IdTipoEstatus", "IdTipoEstatus");
-        ViewData["IdCompetencia"] = new SelectList(_context.eva_cat_competencias, "IdCompetencia", "IdCompetencia");
-        ViewData["IdMomentoDet"] = new SelectList(_context.eva_momentos_metodologia, "IdMomentoDet", "IdMomentoDet");
-        ViewData["IdPersona"] = new SelectList(_context.rh_cat_personas, "IdPersona", "IdPersona");
+        ViewData["IdEstatus"] = new SelectList(_context.cat_estatus, "IdEstatus", "DesEstatus");
+        ViewData["IdTipoEstatus"] = new SelectList(_context.Cat_tipo_estatus, "IdTipoEstatus", "DesTipoEstatus");
+        ViewData["IdCompetencia"] = new SelectList(_context.eva_cat_competencias, "IdCompetencia", "DesCompetencia");
+        ViewData["IdMomentoDet"] = new SelectList(_context.eva_momentos_metodologia, "IdMomentoDet", "DesMomento");
+        ViewData["IdPersona"] = new SelectList(_context.rh_cat_personas, "IdPersona", "Nombre");
+            
             return Page();
         }
 
@@ -40,11 +46,22 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
             {
                 return Page();
             }
+            idMomento = Request.Query["idMomento"];
+
+
+            string query = "SELECT TOP 1 * FROM eva_momentos_metodologia_estatus WHERE IdMomentoDet =" + idMomento + "ORDER BY FechaEstatus DESC";
+            var ultimoRegistro = _context.eva_momentos_metodologia_estatus.FromSql(query).SingleOrDefault();
+            if (ultimoRegistro != null)
+            {
+                await _context.Database.ExecuteSqlCommandAsync(
+                    "UPDATE eva_momentos_metodologia_estatus SET ACTUAL = 0 WHERE IDEstatusDet = {0}",
+                    parameters: ultimoRegistro.IdEstatusDet);
+            }
 
             _context.eva_momentos_metodologia_estatus.Add(eva_momentos_metodologias_estatus);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", new { id = idMomento });
         }
     }
 }

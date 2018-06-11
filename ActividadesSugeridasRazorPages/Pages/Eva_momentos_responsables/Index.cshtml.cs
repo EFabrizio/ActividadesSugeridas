@@ -24,6 +24,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_responsables
         public IList<eva_momentos_metodologias> momentos { get; set; }
         public IList<eva_momentos_metodologias> momentoscompetencia { get; set; }
         public IList<eva_momentos_metodologias> momentosdatos { get; set; }
+        public IList<rh_cats_personas> rh_cats_personas { get; set; }
+        public IList<cats_generales> cats_Generales { get; set; }
 
         public string nombrePersona;
         public string apellidoPaterno;
@@ -37,6 +39,12 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_responsables
 
         public async Task OnGetAsync(short? id)
         {
+
+            rh_cats_personas = await _context.rh_cat_personas.ToListAsync();
+
+            cats_Generales  = await _context.cat_generales.ToListAsync();
+
+
             evas_momentos_responsables = await _context.eva_momentos_responsables
                 .Include(e => e.cat_generales)
                 .Include(e => e.cat_tipo_generales)

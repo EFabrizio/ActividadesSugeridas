@@ -1,4 +1,5 @@
-﻿@page 
+﻿@page
+
 
 
 @model ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus.CreateModel
@@ -21,58 +22,58 @@
     </div>
 </div>
 
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
 
-                    <input asp-for="Eva_actividad_sug_estatus.IdTipoActividadSug" class="form-control" value="@Model.idTipo" readonly type="hidden">
-                </div>
-                <div class="form-group">
-                    <input asp-for="Eva_actividad_sug_estatus.IdActividadSugerida" class="form-control" readonly value="@Model.idAct" type="hidden">
-                </div>
-                <div class="form-group">
-                    <input asp-for="Eva_actividad_sug_estatus.IdTipoEstatus" class="form-control" readonly value="@Model.IdTipoEstatus">
-                </div>
-                <div class="form-group">
-                    <label asp-for="Eva_actividad_sug_estatus.IdEstatus" class="control-label">Tipo Estatus</label>
-                    <select asp-for="Eva_actividad_sug_estatus.IdEstatus" class="form-control" asp-items="ViewBag.IdEstatus">Tipo Estatus</select>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Eva_actividad_sug_estatus.FechaEstatus" class="control-label"></label>
-                    <input type="text" value="@Model.fecha"  asp-for="Eva_actividad_sug_estatus.FechaEstatus" class="form-control" readonly />
-                    <span asp-validation-for="Eva_actividad_sug_estatus.FechaEstatus" class="text-danger"></span>
-                </div>
+                <input asp-for="Eva_actividad_sug_estatus.IdTipoActividadSug" class="form-control" value="@Model.idTipo" readonly type="hidden">
+            </div>
+            <div class="form-group">
+                <input asp-for="Eva_actividad_sug_estatus.IdActividadSugerida" class="form-control" readonly value="@Model.idAct" type="hidden">
+            </div>
+            <div class="form-group">
+                <input asp-for="Eva_actividad_sug_estatus.IdTipoEstatus" class="form-control" readonly value="@Model.IdTipoEstatus">
+            </div>
+            <div class="form-group">
+                <label asp-for="Eva_actividad_sug_estatus.IdEstatus" class="control-label">Tipo Estatus</label>
+                <select asp-for="Eva_actividad_sug_estatus.IdEstatus" class="form-control" asp-items="ViewBag.IdEstatus">Tipo Estatus</select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eva_actividad_sug_estatus.FechaEstatus" class="control-label"></label>
+                <input type="text" value="@Model.fecha" asp-for="Eva_actividad_sug_estatus.FechaEstatus" class="form-control" readonly />
+                <span asp-validation-for="Eva_actividad_sug_estatus.FechaEstatus" class="text-danger"></span>
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="Eva_actividad_sug_estatus.Observacion" class="control-label"></label>
-                    <input asp-for="Eva_actividad_sug_estatus.Observacion" class="form-control" />
-                    <span asp-validation-for="Eva_actividad_sug_estatus.Observacion" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Eva_actividad_sug_estatus.IdUsuarioReg" class="control-label"></label>
-                    <input asp-for="Eva_actividad_sug_estatus.IdUsuarioReg" class="form-control" />
+            <div class="form-group">
+                <label asp-for="Eva_actividad_sug_estatus.Observacion" class="control-label"></label>
+                <textarea textarea rows="5" cols="70" asp-for="Eva_actividad_sug_estatus.Observacion" class="form-control" ></textarea>
+                <span asp-validation-for="Eva_actividad_sug_estatus.Observacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eva_actividad_sug_estatus.IdUsuarioReg" class="control-label"></label>
+                <input asp-for="Eva_actividad_sug_estatus.IdUsuarioReg" class="form-control" />
 
-                </div>
-
-  
-                    <input type="hidden"  asp-for="Eva_actividad_sug_estatus.Actual" value="1"  />
+            </div>
 
 
-                <div class="form-group">
-                    <input type="submit" value="Crear" class="btn btn-success" />
-                </div>
-            </form>
-        </div>
+            <input type="hidden" asp-for="Eva_actividad_sug_estatus.Actual" value="1" />
+
+
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-success" />
+            </div>
+        </form>
     </div>
+</div>
 
-    <div>
-        <a class="btn btn-info btn-md active" role="button" asp-page="Index"
-           asp-route-id="@Model.idAct">Regresar</a>
-    </div>
+<div>
+    <a class="btn btn-info btn-md active" role="button" asp-page="Index"
+       asp-route-id="@Model.idAct">Regresar</a>
+</div>
 
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

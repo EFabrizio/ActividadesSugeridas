@@ -21,6 +21,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
         [BindProperty]
         public eva_momentos_metodologias_estatus eva_momentos_metodologias_estatus { get; set; }
 
+        public string idMomento;
+
         public async Task<IActionResult> OnGetAsync(short? id)
         {
             if (id == null)
@@ -49,6 +51,9 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
                 return NotFound();
             }
 
+
+            idMomento = Request.Query["idMomento"];
+
             eva_momentos_metodologias_estatus = await _context.eva_momentos_metodologia_estatus.FindAsync(id);
 
             if (eva_momentos_metodologias_estatus != null)
@@ -57,7 +62,17 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            string query = "SELECT TOP 1 * FROM eva_momentos_metodologia_estatus WHERE IdMomentoDet =" + idMomento + "ORDER BY FechaEstatus DESC";
+            var ultimoRegistro = _context.eva_momentos_metodologia_estatus.FromSql(query).SingleOrDefault();
+            if (ultimoRegistro != null)
+            {
+                await _context.Database.ExecuteSqlCommandAsync(
+                    "UPDATE eva_momentos_metodologia_estatus SET ACTUAL = 1 WHERE IDEstatusDet = {0}",
+                    parameters: ultimoRegistro.IdEstatusDet);
+            }
+
+
+            return RedirectToPage("./Index", new { id = idMomento });
         }
     }
 }
