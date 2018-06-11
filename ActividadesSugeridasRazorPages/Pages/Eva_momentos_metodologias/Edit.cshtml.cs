@@ -22,7 +22,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         [BindProperty]
         public eva_momentos_metodologias eva_momentos_metodologias { get; set; }
 
-        public string persona;
+        public int idPerson;
+        public int idComp;
 
         public async Task<IActionResult> OnGetAsync(short? id)
         {
@@ -31,7 +32,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 return NotFound();
             }
 
-            persona = Request.Query["idPer"];
+            idPerson = Convert.ToInt32(Request.Query["idPer"]);
 
             eva_momentos_metodologias = await _context.eva_momentos_metodologia
                 .Include(e => e.Metodologia)
@@ -81,7 +82,10 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 }
             }
 
-            return RedirectToPage("./Index", new { id = persona });
+            idPerson = Convert.ToInt32(Request.Query["idPer"]);
+            idComp = Convert.ToInt32(Request.Query["idCompe"]);
+
+            return RedirectToPage("./Index", new { id = idPerson, idCompetencia = idComp });
         }
 
         private bool eva_momentos_metodologiasExists(short id)

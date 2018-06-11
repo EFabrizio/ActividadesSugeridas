@@ -77,7 +77,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             _context.eva_momentos_metodologia.Add(eva_momentos_metodologias);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index",new{ id = idPerson});
+            return RedirectToPage("./Index",new{ id = idPerson, idCompetencia = idComp});
         }
     }
 }
