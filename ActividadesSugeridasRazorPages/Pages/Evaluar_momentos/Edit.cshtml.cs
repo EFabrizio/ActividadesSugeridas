@@ -97,7 +97,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Evaluar_momentos
             per = Request.Query["per"].ToString();
             compe = Request.Query["compe"].ToString();
 
-            return RedirectToPage("../Eva_momentos_metodologias/Index", new { id = idPerson});
+            return RedirectToPage("../Eva_momentos_metodologias/Index", new { id = idPerson, idCompetencia = idComp});
         }
 
         private bool eva_momentos_metodologiasExists(short id)

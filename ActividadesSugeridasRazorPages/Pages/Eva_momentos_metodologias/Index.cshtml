@@ -192,7 +192,8 @@
                                  </li>
 
                                  <li>
-                                     <a asp-page="/Eva_momentos_metodologias_estatus/Index" asp-route-id="@item.IdMomentoDet">Estatus</a>
+                                     <a asp-page="/Eva_momentos_metodologias_estatus/Index" asp-route-id="@item.IdMomentoDet"  asp-route-idPer="@Model.idPerson"
+                                        asp-route-idCompe="@Model.idCompe">Estatus</a>
                                  </li>
 
                                  <li>

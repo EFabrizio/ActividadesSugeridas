@@ -15,13 +15,13 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="eva_momentos_metodologias.IdMomentoDet" />
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.IdPersona" class="control-label">Persona</label>
-                <select asp-for="eva_momentos_metodologias.IdPersona" class="form-control" asp-items="ViewBag.IdPersona"></select>
+                
+                <input type="hidden" asp-for="eva_momentos_metodologias.IdPersona" class="form-control" asp-items="ViewBag.IdPersona" readonly/>
                 <span asp-validation-for="eva_momentos_metodologias.IdPersona" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias.IdCompetencia" class="control-label">Competencia</label>
-                <select asp-for="eva_momentos_metodologias.IdCompetencia" class="form-control" asp-items="ViewBag.IdCompetencia"></select>
+            
+                <input type="hidden" asp-for="eva_momentos_metodologias.IdCompetencia" class="form-control" asp-items="ViewBag.IdCompetencia" readonly>
                 <span asp-validation-for="eva_momentos_metodologias.IdCompetencia" class="text-danger"></span>
             </div>
             <div class="form-group">

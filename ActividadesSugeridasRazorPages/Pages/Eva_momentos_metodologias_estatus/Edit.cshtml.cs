@@ -22,7 +22,10 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
         [BindProperty]
         public eva_momentos_metodologias_estatus eva_momentos_metodologias_estatus { get; set; }
 
-        public string idMomento;
+        public int idMomento;
+        public int personaId;
+        public int competenciaId;
+
 
         public async Task<IActionResult> OnGetAsync(short? id)
         {
@@ -30,6 +33,11 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
             {
                 return NotFound();
             }
+
+            idMomento = Convert.ToInt32(Request.Query["idMomento"]);
+
+            personaId = Convert.ToInt32(Request.Query["idPer"]);
+            competenciaId = Convert.ToInt32(Request.Query["idCompe"]);
 
             eva_momentos_metodologias_estatus = await _context.eva_momentos_metodologia_estatus
                 .Include(e => e.Cat_estatus)
@@ -57,7 +65,10 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
                 return Page();
             }
 
-            idMomento = Request.Query["idMomento"];
+            idMomento = Convert.ToInt32(Request.Query["idMomento"]);
+
+            personaId = Convert.ToInt32(Request.Query["idPer"]);
+            competenciaId = Convert.ToInt32(Request.Query["idCompe"]);
 
             _context.Attach(eva_momentos_metodologias_estatus).State = EntityState.Modified;
 
@@ -77,7 +88,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
                 }
             }
 
-            return RedirectToPage("./Index", new { id = idMomento });
+            return RedirectToPage("./Index", new { id = idMomento, idPer = personaId, idCompe = competenciaId });
         }
 
         private bool eva_momentos_metodologias_estatusExists(short id)

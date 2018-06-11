@@ -14,16 +14,16 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias_estatus.IdPersona" class="control-label">Persona</label>
-                <select asp-for="eva_momentos_metodologias_estatus.IdPersona" class ="form-control" asp-items="ViewBag.IdPersona"></select>
+             
+                <input type="hidden" value="@Model.personaId"  asp-for="eva_momentos_metodologias_estatus.IdPersona" class ="form-control" readonly>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias_estatus.IdCompetencia" class="control-label">Competencia</label>
-                <select asp-for="eva_momentos_metodologias_estatus.IdCompetencia" class ="form-control" asp-items="ViewBag.IdCompetencia"></select>
+                
+                <input type="hidden" value="@Model.competenciaId" asp-for="eva_momentos_metodologias_estatus.IdCompetencia" class ="form-control" readonly>
             </div>
             <div class="form-group">
-                <label asp-for="eva_momentos_metodologias_estatus.IdMomentoDet" class="control-label">Momento</label>
-                <select asp-for="eva_momentos_metodologias_estatus.IdMomentoDet" class ="form-control" asp-items="ViewBag.IdMomentoDet"></select>
+         
+                <input type="hidden" value="@Model.idMomento" asp-for="eva_momentos_metodologias_estatus.IdMomentoDet" class ="form-control" readonly>
             </div>
             <div class="form-group">
                 <label asp-for="eva_momentos_metodologias_estatus.IdTipoEstatus" class="control-label">Tipo de estatus</label>
@@ -61,7 +61,7 @@
 </div>
 
 <div>
-    <a class="btn btn-info btn-md active" role="button" asp-page="./Index" asp-route-id="@Model.idMomento">Regresar</a>
+    <a class="btn btn-info btn-md active" role="button" asp-page="./Index" asp-route-id="@Model.idMomento"  asp-route-idCompe="@Model.competenciaId" asp-route-idPer="@Model.personaId">Regresar</a>
 </div>
 
 @section Scripts {

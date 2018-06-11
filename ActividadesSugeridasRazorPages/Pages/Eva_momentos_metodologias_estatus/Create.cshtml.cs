@@ -14,7 +14,9 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
     {
         private readonly ActividadesSugeridasRazorPages.Models.ApplicationDbContext _context;
         public DateTime fecha;
-        public string idMomento;
+        public int idMomento;
+        public int personaId;
+        public int competenciaId;
 
         public CreateModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
@@ -26,8 +28,11 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
         {
 
 
-        idMomento = Request.Query["idMomento"];
-        fecha = DateTime.Now;
+        idMomento = Convert.ToInt32(Request.Query["idMomento"]);
+
+            personaId = Convert.ToInt32(Request.Query["idPer"]);
+            competenciaId = Convert.ToInt32(Request.Query["idCompe"]);
+            fecha = DateTime.Now;
         ViewData["IdEstatus"] = new SelectList(_context.cat_estatus, "IdEstatus", "DesEstatus");
         ViewData["IdTipoEstatus"] = new SelectList(_context.Cat_tipo_estatus, "IdTipoEstatus", "DesTipoEstatus");
         ViewData["IdCompetencia"] = new SelectList(_context.eva_cat_competencias, "IdCompetencia", "DesCompetencia");
@@ -46,10 +51,14 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
             {
                 return Page();
             }
-            idMomento = Request.Query["idMomento"];
+            idMomento = Convert.ToInt32(Request.Query["idMomento"]);
+
+            personaId = Convert.ToInt32(Request.Query["idPer"]);
+            competenciaId = Convert.ToInt32(Request.Query["idCompe"]);
 
 
-            string query = "SELECT TOP 1 * FROM eva_momentos_metodologia_estatus WHERE IdMomentoDet =" + idMomento + "ORDER BY FechaEstatus DESC";
+            string query = "SELECT TOP 1 * FROM eva_momentos_metodologia_estatus WHERE IdMomentoDet =" + idMomento + 
+                "AND IdPersona = "+personaId+" AND IdCompetencia = "+competenciaId+" ORDER BY FechaEstatus DESC";
             var ultimoRegistro = _context.eva_momentos_metodologia_estatus.FromSql(query).SingleOrDefault();
             if (ultimoRegistro != null)
             {
@@ -61,7 +70,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
             _context.eva_momentos_metodologia_estatus.Add(eva_momentos_metodologias_estatus);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index", new { id = idMomento });
+            return RedirectToPage("./Index", new { id = idMomento, idPer = personaId , idCompe = competenciaId });
         }
     }
 }

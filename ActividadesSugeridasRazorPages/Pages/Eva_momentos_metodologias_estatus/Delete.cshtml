@@ -71,6 +71,6 @@
     <form method="post">
         <input type="hidden" asp-for="eva_momentos_metodologias_estatus.IdEstatusDet" />
         <input type="submit" value="Borrar" class="btn btn-danger" />
-        <a class="btn btn-info btn-md active" role="button" asp-page="./Index" asp-route-id="@Model.eva_momentos_metodologias_estatus.IdMomentoDet">Cancelar</a>
+        <a class="btn btn-info btn-md active" role="button" asp-page="./Index" asp-route-id="@Model.eva_momentos_metodologias_estatus.IdMomentoDet" asp-route-idCompe="@Model.competenciaId" asp-route-idPer="@Model.personaId">Cancelar</a>
     </form>
 </div>
