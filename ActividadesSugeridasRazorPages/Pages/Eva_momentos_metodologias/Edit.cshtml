@@ -106,14 +106,15 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Guardar" class="btn btn-success btn-md active" />
+                <a class="btn btn-info btn-md active" role="button" asp-page="./Index" asp-route-id="@Model.idPerson"
+                   asp-route-idcompetencia="@Model.eva_momentos_metodologias.IdCompetencia">Regresar</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a class="btn btn-info btn-md active" role="button" asp-page="./Index" asp-route-id="@Model.idPerson"
-       asp-route-idcompetencia="@Model.eva_momentos_metodologias.IdCompetencia">Regresar</a>
+    
 </div>
 
 @section Scripts {
