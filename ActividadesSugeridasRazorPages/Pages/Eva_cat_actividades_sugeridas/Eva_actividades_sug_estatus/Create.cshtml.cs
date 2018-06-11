@@ -48,31 +48,25 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_actividades_sug_estatus
 
 
 
+
         //Se le pasa como parametro el id que viene en el @page del index
         [HttpGet("CreateChangeEvent/")]
-        public IActionResult OnGet(short? id)
+        public IActionResult OnGet()
         {
-
-            IdActividad = id;
+            idAct = Request.Query["id"];
+            idTipo = Request.Query["idtipo"];
+            Tema = Request.Query["tema"].ToString();
+            tipo = Request.Query["destipo"].ToString();
+            descripcion = Request.Query["desact"].ToString();
             fecha = DateTime.Now;
-            var datos = _context.Eva_cat_actividades_sugeridas.Find(IdActividad);
-            Tema = datos.Tema;
-            descripcion = datos.DesActividad;
-            IdTipoDes = datos.IdTipoActividadSug;
 
-            var cat_tipos = _context.Eva_cat_tipo_actividades_sugeridas.Find(IdTipoDes);
-            tipo = cat_tipos.DesTipoActividadSug.ToString();
 
-                    
-
-         
-
-            ViewData["IdActividadSugerida"] = IdActividad; // new SelectList(_context.ActividadesSugeridas, "IdActividadSugerida", "DesActividad");
-            ViewData["IdTipoActividadSug"] = IdTipoDes;// new SelectList(_context.TipoActividadesSugeridas, "IdTipoActividadSugerida", "DesTipoActividadSugerida");
-            ViewData["IdEstatus"] = new SelectList(_context.cat_estatus.Where(e=> e.IdTipoEstatus == 1), "IdEstatus", "DesEstatus");
-           // ViewData["IdTipoEstatus"] = 1;//= new SelectList(_context.Set<TipoEstatus>(), "IdTipoEstatus", "DesTipoEstatus");
+            ViewData["IdActividadSugerida"] = idAct; // new SelectList(_context.ActividadesSugeridas, "IdActividadSugerida", "DesActividad");
+            ViewData["IdTipoActividadSug"] = idTipo;// new SelectList(_context.TipoActividadesSugeridas, "IdTipoActividadSugerida", "DesTipoActividadSugerida");
+            ViewData["IdEstatus"] = new SelectList(_context.cat_estatus.Where(e => e.IdTipoEstatus == 1), "IdEstatus", "DesEstatus");
+            // ViewData["IdTipoEstatus"] = 1;//= new SelectList(_context.Set<TipoEstatus>(), "IdTipoEstatus", "DesTipoEstatus");
             return Page();
-            
+
         }
 
 

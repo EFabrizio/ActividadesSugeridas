@@ -22,16 +22,20 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentosResponsables
         public evas_momentos_responsables evas_momentos_responsables { get; set; }
         public evas_momentos_responsables record { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? IdPer, short? IdCompe, short? IdMome, int? IdRes)
+        public int idMomento;
+        public int personaId;
+        public int competenciaId;
+
+        public async Task<IActionResult> OnGetAsync(int? IdPer)
         {
             
 
-            record = _context.eva_momentos_responsables.Find(IdPer, IdCompe, IdMome, IdRes);
+           /* record = _context.eva_momentos_responsables.Find(IdPer, competenciaId, idMomento, IdRes);
 
             if (record == null)
             {
                 return NotFound();
-            }
+            }*/
 
             evas_momentos_responsables = await _context.eva_momentos_responsables
                 .Include(e => e.cat_generales)

@@ -24,11 +24,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="evas_momentos_responsables.IdResponsable" class="control-label"></label>
-                <select asp-for="evas_momentos_responsables.IdResponsable" class="form-control" asp-items="ViewBag.IdPersona" />
-                <span asp-validation-for="evas_momentos_responsables.IdResponsable" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="evas_momentos_responsables.IdPersona" class="control-label"></label>
                 <input readonly type="text" asp-for="evas_momentos_responsables.IdPersona" class ="form-control" value="@Model.idPersona" />
@@ -44,7 +40,7 @@
             <div class="form-group">
                 <label asp-for="evas_momentos_responsables.IdTipoGenResponsable" class="control-label"></label>
                 <input readonly type="text" asp-for="evas_momentos_responsables.IdTipoGenResponsable" class="form-control" value="6"/>
-            </div>select>
+            </div>
             <div class="form-group">
                 <label asp-for="evas_momentos_responsables.IdGenResponsable" class="control-label"></label>
                 <select asp-for="evas_momentos_responsables.IdGenResponsable" class ="form-control" asp-items="ViewBag.IdGenResponsable"></select>
