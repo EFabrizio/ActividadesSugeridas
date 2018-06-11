@@ -12,7 +12,10 @@
     <a class="btn btn-success btn-md active" role="button"
        asp-page="Create"
        asp-route-id="@Model.IdActividad"
-      >Crear Nuevo Status</a>
+       asp-route-idtipo="@Model.Tipos"
+       asp-route-tema="@Model.message"
+       asp-route-destipo="@Model.description"
+       asp-route-desact="@Model.tipo">Crear Nuevo Status</a>
 </p>
 
 <div class="panel panel-primary">
@@ -24,14 +27,14 @@
         <p>Tipo: @Model.tipo</p>
     </div>
 
-    <table class="table">
+    <table class="table" id="myTable">
         <thead>
             <tr>
                 <th>
                     Id
                 </th>
                 <th>
-                    Fecha 
+                    Fecha
                 </th>
                 <th>
                     Actual
@@ -42,7 +45,7 @@
                 <th>
                     Estatus
                 </th>
-
+                <th></th>
             </tr>
         </thead>
         <tbody>

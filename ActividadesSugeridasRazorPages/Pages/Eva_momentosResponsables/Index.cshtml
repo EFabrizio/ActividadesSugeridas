@@ -23,7 +23,7 @@
 
     </div>
 </div>
-<table class="table">
+<table class="table"  id="myTable">
     <thead>
         <tr>
             <th>
@@ -33,23 +33,23 @@
                Tipo Responsable
             </th>
 
-            <th></th>
+            <th>Opciones</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.evas_momentos_responsables.Where(e=>e.IdCompetencia == Model.idCompetencia).Where(i => i.IdPersona == Model.idPersona).Where(f => f.IdMomentoDet == Model.idMomento)){
+@foreach (var item in Model.evas_momentos_responsables.Where(e=>e.IdCompetencia == Model.idCompetencia)
+    .Where(i => i.IdPersona == Model.idPersona).Where(f => f.IdMomentoDet == Model.idMomento)){
         <tr>
             @foreach (var i in Model.rh_cats_personas)
     {
         if (i.IdPersona == item.IdResponsable)
         {
             <td>
+                
                 @Html.DisplayFor(modelItem => i.Nombre)
             </td>
 }
 }
-
-
             @foreach (var e in Model.cats_generales) {
               if (e.IdGeneral == item.IdGenResponsable) {
                   <td>
@@ -58,9 +58,11 @@
                }
             }
                   <td>
-                      <!--   @Html.ActionLink("Edit", "Edit", new { IdPer = item.IdPersona, IdCompe = item.IdCompetencia, IdMome = item.IdMomentoDet, IdRes =  item.IdResponsable }) |-->
-                      @Html.ActionLink("Details", "Details", new { IdPer = item.IdPersona, IdCompe = item.IdCompetencia, IdMome = item.IdMomentoDet, IdRes = item.IdResponsable }) |
-                      @Html.ActionLink("Delete", "Delete", new { IdPer = item.IdPersona, IdCompe = item.IdCompetencia, IdMome = item.IdMomentoDet, IdRes = item.IdResponsable })
+                      <a asp-page="./Delete" asp-route-id="@item.IdPersona"
+                         asp-route-idPer="@item.IdCompetencia"
+                    
+                         asp-route-Per="@item.IdMomentoDet"
+                         asp-route-Compe="@item.IdResponsable">Eliminar</a>
                   </td>
         </tr>
 }
