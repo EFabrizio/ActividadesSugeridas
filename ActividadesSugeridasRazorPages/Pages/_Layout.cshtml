@@ -8,7 +8,7 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css" />
+        <link rel="stylesheet" type="text/css" href="~/css/datables.min.css" />
 
     </environment>
     <environment exclude="Development">
@@ -78,7 +78,7 @@
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
 
-        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+        <script type="text/javascript" src="~/js/datatables.min.js"></script>
         <script>
 
 
@@ -93,7 +93,34 @@
 
 
             $(document).ready(function () {
-                $('#myTable').DataTable();
+                $('#myTable').DataTable({
+
+                  "language":  {
+                        "decimal": "",
+                        "emptyTable": "No hay informacion disponible",
+                        "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                        "infoEmpty": "Mostrando 0 a 0 de 0 registros",
+                        "infoFiltered": "(se filtro _MAX_ registros)",
+                        "infoPostFix": "",
+                        "thousands": ",",
+                        "lengthMenu": "Mostrar _MENU_ registros",
+                        "loadingRecords": "Cargando...",
+                        "processing": "Procesando...",
+                        "search": "Buscar:",
+                        "zeroRecords": "No matching records found",
+                        "paginate": {
+                            "first": "Primero",
+                            "last": "Último",
+                            "next": "Siguente",
+                            "previous": "Anterior"
+                        },
+                        "aria": {
+                            "sortAscending": ": activate to sort column ascending",
+                            "sortDescending": ": activate to sort column descending"
+                        }
+                    }
+
+                });
             });
 
 
