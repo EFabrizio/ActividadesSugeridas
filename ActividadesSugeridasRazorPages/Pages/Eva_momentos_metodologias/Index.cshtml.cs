@@ -36,8 +36,12 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             
             fecha = DateTime.Now;
  
+            if(_context.rh_cat_personas.Find(idPerson) != null)
             per = _context.rh_cat_personas.Find(idPerson).Nombre;
+
+            if(_context.eva_cat_competencias.Find(idCompe) != null)
             compe = _context.eva_cat_competencias.Find(idCompe).DesCompetencia;
+
             eva_momentos_metodologias = await _context.eva_momentos_metodologia
                 .Include(e => e.Metodologia)
                 .Include(e => e.Momento)
