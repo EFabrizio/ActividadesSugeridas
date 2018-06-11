@@ -85,7 +85,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             idPerson = Convert.ToInt32(Request.Query["idPer"]);
             idComp = Convert.ToInt32(Request.Query["idCompe"]);
 
-            return RedirectToPage("./Index", new { id = idPerson, idCompetencia = idComp });
+            return RedirectToPage("./Index", new { id = idPerson, idcompetencia = idComp });
         }
 
         private bool eva_momentos_metodologiasExists(short id)

@@ -75,7 +75,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             per = Request.Query["per"].ToString();
             compe = Request.Query["compe"].ToString();
 
-            return RedirectToPage("./Index", new { id = idPerson, idCompetencia = idComp });
+            return RedirectToPage("./Index", new { id = idPerson, idcompetencia = idComp });
         }
     }
 }
