@@ -1,0 +1,68 @@
+﻿@page
+@model ActividadesSugeridasRazorPages.Pages.Eva_momentosResponsables.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Responsables de Momento</h2>
+
+<p>
+    <a asp-page="Create"
+        asp-route-idPer="@Model.idPersona"
+        asp-route-idCompe="@Model.idCompetencia"
+        asp-route-idMome="@Model.idMomento">Agregar Nuevo</a>
+</p>
+<div class="panel panel-primary">
+
+    <div class="panel-heading">Información del Momento</div>
+    <div class="panel-body">
+        <p>Persona: @Model.persona @Model.apellidopat @Model.apellidomat</p>
+        <p>Competencia:@Model.competencia </p>
+        <p>Momento:@Model.momento </p>
+
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Responsable
+            </th>
+            <th>
+               Tipo Responsable
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.evas_momentos_responsables.Where(e=>e.IdCompetencia == Model.idCompetencia).Where(i => i.IdPersona == Model.idPersona).Where(f => f.IdMomentoDet == Model.idMomento)){
+        <tr>
+            @foreach (var i in Model.rh_cats_personas)
+    {
+        if (i.IdPersona == item.IdResponsable)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => i.Nombre)
+            </td>
+}
+}
+
+
+            @foreach (var e in Model.cats_generales) {
+              if (e.IdGeneral == item.IdGenResponsable) {
+                  <td>
+                     @Html.DisplayFor(modelItem => e.DesGeneral)
+                 </td>
+               }
+            }
+                  <td>
+                      <!--   @Html.ActionLink("Edit", "Edit", new { IdPer = item.IdPersona, IdCompe = item.IdCompetencia, IdMome = item.IdMomentoDet, IdRes =  item.IdResponsable }) |-->
+                      @Html.ActionLink("Details", "Details", new { IdPer = item.IdPersona, IdCompe = item.IdCompetencia, IdMome = item.IdMomentoDet, IdRes = item.IdResponsable }) |
+                      @Html.ActionLink("Delete", "Delete", new { IdPer = item.IdPersona, IdCompe = item.IdCompetencia, IdMome = item.IdMomentoDet, IdRes = item.IdResponsable })
+                  </td>
+        </tr>
+}
+    </tbody>
+</table>

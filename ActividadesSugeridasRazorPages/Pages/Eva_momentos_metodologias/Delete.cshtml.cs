@@ -26,7 +26,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         public eva_momentos_metodologias eva_momentos_metodologias { get; set; }
         public IList<Res_evento> Res_evento { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(short? id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
             {

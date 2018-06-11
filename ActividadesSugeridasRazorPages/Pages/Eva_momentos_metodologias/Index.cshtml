@@ -182,7 +182,13 @@
                                  </li>
                                  <li role="separator" class="divider"></li>
                                  <li>
-                                     <a asp-page="/Eva_momentos_responsables/Index" asp-route-id="@item.IdMomentoDet">Responsables</a>
+                                     <a asp-page="/Eva_momentosResponsables/Index" 
+                                        asp-route-id="@item.IdMomentoDet"
+                                        asp-route-momento="@item.DesMomento"
+                                         asp-route-idPer="@Model.idPerson"
+                                         asp-route-idCompe="@Model.idCompe"
+                                         asp-route-Per="@Model.per"
+                                        asp-route-Compe="@Model.compe">Responsables</a>
                                  </li>
 
                                  <li>
