@@ -29,33 +29,32 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
         public short? metodologia_momento;
 
 
-        public async Task<IActionResult> OnGetAsync(short? id)
+        public async Task OnGetAsync()
         {
 
-            metodologia_momento = id;
-            var metodologia = _context.eva_momentos_metodologia.Find(id);
+            metodologia_momento = Convert.ToInt16(Request.Query["id"]);
+            personaId = Convert.ToInt32(Request.Query["idPer"]);
+            competenciaId = Convert.ToInt16(Request.Query["idCompe"]);
+    
+            var metodologia = _context.eva_momentos_metodologia.Find(metodologia_momento);
 
-            // Checamos si el dato existe
-            if (metodologia == null)
-            {
-                return NotFound();
-            }
-
-            personaId = metodologia.IdPersona;
-            competenciaId = metodologia.IdCompetencia;
+            
+   
             momentoId = metodologia.IdMomento;
+            if (_context.rh_cat_personas.Find(personaId) != null)
             persona = _context.rh_cat_personas.Find(personaId).Nombre;
+            if (_context.eva_cat_competencias.Find(competenciaId) != null)
             competencia = _context.eva_cat_competencias.Find(competenciaId).DesCompetencia;
             momento = metodologia.DesMomento;
             idDesMomento = metodologia.IdMomentoDet;
-            eva_momentos_metodologias_estatus = await _context.eva_momentos_metodologia_estatus
+            eva_momentos_metodologias_estatus = await _context.eva_momentos_metodologia_estatus.FromSql("SELECT * FROM eva_momentos_metodologia_estatus " +
+                "WHERE IdMomentoDet = "+metodologia_momento+" AND IdPersona = "+personaId+ " AND IdCompetencia = "+competenciaId)
                 .Include(e => e.Cat_estatus)
                 .Include(e => e.Cat_tipos_estatus)
                 .Include(e => e.eva_cat_competencias)
                 .Include(e => e.eva_momentos_metodologia)
                 .Include(e => e.rh_cat_personas).ToListAsync();
 
-            return Page();
         }
     }
 }
