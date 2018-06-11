@@ -42,7 +42,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             if(_context.eva_cat_competencias.Find(idCompe) != null)
             compe = _context.eva_cat_competencias.Find(idCompe).DesCompetencia;
 
-            eva_momentos_metodologias = await _context.eva_momentos_metodologia
+            eva_momentos_metodologias = await _context.eva_momentos_metodologia.FromSql("SELECT * FROM eva_momentos_metodologia " +
+                "WHERE IdPersona =" + idPerson + " AND IdCompetencia = " +idCompe)
                 .Include(e => e.Metodologia)
                 .Include(e => e.Momento)
                 .Include(e => e.PlantillaMetodo)
