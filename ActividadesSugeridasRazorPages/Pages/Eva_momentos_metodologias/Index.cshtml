@@ -1,4 +1,4 @@
-﻿@page "{id:int?}"
+﻿@page 
 @model ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias.IndexModel
 
 @{
@@ -90,7 +90,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.eva_momentos_metodologias.Where(e => e.IdPersona == Model.idPerson))
+            @foreach (var item in Model.eva_momentos_metodologias.Where(e => e.IdCompetencia == Model.idCompe))
             {
                 <tr>
                     <td>
