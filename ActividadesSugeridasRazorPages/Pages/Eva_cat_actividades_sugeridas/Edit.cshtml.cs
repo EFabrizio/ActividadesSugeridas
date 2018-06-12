@@ -19,6 +19,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_cat_actividades_sugeridas
             _context = context;
         }
 
+        public short? idAct;
+
         [BindProperty]
         public Eva_cat_actividad_sugerida Eva_cat_actividad_sugerida { get; set; }
 
@@ -28,6 +30,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_cat_actividades_sugeridas
             {
                 return NotFound();
             }
+
+            idAct = id;
 
             Eva_cat_actividad_sugerida = await _context.Eva_cat_actividades_sugeridas
                 .Include(a => a.Eva_cat_tipo_actividades_sugeridas).SingleOrDefaultAsync(m => m.IdActividadSugerida == id);
@@ -51,6 +55,11 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_cat_actividades_sugeridas
 
             try
             {
+              
+                string query = "SELECT TOP 1 * FROM eva_actividades_sug_estatus WHERE IdActividadSugerida =" + idAct;
+                var ultimoRegistro = _context.Eva_actividades_sug_estatus.FromSql(query).SingleOrDefault();
+                await _context.Database.ExecuteSqlCommandAsync("UPDATE eva_actividades_sug_estatus SET IdTipoActividadSug" +
+                    " = "+ultimoRegistro.IdTipoActividadSug+" WHERE IdActividadSugerida =" + idAct);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
