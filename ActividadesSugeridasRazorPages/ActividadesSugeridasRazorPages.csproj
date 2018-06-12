@@ -19,4 +19,5 @@
     <Folder Include="Pages\NewFolder1\" />
     <Folder Include="Pages\NewFolder\" />
   </ItemGroup>
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
 </Project>
