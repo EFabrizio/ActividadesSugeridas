@@ -23,6 +23,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentosResponsables
         public short idCompetencia;
         public List<evas_evalua_competencias_responsables> Responsables { get; set; }
         public List<eva_momentos_metodologias> Metodologias { get; set; }
+        public List<evas_momentos_responsables> MomentosResponsables { get; set; }
+        public evas_momentos_responsables record { get; set; }
 
         public CreateModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
@@ -39,6 +41,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentosResponsables
 
             Responsables = _context.eva_evalua_competencias_responsables.ToList();
             Metodologias = _context.eva_momentos_metodologia.ToList();
+            MomentosResponsables = _context.eva_momentos_responsables.ToList();
 
 
             competencia = _context.eva_cat_competencias.Find(idCompetencia).DesCompetencia;
@@ -68,12 +71,21 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentosResponsables
                 return Page();
             }
 
-            _context.eva_momentos_responsables.Add(evas_momentos_responsables);
-            await _context.SaveChangesAsync();
-
             idPersona = Convert.ToInt32(Request.Query["idPer"]);
             idCompetencia = Convert.ToInt16(Request.Query["idCompe"]);
             idMomento = Convert.ToInt16(Request.Query["idMome"]);
+
+
+            record = _context.eva_momentos_responsables.Find(idPersona, idCompetencia, idMomento, evas_momentos_responsables.IdResponsable);
+
+            if (record == null)
+            {
+                _context.eva_momentos_responsables.Add(evas_momentos_responsables);
+                await _context.SaveChangesAsync();
+            }
+          
+
+            
 
         
 
