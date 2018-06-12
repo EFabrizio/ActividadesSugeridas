@@ -1,4 +1,5 @@
-﻿@page 
+﻿@page
+
 @model ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias.IndexModel
 
 @{
@@ -22,199 +23,198 @@
     <div class="panel-body">
         <p>Persona: @Model.per</p>
         <p>Competencia: @Model.compe</p>
-      
+
     </div>
 </div>
 
-    <table class="table" id="myTable">
-        <thead>
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Descripcion Momento
+            </th>
+            <!-- <th>
+                Objetivo
+            </th>
+                   <th>
+                       Resultado Esperado
+                   </th>
+                   <th>
+                       Resultado Obtenido
+                   </th>
+                   <th>
+                       Observaciones
+                   </th> -->
+            <th>
+                Calificación
+            </th>
+            <!-- <th>
+                Fecha Registro
+            </th>
+            <th>
+                Fecha Ultima Actividad
+            </th> -->
+            <!-- <th>
+                Empresa
+            </th>
+            <th>
+                Evento
+            </th>
+            <th>
+                Metodologia
+            </th>
+            <th>
+                Momento
+            </th>
+            <th>
+                Plantilla Metodo
+            </th> -->
+            <th>
+                Calificación cuantitativa
+            </th>
+            <!-- <th>
+                Tipo de Calificación
+            </th>-->
+            <!--   <th>
+                Competencia
+            </th>
+            <th>
+                Persona
+            </th> -->
+            <th>
+                Fecha Evaluacion
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.eva_momentos_metodologias.Where(e => e.IdCompetencia == Model.idCompe))
+        {
             <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Descripcion Momento
-                </th>
-                <!-- <th>
-        Objetivo
-    </th>
-           <th>
-               Resultado Esperado
-           </th>
-           <th>
-               Resultado Obtenido
-           </th>
-           <th>
-               Observaciones
-           </th> -->
-                <th>
-                    Calificación
-                </th>
-                <!-- <th>
-        Fecha Registro
-    </th>
-    <th>
-        Fecha Ultima Actividad
-    </th> -->
-                <!-- <th>
-          Empresa
-      </th>
-      <th>
-          Evento
-      </th>
-      <th>
-          Metodologia
-      </th>
-      <th>
-          Momento
-      </th>
-      <th>
-          Plantilla Metodo
-      </th> -->
-                <th>
-                    Calificación cuantitativa
-                </th>
-                <!-- <th>
-        Tipo de Calificación
-    </th>-->
-                <!--   <th>
-        Competencia
-    </th>
-    <th>
-        Persona
-    </th> -->
-                <th>
-                    Fecha Evaluacion
-                </th>
-                <th></th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdMomentoDet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DesMomento)
+                </td>
+                <!--
+                <td>
+                    @Html.DisplayFor(modelItem => item.Objetivo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResultadoEsperado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResultadoObtenido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observaciones)
+                </td> -->
+                <td>
+                    @Html.DisplayFor(modelItem => item.Calificacion)
+                </td>
+                <!--  <td>
+                    @Html.DisplayFor(modelItem => item.FechaReg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaUltAct)
+                </td> -->
+                <!--   <td>
+                    @Html.DisplayFor(modelItem => item.IdEmpSuc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdEvento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Metodologia.DesMetodologia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Momento.DesMomento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlantillaMetodo.DesPlantillaMetodo)
+                </td> -->
+                <td>
+                    @Html.DisplayFor(modelItem => item.cat_generales.DesGeneral)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaEvaluacion)
+                </td>
+                <!--
+                <td>
+                @Html.DisplayFor(modelItem => item.cat_tipo_generales.IdTipoGeneral)
+                </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.eva_cat_competencias.IdCompetencia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.rh_cat_personas.IdPersona)
+                        </td> -->
+
+                <td>
+
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Opciones
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a asp-page="./Edit" asp-route-id="@item.IdMomentoDet" asp-route-idCompe="@Model.idCompe" asp-route-idPer="@Model.idPerson">Editar</a></li>
+                            <li>
+                                <a asp-page="./Details"
+                                   asp-route-id="@item.IdMomentoDet"
+                                   asp-route-idPer="@Model.idPerson"
+                                   asp-route-idCompe="@Model.idCompe"
+                                   asp-route-Per="@Model.per"
+                                   asp-route-Compe="@Model.compe">Detalles</a>
+                            </li>
+                            <li>
+                                <a asp-page="./Delete" asp-route-id="@item.IdMomentoDet"
+                                   asp-route-idPer="@Model.idPerson"
+                                   asp-route-idCompe="@Model.idCompe"
+                                   asp-route-Per="@Model.per"
+                                   asp-route-Compe="@Model.compe">Eliminar</a>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a asp-page="/Eva_momentosResponsables/Index"
+                                   asp-route-id="@item.IdMomentoDet"
+                                   asp-route-momento="@item.DesMomento"
+                                   asp-route-idPer="@Model.idPerson"
+                                   asp-route-idCompe="@Model.idCompe"
+                                   asp-route-Per="@Model.per"
+                                   asp-route-Compe="@Model.compe">Responsables</a>
+                            </li>
+
+                            <li>
+                                <a asp-page="/Eva_momentos_metodologias_estatus/Index" asp-route-id="@item.IdMomentoDet" asp-route-idPer="@Model.idPerson"
+                                   asp-route-idCompe="@Model.idCompe">Estatus</a>
+                            </li>
+
+                            <li>
+                                <a asp-page="/Evaluar_momentos/Edit"
+                                   asp-route-id="@item.IdMomentoDet"
+                                   asp-route-idPer="@Model.idPerson"
+                                   asp-route-idCompe="@Model.idCompe"
+                                   asp-route-Per="@Model.per"
+                                   asp-route-Compe="@Model.compe">Evaluar</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+
+
+
+
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.eva_momentos_metodologias.Where(e => e.IdCompetencia == Model.idCompe))
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IdMomentoDet)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DesMomento)
-                    </td>
-                    <!--
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Objetivo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ResultadoEsperado)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ResultadoObtenido)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Observaciones)
-                    </td> -->
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Calificacion)
-                    </td>
-                    <!--  <td>
-                        @Html.DisplayFor(modelItem => item.FechaReg)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FechaUltAct)
-                    </td> -->
-                   
-                    <!--   <td>
-                        @Html.DisplayFor(modelItem => item.IdEmpSuc)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IdEvento)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Metodologia.DesMetodologia)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Momento.DesMomento)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PlantillaMetodo.DesPlantillaMetodo)
-                    </td> -->
-                    <td>
-                        @Html.DisplayFor(modelItem => item.cat_generales.DesGeneral)
-                    </td>
-                     <td>
-                        @Html.DisplayFor(modelItem => item.FechaEvaluacion)
-                    </td>
-                    <!--
-                    <td>
-                    @Html.DisplayFor(modelItem => item.cat_tipo_generales.IdTipoGeneral)
-                    </td>
-
-                            <td>
-                                @Html.DisplayFor(modelItem => item.eva_cat_competencias.IdCompetencia)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.rh_cat_personas.IdPersona)
-                            </td> -->
-                   
-                     <td>
-
-                         <div class="dropdown">
-                             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                 Opciones
-                                 <span class="caret"></span>
-                             </button>
-                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                 <li><a asp-page="./Edit" asp-route-id="@item.IdMomentoDet"  asp-route-idCompe="@Model.idCompe" asp-route-idPer="@Model.idPerson">Editar</a></li>
-                                 <li>
-                                     <a asp-page="./Details"
-                                         asp-route-id="@item.IdMomentoDet"
-                            asp-route-idPer="@Model.idPerson"
-                            asp-route-idCompe="@Model.idCompe"
-                            asp-route-Per="@Model.per"
-                            asp-route-Compe="@Model.compe">Detalles</a>
-                                 </li>
-                                 <li>
-                                     <a asp-page="./Delete" asp-route-id="@item.IdMomentoDet"
-                         
-                            asp-route-idPer="@Model.idPerson"
-                            asp-route-idCompe="@Model.idCompe"
-                            asp-route-Per="@Model.per"
-                            asp-route-Compe="@Model.compe">Eliminar</a>
-                                 </li>
-                                 <li role="separator" class="divider"></li>
-                                 <li>
-                                     <a asp-page="/Eva_momentosResponsables/Index" 
-                                        asp-route-id="@item.IdMomentoDet"
-                                        asp-route-momento="@item.DesMomento"
-                                         asp-route-idPer="@Model.idPerson"
-                                         asp-route-idCompe="@Model.idCompe"
-                                         asp-route-Per="@Model.per"
-                                        asp-route-Compe="@Model.compe">Responsables</a>
-                                 </li>
-
-                                 <li>
-                                     <a asp-page="/Eva_momentos_metodologias_estatus/Index" asp-route-id="@item.IdMomentoDet"  asp-route-idPer="@Model.idPerson"
-                                        asp-route-idCompe="@Model.idCompe">Estatus</a>
-                                 </li>
-
-                                 <li>
-                                     <a asp-page="/Evaluar_momentos/Edit"
-                                        asp-route-id="@item.IdMomentoDet"
-                                        asp-route-idPer="@Model.idPerson"
-                                        asp-route-idCompe="@Model.idCompe"
-                                        asp-route-Per="@Model.per"
-                                        asp-route-Compe="@Model.compe">Evaluar</a>
-                                 </li>
-                             </ul>
-                         </div>
-
-                        
-
-
-           
-
-
-                     </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
+<a class="btn btn-info btn-md active" role="button" asp-page="/Eva_evalua_competencias_persona/Index">Regresar</a>

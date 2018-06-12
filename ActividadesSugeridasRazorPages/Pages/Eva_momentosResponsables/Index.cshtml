@@ -9,9 +9,9 @@
 
 <p>
     <a asp-page="Create"
-        asp-route-idPer="@Model.idPersona"
-        asp-route-idCompe="@Model.idCompetencia"
-        asp-route-idMome="@Model.idMomento">Agregar Nuevo</a>
+       asp-route-idPer="@Model.idPersona"
+       asp-route-idCompe="@Model.idCompetencia"
+       asp-route-idMome="@Model.idMomento">Agregar Nuevo</a>
 </p>
 <div class="panel panel-primary">
 
@@ -23,48 +23,51 @@
 
     </div>
 </div>
-<table class="table"  id="myTable">
+<table class="table" id="myTable">
     <thead>
         <tr>
             <th>
-               Responsable
+                Responsable
             </th>
             <th>
-               Tipo Responsable
+                Tipo Responsable
             </th>
 
             <th>Opciones</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.evas_momentos_responsables.Where(e=>e.IdCompetencia == Model.idCompetencia)
-    .Where(i => i.IdPersona == Model.idPersona).Where(f => f.IdMomentoDet == Model.idMomento)){
-        <tr>
-            @foreach (var i in Model.rh_cats_personas)
-    {
-        if (i.IdPersona == item.IdResponsable)
+        @foreach (var item in Model.evas_momentos_responsables.Where(e => e.IdCompetencia == Model.idCompetencia)
+           .Where(i => i.IdPersona == Model.idPersona).Where(f => f.IdMomentoDet == Model.idMomento))
         {
-            <td>
-                
-                @Html.DisplayFor(modelItem => i.Nombre)
-            </td>
-}
-}
-            @foreach (var e in Model.cats_generales) {
-              if (e.IdGeneral == item.IdGenResponsable) {
-                  <td>
-                     @Html.DisplayFor(modelItem => e.DesGeneral)
-                 </td>
-               }
-            }
-                  <td>
-                      <a asp-page="./Delete" asp-route-id="@item.IdPersona"
-                         asp-route-idPer="@item.IdCompetencia"
-                    
-                         asp-route-Per="@item.IdMomentoDet"
-                         asp-route-Compe="@item.IdResponsable">Eliminar</a>
-                  </td>
-        </tr>
-}
+            <tr>
+                @foreach (var i in Model.rh_cats_personas)
+                {
+                    if (i.IdPersona == item.IdResponsable)
+                    {
+                        <td>
+
+                            @Html.DisplayFor(modelItem => i.Nombre)
+                        </td>
+                    }
+                }
+                @foreach (var e in Model.cats_generales)
+                {
+                    if (e.IdGeneral == item.IdGenResponsable)
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => e.DesGeneral)
+                        </td>
+                    }
+                }
+                <td>
+                    <a asp-page="./Delete" asp-route-id="@item.IdPersona"
+                       asp-route-idPer="@item.IdCompetencia"
+                       asp-route-Per="@item.IdMomentoDet"
+                       asp-route-Compe="@item.IdResponsable">Eliminar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+<a class="btn btn-info btn-md active" role="button" asp-route-id="@Model.idPersona" asp-route-idcompetencia="@Model.idCompetencia" asp-page="/Eva_momentos_metodologias/Index">Regresar</a>
