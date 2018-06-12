@@ -5,42 +5,42 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Borrar</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>¿Estás seguro que quieres eliminar el responsable de este momento?</h3>
 <div>
-    <h4>evas_momentos_responsables</h4>
+   
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.evas_momentos_responsables.cat_generales)
+            Descripción General
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.evas_momentos_responsables.cat_generales.IdGeneral)
+            @Html.DisplayFor(model => model.evas_momentos_responsables.cat_generales.DesGeneral)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.evas_momentos_responsables.cat_tipo_generales)
+            Descripción Tipo
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.evas_momentos_responsables.cat_tipo_generales.IdTipoGeneral)
+            @Html.DisplayFor(model => model.evas_momentos_responsables.cat_tipo_generales.DesTipo)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.evas_momentos_responsables.eva_cat_competencias)
+            Descripción Competencia
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.evas_momentos_responsables.eva_cat_competencias.IdCompetencia)
+            @Html.DisplayFor(model => model.evas_momentos_responsables.eva_cat_competencias.DesCompetencia)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.evas_momentos_responsables.eva_momentos_metodologia)
+            Descripción Momento
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.evas_momentos_responsables.eva_momentos_metodologia.IdMomentoDet)
+            @Html.DisplayFor(model => model.evas_momentos_responsables.eva_momentos_metodologia.DesMomento)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.evas_momentos_responsables.rh_cat_personas)
+            Persona
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.evas_momentos_responsables.rh_cat_personas.IdPersona)
+            @Html.DisplayFor(model => model.evas_momentos_responsables.rh_cat_personas.Nombre)
         </dd>
     </dl>
     
@@ -49,7 +49,7 @@
         <input type="hidden" asp-for="evas_momentos_responsables.IdPersona" />
         <input type="hidden" asp-for="evas_momentos_responsables.IdCompetencia" />
         <input type="hidden" asp-for="evas_momentos_responsables.IdMomentoDet" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="submit" value="Borrar" class="btn btn-danger" /> |
+        <a asp-page="./Index" class="btn btn-info btn-md active" role="button" >Cancelar</a>
     </form>
 </div>
