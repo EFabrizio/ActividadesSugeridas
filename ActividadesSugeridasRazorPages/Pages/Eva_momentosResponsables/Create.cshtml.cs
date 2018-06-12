@@ -21,18 +21,25 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentosResponsables
         public int idPersona;
         public short idMomento;
         public short idCompetencia;
+        public List<evas_evalua_competencias_responsables> Responsables { get; set; }
+        public List<eva_momentos_metodologias> Metodologias { get; set; }
 
         public CreateModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
             _context = context;
+           
         }
 
         public IActionResult OnGet()
-        {
-
+        { 
             idPersona = Convert.ToInt32(Request.Query["idPer"]);
             idCompetencia = Convert.ToInt16(Request.Query["idCompe"]);
             idMomento = Convert.ToInt16(Request.Query["idMome"]);
+
+
+            Responsables = _context.eva_evalua_competencias_responsables.ToList();
+            Metodologias = _context.eva_momentos_metodologia.ToList();
+
 
             competencia = _context.eva_cat_competencias.Find(idCompetencia).DesCompetencia;
             momento = _context.eva_momentos_metodologia.Find(idMomento).DesMomento;
@@ -42,14 +49,17 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentosResponsables
 
             ViewData["IdGenResponsable"] = new SelectList(_context.cat_generales.Where(e => e.IdTipoGeneral == 6), "IdGeneral", "DesGeneral");
             ViewData["IdTipoGenResponsable"] = 6;//new SelectList(_context.cat_tipos_generales, "IdTipoGeneral", "IdTipoGeneral");
-        ViewData["IdCompetencia"] = new SelectList(_context.eva_cat_competencias, "IdCompetencia", "IdCompetencia");
-        ViewData["IdMomentoDet"] = new SelectList(_context.eva_momentos_metodologia, "IdMomentoDet", "IdMomentoDet");
-        ViewData["IdPersona"] = new SelectList(_context.rh_cat_personas, "IdPersona", "Nombre");
+            ViewData["IdCompetencia"] = new SelectList(_context.eva_cat_competencias, "IdCompetencia", "IdCompetencia");
+            ViewData["IdMomentoDet"] = new SelectList(_context.eva_momentos_metodologia, "IdMomentoDet", "IdMomentoDet");
+            ViewData["IdPersona"] = new SelectList(_context.rh_cat_personas, "IdPersona", "Nombre");
+
+
             return Page();
         }
 
         [BindProperty]
         public evas_momentos_responsables evas_momentos_responsables { get; set; }
+
 
         public async Task<IActionResult> OnPostAsync()
         {

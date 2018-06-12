@@ -47,7 +47,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="evas_momentos_responsables.IdResponsable" class="control-label"></label>
-                <select type="text" asp-for="evas_momentos_responsables.IdResponsable" class="form-control" asp-items="ViewBag.IdPersona"></select>
+                <select id="lol" type="text" asp-for="evas_momentos_responsables.IdResponsable" class="form-control" asp-items="ViewBag.IdPersona"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Agregar" class="btn btn-default" />
@@ -62,4 +62,51 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
+<script>
+    $(document).ready(function () {
+     
+        idPer = @Model.idPersona;
+        idCompe = @Model.idCompetencia;
+        $('#lol').val('');
+
+        options = $('#lol option').toArray();
+
+       options.forEach(o => {
+           o.hidden = true;
+        });
+
+        console.log("idper", idPer);
+
+    responsablesCompe = [
+    @foreach (var item in this.Model.Responsables)
+    {
+        @:{"IdPersona": "@item.IdPersona", "IdCompetencia": "@item.IdCompetencia",  "IdResponsable": "@item.IdResponsable"},
+    }
+    ];
+
+    });
+
+    $('#lol').mouseover(() => { 
+       //JUAN 
+       //DAvid
+       //ALexia
+       //Alexia Ariana
+        var a = 0
+        responsablesCompe.forEach(item => {
+            if (item.IdPersona == idPer && item.IdCompetencia == idCompe) {     
+                console.log('IDRESPONSABLE', item.IdResponsable);
+                var ban = 0;
+                options.forEach(o => {
+                    if (o.value == item.IdResponsable) {
+                        options[ban].hidden = false;
+                        console.log('value', o.value);
+                    }
+                    ban = ban + 1;   
+                });     
+            }
+            a = a + 1;         
+        });
+    }); 
+</script>
+ }
