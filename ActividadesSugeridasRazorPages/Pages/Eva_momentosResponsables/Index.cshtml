@@ -8,10 +8,10 @@
 <h2>Responsables de Momento</h2>
 
 <p>
-    <a asp-page="Create"
+    <a class="btn btn-success btn-md active" role="button" asp-page="Create"
        asp-route-idPer="@Model.idPersona"
        asp-route-idCompe="@Model.idCompetencia"
-       asp-route-idMome="@Model.idMomento">Agregar Nuevo</a>
+       asp-route-idMome="@Model.idMomento" >Agregar Nuevo</a>
 </p>
 <div class="panel panel-primary">
 
@@ -61,7 +61,15 @@
                     }
                 }
                 <td>
-                    <a asp-page="./Delete" 
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+                    
+
+                    <a asp-page="./Delete" class="btn btn-danger btn-md active" role="button"
                        asp-route-idPer="@item.IdPersona"
                        asp-route-idCompe="@item.IdCompetencia"
                        asp-route-idMome="@item.IdMomentoDet"
@@ -71,4 +79,5 @@
         }
     </tbody>
 </table>
+<br />
 <a class="btn btn-info btn-md active" role="button" asp-route-id="@Model.idPersona" asp-route-idcompetencia="@Model.idCompetencia" asp-page="/Eva_momentos_metodologias/Index">Regresar</a>
