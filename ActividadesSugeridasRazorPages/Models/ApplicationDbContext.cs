@@ -20,8 +20,9 @@ namespace ActividadesSugeridasRazorPages.Models
 
         
         public DbSet<Eva_actividad_sug_estatus> Eva_actividades_sug_estatus { get; set; }
+      
+       public DbSet<evas_evalua_competencias_responsables> eva_evalua_competencias_responsables { get; set; }
 
-       
 
         public DbSet<Cat_tipos_estatus> Cat_tipo_estatus { get; set; }
 
@@ -165,6 +166,10 @@ namespace ActividadesSugeridasRazorPages.Models
                .HasForeignKey(p => p.IdGenResponsable)
                .HasConstraintName("ForeignKey_EvaMomentosMetodologias_CatsGenerales");
 
+
+            //primary key eva_evalua_competencias_responsables
+            modelBuilder.Entity<evas_evalua_competencias_responsables>()
+                .HasKey(c => new { c.IdPersona, c.IdCompetencia, c.IdOportunidad, c.IdResponsable });
         }
 
 
