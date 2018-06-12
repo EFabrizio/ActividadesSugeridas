@@ -56,10 +56,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_cat_actividades_sugeridas
             try
             {
               
-                string query = "SELECT TOP 1 * FROM eva_actividades_sug_estatus WHERE IdActividadSugerida =" + idAct;
-                var ultimoRegistro = _context.Eva_actividades_sug_estatus.FromSql(query).SingleOrDefault();
-                await _context.Database.ExecuteSqlCommandAsync("UPDATE eva_actividades_sug_estatus SET IdTipoActividadSug" +
-                    " = "+ultimoRegistro.IdTipoActividadSug+" WHERE IdActividadSugerida =" + idAct);
+              
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
