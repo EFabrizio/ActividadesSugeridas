@@ -13,9 +13,9 @@
 
     <div class="panel-heading">Información del Momento</div>
     <div class="panel-body">
-        <p>Persona: @Model.persona @Model.apellidopat @Model.apellidomat</p>
-        <p>Competencia:@Model.competencia </p>
-        <p>Momento:@Model.momento </p>
+        <p>Persona: @Model.per @Model.appat @Model.appmat</p>
+        <p>Competencia:@Model.compe </p>
+        <p>Momento:@Model.moment </p>
 
     </div>
 </div>
@@ -57,7 +57,13 @@
 </div>
 
 <div>
-    <a asp-page="Index">Regresar</a>
+    <a asp-page="Index"
+       asp-route-idPer="@Model.idPerson"
+       asp-route-idCompe="@Model.idCompe"
+       asp-route-id="@Model.idMomento"
+       asp-route-Per="@Model.per"
+       asp-route-Compe="@Model.compe"
+       asp-route-Moment="@Model.moment">Regresar</a>
 </div>
 
 @section Scripts {

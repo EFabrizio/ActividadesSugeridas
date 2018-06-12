@@ -18,8 +18,18 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentosResponsables
         public string momento;
         public string competencia;
         public int idPersona;
-        public int idMomento;
-        public int idCompetencia;
+        public short idMomento;
+        public short idCompetencia;
+        
+
+        public int? idPerson;
+        public short idCompe;
+        public string per;
+        public string appat;
+        public string appmat;
+        public string compe;
+        public string moment;
+
 
         public IndexModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
@@ -32,12 +42,30 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentosResponsables
 
         public async Task OnGetAsync()
         {
-            idPersona = Convert.ToInt32(Request.Query["idPer"]);
-            idCompetencia = Convert.ToInt32(Request.Query["idCompe"]);
-            idMomento = Convert.ToInt32(Request.Query["id"]);
-            persona = Request.Query["Per"].ToString();
-            competencia = Request.Query["Compe"].ToString();
-            momento = Request.Query["momento"].ToString();
+            idPerson = Convert.ToInt32(Request.Query["idPer"]);
+            idCompe = Convert.ToInt16(Request.Query["idCompe"]);
+            idMomento = Convert.ToInt16(Request.Query["id"]);
+
+
+
+            if (_context.rh_cat_personas.Find(idPerson) != null)
+            {
+                per = _context.rh_cat_personas.Find(idPerson).Nombre;
+                appat = _context.rh_cat_personas.Find(idPerson).ApPaterno;
+                appmat = _context.rh_cat_personas.Find(idPerson).ApMaterno;
+            }
+
+            if (_context.eva_cat_competencias.Find(idCompe) != null)
+            {
+                compe = _context.eva_cat_competencias.Find(idCompe).DesCompetencia;
+            }
+
+            if (_context.eva_momentos_metodologia.Find(idMomento) != null)
+            {
+                moment = _context.eva_momentos_metodologia.Find(idMomento).DesMomento;
+
+            }
+
             //apellidomat = _context.rh_cat_personas.Find(idPersona).ApMaterno;
             //apellidopat = _context.rh_cat_personas.Find(idPersona).ApPaterno;
             rh_cats_personas = await _context.rh_cat_personas.ToListAsync();

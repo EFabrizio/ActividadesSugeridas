@@ -27,7 +27,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
         public short competenciaId;
         public int personaId;
         public short? metodologia_momento;
-
+        public string appat;
+        public string appmat;
 
         public async Task OnGetAsync()
         {
@@ -38,11 +39,18 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias_estatus
     
             var metodologia = _context.eva_momentos_metodologia.Find(metodologia_momento);
 
-            
-   
+
+
+                   
+
+
+
             momentoId = metodologia.IdMomento;
             if (_context.rh_cat_personas.Find(personaId) != null)
-            persona = _context.rh_cat_personas.Find(personaId).Nombre;
+                persona = _context.rh_cat_personas.Find(personaId).Nombre;
+                appat = _context.rh_cat_personas.Find(personaId).ApPaterno;
+                appmat = _context.rh_cat_personas.Find(personaId).ApMaterno;
+
             if (_context.eva_cat_competencias.Find(competenciaId) != null)
             competencia = _context.eva_cat_competencias.Find(competenciaId).DesCompetencia;
             momento = metodologia.DesMomento;

@@ -22,6 +22,16 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentosResponsables
         public short idMomento;
         public short idCompetencia;
 
+        public int idPerson;
+        public short idCompe;
+        public short idComp;
+        public short idMoment;
+        public string per;
+        public string appat;
+        public string appmat;
+        public string compe;
+        public string moment;
+
         public CreateModel(ActividadesSugeridasRazorPages.Models.ApplicationDbContext context)
         {
             _context = context;
@@ -30,15 +40,37 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentosResponsables
         public IActionResult OnGet()
         {
 
-            idPersona = Convert.ToInt32(Request.Query["idPer"]);
+            /*idPersona = Convert.ToInt32(Request.Query["idPer"]);
             idCompetencia = Convert.ToInt16(Request.Query["idCompe"]);
-            idMomento = Convert.ToInt16(Request.Query["idMome"]);
+            idMomento = Convert.ToInt16(Request.Query["idMome"]);*/
 
-            competencia = _context.eva_cat_competencias.Find(idCompetencia).DesCompetencia;
-            momento = _context.eva_momentos_metodologia.Find(idMomento).DesMomento;
-            persona = _context.rh_cat_personas.Find(idPersona).Nombre;
-            apellidomat = _context.rh_cat_personas.Find(idPersona).ApMaterno;
-            apellidopat = _context.rh_cat_personas.Find(idPersona).ApPaterno;
+            idPerson = Convert.ToInt32(Request.Query["idPer"]);
+            idCompe = Convert.ToInt16(Request.Query["idCompe"]);
+            idMoment = Convert.ToInt16(Request.Query["id"]);
+            per = Request.Query["per"].ToString();
+            compe = Request.Query["compe"].ToString();
+            moment = Request.Query["moment"].ToString();
+
+
+            if (_context.rh_cat_personas.Find(idPerson) != null)
+            {
+                per = _context.rh_cat_personas.Find(idPerson).Nombre;
+                appat = _context.rh_cat_personas.Find(idPerson).ApPaterno;
+                appmat = _context.rh_cat_personas.Find(idPerson).ApMaterno;
+            }
+
+            if (_context.eva_cat_competencias.Find(idCompe) != null)
+            {
+                compe = _context.eva_cat_competencias.Find(idCompe).DesCompetencia;
+            }
+
+            if (_context.eva_momentos_metodologia.Find(idMomento) != null)
+            {
+                moment = _context.eva_momentos_metodologia.Find(idMomento).DesMomento;
+
+            }
+
+
 
             ViewData["IdGenResponsable"] = new SelectList(_context.cat_generales.Where(e => e.IdTipoGeneral == 6), "IdGeneral", "DesGeneral");
             ViewData["IdTipoGenResponsable"] = 6;//new SelectList(_context.cat_tipos_generales, "IdTipoGeneral", "IdTipoGeneral");
@@ -63,7 +95,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentosResponsables
 
             idPersona = Convert.ToInt32(Request.Query["idPer"]);
             idCompetencia = Convert.ToInt16(Request.Query["idCompe"]);
-            idMomento = Convert.ToInt16(Request.Query["idMome"]);
+            idMomento = Convert.ToInt16(Request.Query["id"]);
 
         
 

@@ -9,17 +9,23 @@
 
 <p>
     <a class="btn btn-success btn-md active" role="button" asp-page="Create"
-       asp-route-idPer="@Model.idPersona"
-       asp-route-idCompe="@Model.idCompetencia"
-       asp-route-idMome="@Model.idMomento" >Agregar Nuevo</a>
+            
+       asp-route-idPer="@Model.idPerson"
+       asp-route-idCompe="@Model.idCompe"
+       asp-route-id="@Model.idMomento"
+       asp-route-Per="@Model.per"
+       asp-route-Compe="@Model.compe"
+       asp-route-Moment="@Model.moment"
+       
+       >Agregar Nuevo</a>
 </p>
 <div class="panel panel-primary">
 
     <div class="panel-heading">Información del Momento</div>
     <div class="panel-body">
-        <p>Persona: @Model.persona @Model.apellidopat @Model.apellidomat</p>
-        <p>Competencia:@Model.competencia </p>
-        <p>Momento:@Model.momento </p>
+        <p>Persona: @Model.per @Model.appat @Model.appmat</p>
+        <p>Competencia:@Model.compe </p>
+        <p>Momento:@Model.moment </p>
 
     </div>
 </div>

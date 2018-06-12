@@ -17,6 +17,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         public int idPerson;
         public int idComp;
         public string per;
+        public string appat;
+        public string appmat;
         public string compe;
         public DateTime fechaActualizacion;
         public DateTime fechaReg;
@@ -43,6 +45,12 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
             compe = Request.Query["compe"].ToString();
             fechaActualizacion = DateTime.Today;
             fechaReg = DateTime.Today;
+
+
+            if (_context.rh_cat_personas.Find(idPerson) != null)
+                per = _context.rh_cat_personas.Find(idPerson).Nombre;
+                appat = _context.rh_cat_personas.Find(idPerson).ApPaterno;
+                appmat = _context.rh_cat_personas.Find(idPerson).ApMaterno;
 
 
             ViewData["IdMetodologia"] = new SelectList(_context.eva_cat_metodologias, "IdMetodologia", "DesMetodologia");

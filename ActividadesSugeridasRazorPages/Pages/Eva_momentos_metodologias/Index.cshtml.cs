@@ -24,6 +24,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
         public int? idPerson;
         public short idCompe;
         public string per;
+        public string appat;
+        public string appmat;
         public string compe;
         public DateTime fecha;
 
@@ -38,8 +40,10 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
  
             if(_context.rh_cat_personas.Find(idPerson) != null)
             per = _context.rh_cat_personas.Find(idPerson).Nombre;
+            appat = _context.rh_cat_personas.Find(idPerson).ApPaterno;
+            appmat = _context.rh_cat_personas.Find(idPerson).ApMaterno;
 
-            if(_context.eva_cat_competencias.Find(idCompe) != null)
+            if (_context.eva_cat_competencias.Find(idCompe) != null)
             compe = _context.eva_cat_competencias.Find(idCompe).DesCompetencia;
 
             eva_momentos_metodologias = await _context.eva_momentos_metodologia.FromSql("SELECT * FROM eva_momentos_metodologia " +
