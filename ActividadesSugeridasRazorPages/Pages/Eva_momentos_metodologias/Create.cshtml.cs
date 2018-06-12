@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using ActividadesSugeridasRazorPages.Models;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
 {
@@ -76,6 +78,18 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
 
             _context.eva_momentos_metodologia.Add(eva_momentos_metodologias);
             await _context.SaveChangesAsync();
+
+            var query = "SELECT TOP 1 * FROM eva_momentos_metodologia ORDER BY IdMomentoDet DESC";
+            var ultimoRegistro = _context.eva_momentos_metodologia.FromSql(query).SingleOrDefault();
+
+
+
+            query = "INSERT INTO [dbo].[eva_momentos_metodologia_estatus] ([IdPersona], " +
+                "[IdCompetencia], [IdMomentoDet], [IdTipoEstatus], [IdEstatus], [FechaEstatus], [Actual], [Observacion], [IdUsuarioReg])" +
+                " VALUES ("+idPerson+", "+compe+", "+ultimoRegistro.IdMomentoDet+", 1, 1, N'" + DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss") + "', N'1', N'La actividad ha sido registrada', N'12')";
+
+            await _context.Database.ExecuteSqlCommandAsync(
+                query);
 
             return RedirectToPage("./Index",new{ id = idPerson, idcompetencia = idComp});
         }

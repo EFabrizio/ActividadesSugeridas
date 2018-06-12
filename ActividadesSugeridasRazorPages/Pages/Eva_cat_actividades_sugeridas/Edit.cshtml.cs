@@ -19,6 +19,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_cat_actividades_sugeridas
             _context = context;
         }
 
+        public short? idAct;
+
         [BindProperty]
         public Eva_cat_actividad_sugerida Eva_cat_actividad_sugerida { get; set; }
 
@@ -28,6 +30,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_cat_actividades_sugeridas
             {
                 return NotFound();
             }
+
+            idAct = id;
 
             Eva_cat_actividad_sugerida = await _context.Eva_cat_actividades_sugeridas
                 .Include(a => a.Eva_cat_tipo_actividades_sugeridas).SingleOrDefaultAsync(m => m.IdActividadSugerida == id);
@@ -51,6 +55,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_cat_actividades_sugeridas
 
             try
             {
+              
+              
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
