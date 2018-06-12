@@ -61,10 +61,11 @@
                     }
                 }
                 <td>
-                    <a asp-page="./Delete" asp-route-id="@item.IdPersona"
-                       asp-route-idPer="@item.IdCompetencia"
-                       asp-route-Per="@item.IdMomentoDet"
-                       asp-route-Compe="@item.IdResponsable">Eliminar</a>
+                    <a asp-page="./Delete" 
+                       asp-route-idPer="@item.IdPersona"
+                       asp-route-idCompe="@item.IdCompetencia"
+                       asp-route-idMome="@item.IdMomentoDet"
+                       asp-route-idRes="@item.IdResponsable">Eliminar</a>
                 </td>
             </tr>
         }

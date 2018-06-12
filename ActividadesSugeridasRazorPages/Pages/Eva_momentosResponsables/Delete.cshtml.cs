@@ -22,27 +22,27 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentosResponsables
         public evas_momentos_responsables evas_momentos_responsables { get; set; }
         public evas_momentos_responsables record { get; set; }
 
-        public int idMomento;
-        public int personaId;
-        public int competenciaId;
+        public int idPer;
+        public int idCompe;
+        public int idRes;
 
-        public async Task<IActionResult> OnGetAsync(int? IdPer)
+        public async Task<IActionResult> OnGetAsync(int? idPer,  short? idCompe, short? idMome, int? idRes)
         {
             
 
-           /* record = _context.eva_momentos_responsables.Find(IdPer, competenciaId, idMomento, IdRes);
+            record = _context.eva_momentos_responsables.Find(idPer, idCompe, idMome, idRes);
 
             if (record == null)
             {
                 return NotFound();
-            }*/
+            }
 
             evas_momentos_responsables = await _context.eva_momentos_responsables
                 .Include(e => e.cat_generales)
                 .Include(e => e.cat_tipo_generales)
                 .Include(e => e.eva_cat_competencias)
                 .Include(e => e.eva_momentos_metodologia)
-                .Include(e => e.rh_cat_personas).SingleOrDefaultAsync(m => m.IdPersona == IdPer);
+                .Include(e => e.rh_cat_personas).FirstOrDefaultAsync(m => m.IdPersona == idPer);
 
             if (evas_momentos_responsables == null)
             {
@@ -51,14 +51,16 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentosResponsables
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(int? idPer, short? idCompe, short? idMome, int? idRes)
         {
-            if (id == null)
+            record = _context.eva_momentos_responsables.Find(idPer, idCompe, idMome, idRes);
+
+            if (record == null)
             {
                 return NotFound();
             }
 
-            evas_momentos_responsables = await _context.eva_momentos_responsables.FindAsync(id);
+            evas_momentos_responsables = await _context.eva_momentos_responsables.FindAsync(idPer,idCompe,idMome,idRes);
 
             if (evas_momentos_responsables != null)
             {
