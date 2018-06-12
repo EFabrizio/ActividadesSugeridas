@@ -24,6 +24,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
 
         public int idPerson;
         public int idComp;
+        public DateTime fechaActual;
 
         public async Task<IActionResult> OnGetAsync(short? id)
         {
@@ -32,6 +33,8 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
                 return NotFound();
             }
 
+
+            fechaActual = DateTime.Now;
             idPerson = Convert.ToInt32(Request.Query["idPer"]);
 
             eva_momentos_metodologias = await _context.eva_momentos_metodologia
