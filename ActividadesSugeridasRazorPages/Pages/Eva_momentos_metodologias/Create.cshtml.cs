@@ -86,7 +86,7 @@ namespace ActividadesSugeridasRazorPages.Pages.Eva_momentos_metodologias
 
             query = "INSERT INTO [dbo].[eva_momentos_metodologia_estatus] ([IdPersona], " +
                 "[IdCompetencia], [IdMomentoDet], [IdTipoEstatus], [IdEstatus], [FechaEstatus], [Actual], [Observacion], [IdUsuarioReg])" +
-                " VALUES ("+idPerson+", "+compe+", "+ultimoRegistro.IdMomentoDet+", 1, 1, N'" + DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss") + "', N'1', N'La actividad ha sido registrada', N'12')";
+                " VALUES ("+idPerson+", "+idComp+", "+ultimoRegistro.IdMomentoDet+ ", 1, 1, '" + DateTime.Now.ToString("MM-dd-yyyy HH:mm:ss") + "', 1, N'La actividad ha sido registrada', 12)";
 
             await _context.Database.ExecuteSqlCommandAsync(
                 query);
